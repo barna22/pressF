@@ -1,0 +1,6 @@
+ludmany.balazs@cloud.bme.hu
+teszteléskor kell jönnie az egész csapatnak
+ha nagy hiba van, akkor azt a kövi doksi elejére kell beírni, ha kicsi hiba, akkor csak mondja,
+legközelebb csináljuk jobban
+belső aktort a hóvihar miatt lehet hozzá kéne venni
+nyomtatott verziót az aulában a portán
