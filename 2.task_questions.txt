@@ -1,0 +1,3 @@
+bool cuccok, típuslekérdezés
+input a selectneighbor
+step és a move és useitem függvények külön szedése
