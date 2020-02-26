@@ -1,3 +1,6 @@
 bool cuccok, típuslekérdezés
 input a selectneighbor függvénynek
 step és a move és useitem függvények külön szedése
+
+#############################
+iglu legyen-e külön objektum, ha nincs semmi függvénye
