@@ -1376,16 +1376,15 @@
 <XPD:ATTR name="#CallActions" type="integer">1</XPD:ATTR>
 <XPD:REF name="CallActions[0]">HyqQ1e2nUECmasFrdytIwAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:ATTR name="#TypedParameters" type="integer">9</XPD:ATTR>
-<XPD:REF name="TypedParameters[0]" pathname="i">ASguvf9gdkm+7p/Tl0wTtgAA</XPD:REF>
-<XPD:REF name="TypedParameters[1]">RR+t01cnw02VbEZ9hcHi+wAA</XPD:REF>
-<XPD:REF name="TypedParameters[2]">1mdSbPkG8EWGGIGIztgfNAAA</XPD:REF>
-<XPD:REF name="TypedParameters[3]">4PCNab/uMEeZrtV23wFXsgAA</XPD:REF>
-<XPD:REF name="TypedParameters[4]">TrjICeKz10CRLx3+LCTNHwAA</XPD:REF>
-<XPD:REF name="TypedParameters[5]">dRD9vJ5m3UCBjXJ0x2ZHJgAA</XPD:REF>
-<XPD:REF name="TypedParameters[6]">dSTN8l4YA0qjFPXAccFdVQAA</XPD:REF>
-<XPD:REF name="TypedParameters[7]">/sArLK4kUk6kI6BisjfExAAA</XPD:REF>
-<XPD:REF name="TypedParameters[8]">wCchiYSQ10esg3XBBVBvTQAA</XPD:REF>
+<XPD:ATTR name="#TypedParameters" type="integer">8</XPD:ATTR>
+<XPD:REF name="TypedParameters[0]">RR+t01cnw02VbEZ9hcHi+wAA</XPD:REF>
+<XPD:REF name="TypedParameters[1]">1mdSbPkG8EWGGIGIztgfNAAA</XPD:REF>
+<XPD:REF name="TypedParameters[2]">4PCNab/uMEeZrtV23wFXsgAA</XPD:REF>
+<XPD:REF name="TypedParameters[3]">TrjICeKz10CRLx3+LCTNHwAA</XPD:REF>
+<XPD:REF name="TypedParameters[4]">dRD9vJ5m3UCBjXJ0x2ZHJgAA</XPD:REF>
+<XPD:REF name="TypedParameters[5]">dSTN8l4YA0qjFPXAccFdVQAA</XPD:REF>
+<XPD:REF name="TypedParameters[6]">/sArLK4kUk6kI6BisjfExAAA</XPD:REF>
+<XPD:REF name="TypedParameters[7]">wCchiYSQ10esg3XBBVBvTQAA</XPD:REF>
 <XPD:ATTR name="#Associations" type="integer">8</XPD:ATTR>
 <XPD:REF name="Associations[0]">6ziv9SUZeE2Xtn3tL4yargAA</XPD:REF>
 <XPD:REF name="Associations[1]">3bSu/GF2GE+c+mX3p4l9AAAA</XPD:REF>
@@ -5200,7 +5199,7 @@
 <XPD:REF name="Model">r3emS/aIK0GW0ubhVeLOvAAA</XPD:REF>
 <XPD:REF name="ContainerView">RG57DdZU80i7yPstXH+b6gAA</XPD:REF>
 <XPD:OBJ name="GuardLabel" type="LabelView" guid="krQ0A3s8g0WQkaOofq7V5QAA">
-<XPD:ATTR name="Text" type="string">[for all i:Items of p:Player]</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">[for all i2:Items of p:Player]</XPD:ATTR>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
@@ -5830,13 +5829,8 @@
 <XPD:REF name="Views[2]">2vT6Ug2ylU+0mkFjDqkvlwAA</XPD:REF>
 <XPD:REF name="Views[3]">mWrqZyJjqkuUJlSVjVyQGAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:ATTR name="#Fragments" type="integer">2</XPD:ATTR>
-<XPD:OBJ name="Fragments[0]" type="UMLCombinedFragment" guid="r/8dkXCfgkmcMfXNsIt+tgAA">
-<XPD:ATTR name="Name" type="string">Duplicated Items</XPD:ATTR>
-<XPD:ATTR name="InteractionOperator" type="UMLInteractionOperatorKind">iokLoop</XPD:ATTR>
-<XPD:REF name="EnclosingInteractionInstanceSet">AeNpo0eqPU66UFBIRDZKgAAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Fragments[1]" type="UMLCombinedFragment" guid="JfTMdTfRJUeC03sDoYnpWwAA">
+<XPD:ATTR name="#Fragments" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Fragments[0]" type="UMLCombinedFragment" guid="JfTMdTfRJUeC03sDoYnpWwAA">
 <XPD:ATTR name="Name" type="string">Duplicated Items</XPD:ATTR>
 <XPD:ATTR name="InteractionOperator" type="UMLInteractionOperatorKind">iokLoop</XPD:ATTR>
 <XPD:REF name="EnclosingInteractionInstanceSet">AeNpo0eqPU66UFBIRDZKgAAA</XPD:REF>
@@ -5844,7 +5838,7 @@
 <XPD:REF name="Views[0]">RG57DdZU80i7yPstXH+b6gAA</XPD:REF>
 <XPD:ATTR name="#Operands" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Operands[0]" type="UMLInteractionOperand" guid="r3emS/aIK0GW0ubhVeLOvAAA">
-<XPD:ATTR name="Guard" type="string">for all i:Items of p:Player</XPD:ATTR>
+<XPD:ATTR name="Guard" type="string">for all i2:Items of p:Player</XPD:ATTR>
 <XPD:REF name="CombinedFragment">JfTMdTfRJUeC03sDoYnpWwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">Ks9TP/PV/EyRbGDoaO8lbgAA</XPD:REF>

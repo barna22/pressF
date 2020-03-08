@@ -3733,8 +3733,8 @@
 <XPD:REF name="Head">NO9UmpbJnEG4KSxk+7Wm+AAA</XPD:REF>
 <XPD:REF name="Tail">dpuSaOB1g0OpCCYVLfDoJAAA</XPD:REF>
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="FkIRGNlmdEOAe+hcI57AzwAA">
-<XPD:ATTR name="Alpha" type="real">-1,10715005112831</XPD:ATTR>
-<XPD:ATTR name="Distance" type="real">6,70820393249937</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">4,51499180540674</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10,1980390271856</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Remove(p): void</XPD:ATTR>
 <XPD:REF name="Model">Xzpq2W8KlkmAlrig8qUNmwAA</XPD:REF>
 <XPD:REF name="HostEdge">pz+5l/K8wku4U81t/hYOKwAA</XPD:REF>
@@ -5161,8 +5161,8 @@
 <XPD:OBJ name="OwnedViews[0]" type="UMLFrameView" guid="6UZCA07kTU2mtCt6lFPnQAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">32</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">64</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">36</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">60</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">681</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">353</XPD:ATTR>
 <XPD:REF name="Model">2lPtJf6rpEWlTSSMe03x9wAA</XPD:REF>
