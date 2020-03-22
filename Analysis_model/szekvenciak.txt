@@ -1,0 +1,7 @@
+1.Initgame
+Game:Init() jön be balról, meghívja a CreateFields()-et, loopban hozzáadja az icefieldhez a szomszédait.
+
+2.RoundOver
+bejön balról a RoundOver, Storm(), utána CheckPlayerStates, utána option az Over()-re
+
+3.Storm
