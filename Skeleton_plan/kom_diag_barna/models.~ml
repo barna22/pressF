@@ -9900,7 +9900,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedCollaborationInstanceSets[6]" type="UMLCollaborationInstanceSet" guid="lzCn4g7TlU6IabGI3uy0KAAA">
-<XPD:ATTR name="Name" type="string">CollaborationInstanceSet7</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">[NEM LESZ BENNE] Init game</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">L1cB1W+V90GR7IgK9EjQCAAA</XPD:REF>
 <XPD:ATTR name="#InteractionInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="InteractionInstanceSets[0]" type="UMLInteractionInstanceSet" guid="gf8b7QIQukS6U2wxDhuCYgAA">
