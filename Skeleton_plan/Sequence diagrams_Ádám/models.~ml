@@ -5768,7 +5768,7 @@
 <XPD:REF name="Context">pLMkngc2p0mL0/zIMN8bRgAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="92B4yDF1/kur5Wz711ppVgAA">
-<XPD:ATTR name="Name" type="string">Use flare gun successfully</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Use flare gun, everyone is here</XPD:ATTR>
 <XPD:ATTR name="ShowSequenceNumber" type="boolean">False</XPD:ATTR>
 <XPD:ATTR name="MessageSignature" type="UMLMessageSignatureKind">mskNameAndType</XPD:ATTR>
 <XPD:REF name="DiagramOwner">09yoPM7KJEeoO8/s6K5ICAAA</XPD:REF>
@@ -6405,7 +6405,7 @@
 <XPD:REF name="Context">VkGkDcaYPkaBgexxHN+NRQAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="wZJ50e1BDESRQQLPHecxkAAA">
-<XPD:ATTR name="Name" type="string">Use flare gun failure</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Use flare gun, somebody missing</XPD:ATTR>
 <XPD:ATTR name="ShowSequenceNumber" type="boolean">False</XPD:ATTR>
 <XPD:ATTR name="MessageSignature" type="UMLMessageSignatureKind">mskNameAndType</XPD:ATTR>
 <XPD:REF name="DiagramOwner">rdnX7pXz1k+ZKKNYxqqn4gAA</XPD:REF>
