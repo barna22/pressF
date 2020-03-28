@@ -122,9 +122,10 @@ public class IceField {
 		MethodPrinter.IncreaseIndentation();
 		
 		boolean success = false;
-		for (Player player : players) {
-			success = player.GetSaved(f);
-			//A GetSaved visszatérési értéke boolean kéne, hogy legyen.
+		for (Player player : players)
+			if (player.GetIsInWater()) { //Ez volt az elképzelés?
+				player.GetSaved(f);
+				success = true;
 		}
 		
 		MethodPrinter.DecreaseIndentation();
