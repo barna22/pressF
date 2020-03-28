@@ -42,4 +42,7 @@ public abstract class Player {
 	
 	public boolean AddItem(Item i) {
 	}
+	public void SetRemainingActions(int a) {
+		
+	}
 }
