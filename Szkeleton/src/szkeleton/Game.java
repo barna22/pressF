@@ -1,3 +1,4 @@
+package szkeleton;
 import java.util.ArrayList;
 
 //
@@ -10,8 +11,6 @@ import java.util.ArrayList;
 //  @ Author : 
 //
 //
-
-
 
 
 public class Game {

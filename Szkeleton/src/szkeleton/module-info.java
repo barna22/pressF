@@ -1,2 +1,3 @@
+package szkeleton;
 module Szkeleton {
 }
