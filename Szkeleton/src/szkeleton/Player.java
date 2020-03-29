@@ -8,7 +8,7 @@ public abstract class Player {
 	//private boolean isInWater;
 	//private int remainingActions;
 	//private boolean hasDivingGear;
-	protected ArrayList<Item> items;
+	protected ArrayList<Item> items = new ArrayList<Item>();
 	protected IceField field;
 	protected Game game;
 	
