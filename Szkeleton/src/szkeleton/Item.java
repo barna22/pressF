@@ -17,7 +17,7 @@ public abstract class Item {
 	public abstract boolean Use(Player p);
 	
 	public boolean Equip(Player p) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".Equip(Player p)");
+		MethodPrinter.Println(Skeleton.GetName(this) + ".Equip(" + Skeleton.GetName(p) + ")");
 		boolean result;
 		MethodPrinter.IncreaseIndentation();
 		result =  p.AddItem(this);
@@ -25,5 +25,8 @@ public abstract class Item {
 		return result;
 	}
 	
-	public abstract boolean IsTheSame(Item i);
+	public boolean IsTheSame(Item i) {
+		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(" + Skeleton.GetName(i) + ")");
+		return false;
+	}
 }

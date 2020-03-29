@@ -15,7 +15,7 @@ package szkeleton;
 
 public class Food extends Item {
 	public boolean Use(Player p) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".Use(Player p)");
+		MethodPrinter.Println(Skeleton.GetName(this) + ".Use(" + Skeleton.GetName(p) + ")");
 		MethodPrinter.IncreaseIndentation();
 		boolean result = MethodPrinter.AskQuestion("Tud enni a karakter?");
 		if(result)
@@ -25,10 +25,7 @@ public class Food extends Item {
 	}
 	
 	public boolean IsTheSame(Food f) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(Food f)");
-		MethodPrinter.IncreaseIndentation();
-		boolean result = MethodPrinter.AskQuestion("Ugyanaz a két tárgy?");
-		MethodPrinter.DecreaseIndentation();
-		return result;
+		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(" + Skeleton.GetName(f) + ")");
+		return true;
 	}
 }
