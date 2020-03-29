@@ -1,15 +1,23 @@
 package szkeleton;
 import java.util.ArrayList;
 
+/**
+ * Inicializálja a játék elemeit és nyilvántartja a játék állapotát.
+ *
+ */
 public class Game {
 
 	private ArrayList<IceField> fields;
 	private ArrayList<Player> players;
 	private Player activePlayer;
 	
+
 	Game(){
 		players = new ArrayList<Player>();
 	}
+	/**
+	 * Megnézi, hogy mindenki az átvett fielden áll e.
+	 */
 	private void Storm() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".Storm()");
 		MethodPrinter.IncreaseIndentation();
@@ -19,19 +27,29 @@ public class Game {
 		MethodPrinter.DecreaseIndentation();
 	}
 	
+	/**
+	 * Megnézi, hogy mindenki az átvett fielden áll e.
+	 * @param f: a vizsgált IceField
+	 * @return	 True, ha mindenki itt van.
+	 */
 	public boolean IsEveryoneHere(IceField f) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".IsEveryoneHere(Field f)");
+		MethodPrinter.Println(Skeleton.GetName(this) + ".IsEveryoneHere(" + Skeleton.GetName(f) + ")");
 		return MethodPrinter.AskQuestion("Mindenki ezen a mezõn áll?");
 	}
 	
-	private void CreateFields() {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".CreateFields()");
-	}
-	
+	/**
+	 * Befejezi a játékot. Ha a paraméter true, akkor a játékosok nyertek.
+	 * @param victory True/false: a játékosok nyertek/vesztettek.
+	 */
 	public void Over(boolean victory) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".Over(boolean victory)");
+		MethodPrinter.Println(Skeleton.GetName(this) + ".Over(" + victory + ")");
 	}
 	
+	/**
+	 * A kör végén megnézi, hogy vízbe van-e esve valaki.
+	 * Ha igen, akkor a játéknak vége.
+	 * Vihart indít az IceFieldeken.
+	 */
 	private void RoundOver() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".RoundOver()");
 		if(MethodPrinter.AskQuestion("Van valaki vízbe esve?")) {
@@ -40,11 +58,14 @@ public class Game {
 			MethodPrinter.DecreaseIndentation();
 		}
 		MethodPrinter.IncreaseIndentation();
-		for (IceField f : fields) 
-			f.Storm();
+		Storm();
 		MethodPrinter.DecreaseIndentation();
 	}
 	
+	/**
+	 * Átállítja, hogy ki az aktuális jázékos és átállítja a hátralevõ akcióit 4-re.
+	 * Ha vége egy körnek, akkor meghívja a RoundOver()-t.
+	 */
 	public void NextPlayer() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".NextPlayer()");
 		int idx = players.indexOf(activePlayer);
@@ -61,24 +82,46 @@ public class Game {
 		MethodPrinter.DecreaseIndentation();
 	}
 	
+	/**
+	 * Ezzel lehet jelezni, hogy egy játékost kimentettek a vízbõl.
+	 */
 	public void PlayerSaved() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".PlayerSaved()");
 		
 	}
 	
+	/**
+	 * Ezzel lehet jelezni, hogy egy játékost beleesett a vízbe.
+	 */
 	public void PlayerFellInWater() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".PlayerFellInWater()");
 	}
 	
+	/**
+	 * Az IceField-ek listáját beállítja.
+	 * @param f: Az új lista.
+	 */
 	public void SetFields(ArrayList<IceField> f) {
 		fields = f;
 	}
+	/**
+	 * A Player-ek listáját beállítja.
+	 * @param p: Az új lista.
+	 */
 	public void SetPlayers(ArrayList<Player> p) {
 		players = p;
 	}
+	/**
+	 * Hozzáad egy játékost a játkosok listájához.
+	 * @param p: A hozzáadandó játékos.
+	 */
 	public void SetPlayerForInit(Player p) {
 		players.add(p);
 	}
+	/**
+	 * Beállítja az aktív játékost.
+	 * @param p: A játékos, akit beállít.
+	 */
 	public void SetActivePlayer(Player p) {
 		activePlayer = p;
 	}
