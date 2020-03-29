@@ -21,9 +21,9 @@ public abstract class Player {
 	//private boolean isInWater;
 	//private int remainingActions;
 	//private boolean hasDivingGear;
-	private ArrayList<Item> items;
+	protected ArrayList<Item> items;
 	protected IceField field;
-	private Game game;
+	protected Game game;
 	
 	/**
 	 * Megváltoztatja a játékos hőmérsékletét.
@@ -43,11 +43,11 @@ public abstract class Player {
 	 */
 	public boolean GetSaved(IceField f) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".GetSaved(Icefield f)");
+		MethodPrinter.IncreaseIndentation();
 		boolean isinwater = MethodPrinter.AskQuestion("Vízben van a játékos?");
 		if(isinwater == false) {
 			return false;
 		}
-		MethodPrinter.IncreaseIndentation();
 		f.Accept(this);
 		game.PlayerSaved();
 		field.Remove(this);
@@ -56,8 +56,15 @@ public abstract class Player {
 		return true;
 	}
 	
+	/**
+	 * Absztrakt metódus a képesség használatára.
+	 */
 	public abstract void UseAbility(Direction d);
 	
+	/**
+	 * A játékos átlép egy másik mezőre.
+	 * Ha kimenne a pályáról, a program jelzi, hogy ezt nem teheti.
+	 */
 	public void Move(Direction d) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".UseAbility(Direction d)");
 		MethodPrinter.IncreaseIndentation();
@@ -72,6 +79,9 @@ public abstract class Player {
 		MethodPrinter.DecreaseIndentation();
 	}
 	
+	/**
+	 * A játékos egy item-et használ.
+	 */
 	public void UseItem(Item i) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".UseItem(Item i)");
 		MethodPrinter.IncreaseIndentation();
@@ -79,6 +89,9 @@ public abstract class Player {
 		MethodPrinter.DecreaseIndentation();
 	}
 	
+	/**
+	 * A játékos felvesz egy item-et a mezőről, ahol van.
+	 */
 	public void PickUpItem() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".PickUpItem()");
 		MethodPrinter.IncreaseIndentation();
@@ -86,6 +99,9 @@ public abstract class Player {
 		MethodPrinter.DecreaseIndentation();
 	}
 	
+	/**
+	 * A játékos leszed egy hóréteget a mezejéről.
+	 */
 	public void Dig() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".Dig()");
 		MethodPrinter.IncreaseIndentation();
@@ -93,6 +109,10 @@ public abstract class Player {
 		MethodPrinter.DecreaseIndentation();
 	}
 	
+	/**
+	 * Egy item bekerül a játékos eszköztárába.
+	 * Ha már van nála, akkor ezt egy false értékkel jelzi.
+	 */
 	public boolean AddItem(Item i) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".AddItem(Item i)");
 		MethodPrinter.IncreaseIndentation();
@@ -118,5 +138,9 @@ public abstract class Player {
 	
 	public void SetItem(Item i) {
 		items.add(i);
+	}
+	
+	public IceField GetField() {
+		return field;
 	}
 }
