@@ -13,8 +13,11 @@ package szkeleton;
 
 
 
-public abstract class Item {
-	public abstract boolean Use(Player p);
+public class Item {
+	public boolean Use(Player p) {
+		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(" + Skeleton.GetName(p) + ")");
+		return false;
+	}
 	
 	public boolean Equip(Player p) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".Equip(" + Skeleton.GetName(p) + ")");
