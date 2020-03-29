@@ -13,7 +13,7 @@ public class Main
 		p.Dig();
 	}
 	
-	public void TakeItem()
+	public void TakeItem() //ne legyen hó
 	{
 		Player p = new Player();
 		
@@ -24,8 +24,6 @@ public class Main
 		f.SetItem(i); //kéne
 		
 		f.SetPlayer(p);
-		
-		f.SetSnowLevel(0); //kéne
 		
 		p.PickUpItem();
 	}
@@ -162,7 +160,7 @@ public class Main
 		p.UseItem(i);
 	}
 	
-	public void MoveWithSuit()
+	public void MoveWithSuit() //instabil
 	{
 		Player p = new Player();
 		
@@ -173,8 +171,6 @@ public class Main
 		
 		f1.SetPlayer(p);
 		
-		f2.SetStability(0); //kéne
-		
 		p.SetItem(i);
 		
 		p.UseItem(i);
@@ -184,7 +180,7 @@ public class Main
 		p.Move(Direction.UP);
 	}
 	
-	public void MoveWithoutSuit()
+	public void MoveWithoutSuit() //instabil
 	{
 		Player p = new Player();
 		
@@ -193,14 +189,12 @@ public class Main
 		
 		f1.SetPlayer(p);
 		
-		f2.SetStability(0);
-		
 		f1.AddNeighbour(Direction.UP, f2);
 		
 		p.Move(Direction.UP);
 	}
 	
-	public void MoveOnStable()
+	public void MoveOnStable() //stabil
 	{
 		Player p = new Player();
 		
@@ -209,16 +203,136 @@ public class Main
 		
 		f1.SetPlayer(p);
 		
-		f2.SetStability(2);
+		f1.AddNeighbour(Direction.UP, f2);
+		
+		p.Move(Direction.UP);
+	}
+	
+	public void MoveToFinishRound() //remaining action 1-nek kéne hogy legyen, stabilitynek stabil
+	{
+		Player p = new Player();
+		
+		Game g = new Game();
+		
+		IceField f1 = new IceField();
+		IceField f2 = new IceField();
+		
+		g.SetPlayer(p);
+		g.SetActivePlayer(p);
+		
+		f1.SetPlayer(p);
 		
 		f1.AddNeighbour(Direction.UP, f2);
 		
 		p.Move(Direction.UP);
 	}
 	
-	{}
+	public void MoveToFinishTurn() //remaining action 1-nek kéne hogy legyen, stabilitynek stabil
+	{
+		Player p1 = new Player();
+		Player p2 = new Player();
+		
+		Game g = new Game();
+		
+		IceField f1 = new IceField();
+		IceField f2 = new IceField();
+		
+		g.SetPlayer(p1);
+		g.SetPlayer(p2);
+		g.SetActivePlayer(p1);
+		
+		f1.SetPlayer(p);
+		
+		f1.AddNeighbour(Direction.UP, f2);
+		
+		p1.Move(Direction.UP);
+	}
 	
+	public void NextTurn()
+	{
+		Player p1 = new Player();
+		Player p2 = new Player();
+		
+		Game g = new Game();
+		
+		g.SetPlayer(p1);
+		g.SetPlayer(p2);
+		
+		g.SetActivePlayer(p1);
+		
+		g.NextPlayer();
+	}
 	
+	public void NextRound()
+	{
+		Player p1 = new Player();
+		Player p2 = new Player();
+		
+		Game g = new Game();
+		
+		g.SetPlayer(p1);
+		g.SetPlayer(p2);
+		
+		g.SetActivePlayer(p2);
+		
+		g.NextPlayer();
+	}
 	
+	public void LethalStorm() //testho legyen 1, iglu nincs
+	{
+		Player p = new Player();
+		
+		IceField f = new IceField();
+		
+		f.SetPlayer(p);
+		
+		f.Storm();
+	}
 	
+	public void IglooStorm() //testho mind1, iglu van
+	{
+		Player p = new Player();
+		
+		IceField f = new IceField();
+		
+		f.SetPlayer(p);
+		
+		f.Storm();
+	}
+	
+	public void HitStorm() //testho legyen 2+, iglu nincs
+	{
+		Player p = new Player();
+		
+		IceField f = new IceField();
+		
+		f.SetPlayer(p);
+		
+		f.Storm();
+	}
+	
+	public void Igloo()
+	{
+		Eskimo p = new Eskimo();
+		
+		IceField f = new IceField();
+		
+		f.SetPlayer(p);
+		
+		p.UseAbility(Direction.UP);
+	}
+	 
+	public void Reveal()
+	{
+		Researcher p = new Researcher();
+		
+		IceField f1 = new IceField();
+		IceField f2 = new IceField();
+		
+		f1.SetPlayer(p);
+		
+		f1.AddNeighbour(Direction.UP, f2);
+		
+		p.UseAbility(Direction.UP);
+	}
 }
