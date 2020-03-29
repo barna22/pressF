@@ -12,9 +12,16 @@ package szkeleton;
 
 
 
-
+/*
+ * Ezekbõl kell összegyûlyteni mindhármat és használni egy helyen állva a játék megnyeréséhez.
+ */
 public class FlareGunPart extends Item {
 	private Game game;
+	
+	/*
+	 * Megnézi, hogy teljesülnek-e a gyõzelem feltételei és jelez a
+	 * Game-nek, ha igen. True-val tér vissza, ha sikerült használni.
+	 */
 	public boolean Use(Player p) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".Use(" + Skeleton.GetName(p) + ")");
 		MethodPrinter.IncreaseIndentation();
@@ -26,6 +33,9 @@ public class FlareGunPart extends Item {
 		return result;
 	}
 	
+	/*
+	 * True-val tér vissza.
+	 */
 	public boolean IsTheSame(FlareGunPart f) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(" + Skeleton.GetName(f) + ")");
 		return true;

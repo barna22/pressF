@@ -12,13 +12,23 @@ package szkeleton;
 
 
 
-
+/*
+ * A játékos túlél a vízben is kör végén, ha van neki, illetve ki tud jutni a vízbõl.
+ */
 public class DivingGear extends Item {
+	
+	/*
+	 * True-val tér vissza.
+	 */
 	public boolean IsTheSame(DivingGear d) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(" + Skeleton.GetName(d) + ")");
 		return true;
 	}
 	
+	/*
+	 * Ugyan azt csinálja, mint az Item, csak pluszba beállítja a
+	 * játékoson a hasDivingGear-t.
+	 */
 	public boolean Equip(Player p) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".Equip(" + Skeleton.GetName(p) + ")");
 		boolean result;
