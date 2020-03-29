@@ -20,22 +20,26 @@ public class Skeleton{
 		nameMap.put(p, "p");
 		
 		IceField f = new IceField();
+		nameMap.put(f, "f");
 
-		f.AddPlayerForInit(p); //kéne
-		
+		f.AddPlayerForInit(p);
 		p.Dig();
 	}
 	
 	public void TakeItem() //ne legyen hó
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Player p = new Player();
+		nameMap.put(p, "p");
 		
 		IceField f = new IceField();
+		nameMap.put(f, "f");
 		
 		Food i = new Food();
+		nameMap.put(i, "i");
 		
-		f.SetItem(i); //kéne
-		
+		f.SetItemForInit(i);
 		f.AddPlayerForInit(p);
 		
 		p.PickUpItem();
@@ -43,21 +47,28 @@ public class Skeleton{
 	
 	public void FlareGunSuccess()
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Player p = new Player();
+		nameMap.put(p, "p");
 		
 		Game g = new Game();
 		
 		IceField f= new IceField();
+		nameMap.put(f, "f");
 		
-		FlareGunPart p1 = new FlareGunPart();
-		FlareGunPart p2 = new FlareGunPart();
-		FlareGunPart p3 = new FlareGunPart();
+		FlareGunPart part1 = new FlareGunPart();
+		nameMap.put(part1, "part1");
+		FlareGunPart part2 = new FlareGunPart();
+		nameMap.put(part2, "part2");
+		FlareGunPart part3 = new FlareGunPart();
+		nameMap.put(part3, "part3");
 		
 		g.SetPlayerForInit(p);
 		
-		p.SetItem(p1);
-		p.SetItem(p2);
-		p.SetItem(p3);
+		p.SetItemForInit(part1);
+		p.SetItemForInit(part2);
+		p.SetItemForInit(part3);
 		
 		f.AddPlayerForInit(p);
 		
@@ -66,57 +77,81 @@ public class Skeleton{
 	
 	public void FlareGunFail()
 	{
-		Player player1 = new Player();
-		Player player2 = new Player();
+		nameMap = new HashMap<Object, String>();
+		
+		Player p1 = new Player();
+		nameMap.put(p1, "p1");
+		Player p2 = new Player();
+		nameMap.put(p2, "p2");
 		
 		Game g = new Game();
+		nameMap.put(g, "g");
 		
 		IceField f1= new IceField();
+		nameMap.put(f1, "f1");
 		IceField f2= new IceField();
+		nameMap.put(f2, "f2");
 		
-		FlareGunPart p1 = new FlareGunPart();
-		FlareGunPart p2 = new FlareGunPart();
-		FlareGunPart p3 = new FlareGunPart();
+		FlareGunPart part1 = new FlareGunPart();
+		nameMap.put(part1, "part1");
+		FlareGunPart part2 = new FlareGunPart();
+		nameMap.put(part2, "part2");
+		FlareGunPart part3 = new FlareGunPart();
+		nameMap.put(part3, "part3");
 		
-		g.SetPlayerForInit(player1);
-		g.SetPlayerForInit(player2);
+		g.SetPlayerForInit(p1);
+		g.SetPlayerForInit(p2);
 		
-		player1.SetItem(p1);
-		player1.SetItem(p2);
-		player1.SetItem(p3);
+		p1.SetItemForInit(part1);
+		p1.SetItemForInit(part2);
+		p1.SetItemForInit(part3);
 		
-		f1.AddPlayerForInit(player1);
-		f2.AddPlayerForInit(player2);
+		f1.AddPlayerForInit(p1);
+		f2.AddPlayerForInit(p2);
 		
-		player1.UseItem(p1);
+		p1.UseItem(part1);
 	}
 	
 	public void UseFood()
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Player p = new Player();
+		nameMap.put(p, "p");
 		
 		Food i = new Food();
+		nameMap.put(i, "i");
 		
-		p.SetItem(i);
+		p.SetItemForInit(i);
 		
 		p.UseItem(i);
 	}
 	
 	public void UseRopeFail()
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Player p = new Player();
+		nameMap.put(p, "p");
 		
 		Game g = new Game();
+		nameMap.put(g, "g");
 		
 		IceField f1 = new IceField();
+		nameMap.put(f1, "f1");
 		IceField f2 = new IceField();
+		nameMap.put(f2, "f2");
 		IceField f3 = new IceField();
+		nameMap.put(f2, "f2");
 		IceField f4 = new IceField();
+		nameMap.put(f2, "f2");
 		IceField f5 = new IceField();
+		nameMap.put(f2, "f2");
 		
 		Rope i = new Rope();
+		nameMap.put(i, "i");
 		
-		p.SetItem(i);
+		p.SetItemForInit(i);
 		
 		f1.AddPlayerForInit(p);
 		
@@ -130,20 +165,31 @@ public class Skeleton{
 	
 	public void UseRopeSuccess() //legyen a vízben
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Player p1 = new Player();
+		nameMap.put(p1, "p1");
 		Player p2 = new Player();
+		nameMap.put(p2, "p2");
 		
 		Game g = new Game();
+		nameMap.put(g, "g");
 		
 		IceField f1 = new IceField();
+		nameMap.put(f1, "f1");
 		IceField f2 = new IceField();
+		nameMap.put(f2, "f2");
 		IceField f3 = new IceField();
+		nameMap.put(f2, "f2");
 		IceField f4 = new IceField();
+		nameMap.put(f2, "f2");
 		IceField f5 = new IceField();
+		nameMap.put(f2, "f2");
 		
 		Rope i = new Rope();
+		nameMap.put(i, "i");
 		
-		p1.SetItem(i);
+		p1.SetItemForInit(i);
 		
 		f1.AddPlayerForInit(p1);
 		f2.AddPlayerForInit(p2);
@@ -158,31 +204,42 @@ public class Skeleton{
 	
 	public void UseShovel()
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Player p = new Player();
+		nameMap.put(p, "p");
 		
 		IceField f = new IceField();
+		nameMap.put(f, "f");
 		
 		Shovel i = new Shovel();
+		nameMap.put(i, "i");
 		
 		f.AddPlayerForInit(p);
 		
-		p.SetItem(i);
+		p.SetItemForInit(i);
 		
 		p.UseItem(i);
 	}
 	
 	public void MoveWithSuit() //instabil
 	{
-		Player p = new Player();
+		nameMap = new HashMap<Object, String>();
 		
-		IceField f1 = new IceField();
-		IceField f2 = new IceField();
+		Player p = new Player();
+		nameMap.put(p, "p");
+		
+		IceField f1= new IceField();
+		nameMap.put(f1, "f1");
+		IceField f2= new IceField();
+		nameMap.put(f2, "f2");
 		
 		DivingGear i = new DivingGear();
+		nameMap.put(i, "i");
 		
 		f1.AddPlayerForInit(p);
 		
-		p.SetItem(i);
+		p.SetItemForInit(i);
 		
 		p.UseItem(i);
 		
@@ -193,10 +250,15 @@ public class Skeleton{
 	
 	public void MoveWithoutSuit() //instabil
 	{
-		Player p = new Player();
+		nameMap = new HashMap<Object, String>();
 		
-		IceField f1 = new IceField();
-		IceField f2 = new IceField();
+		Player p = new Player();
+		nameMap.put(p, "p");
+		
+		IceField f1= new IceField();
+		nameMap.put(f1, "f1");
+		IceField f2= new IceField();
+		nameMap.put(f2, "f2");
 		
 		f1.AddPlayerForInit(p);
 		
@@ -207,10 +269,15 @@ public class Skeleton{
 	
 	public void MoveOnStable() //stabil
 	{
-		Player p = new Player();
+		nameMap = new HashMap<Object, String>();
 		
-		IceField f1 = new IceField();
-		IceField f2 = new IceField();
+		Player p = new Player();
+		nameMap.put(p, "p");
+		
+		IceField f1= new IceField();
+		nameMap.put(f1, "f1");
+		IceField f2= new IceField();
+		nameMap.put(f2, "f2");
 		
 		f1.AddPlayerForInit(p);
 		
@@ -221,12 +288,18 @@ public class Skeleton{
 	
 	public void MoveToFinishRound() //remaining action 1-nek kéne hogy legyen, stabilitynek stabil
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Player p = new Player();
+		nameMap.put(p, "p");
 		
 		Game g = new Game();
+		nameMap.put(g, "g");
 		
-		IceField f1 = new IceField();
-		IceField f2 = new IceField();
+		IceField f1= new IceField();
+		nameMap.put(f1, "f1");
+		IceField f2= new IceField();
+		nameMap.put(f2, "f2");
 		
 		g.SetPlayerForInit(p);
 		g.SetActivePlayer(p);
@@ -240,13 +313,20 @@ public class Skeleton{
 	
 	public void MoveToFinishTurn() //remaining action 1-nek kéne hogy legyen, stabilitynek stabil
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Player p1 = new Player();
+		nameMap.put(p1, "p1");
 		Player p2 = new Player();
+		nameMap.put(p1, "p2");
 		
 		Game g = new Game();
+		nameMap.put(g, "g");
 		
-		IceField f1 = new IceField();
-		IceField f2 = new IceField();
+		IceField f1= new IceField();
+		nameMap.put(f1, "f1");
+		IceField f2= new IceField();
+		nameMap.put(f2, "f2");
 		
 		g.SetPlayerForInit(p1);
 		g.SetPlayerForInit(p2);
@@ -261,10 +341,15 @@ public class Skeleton{
 	
 	public void NextTurn()
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Player p1 = new Player();
+		nameMap.put(p1, "p1");
 		Player p2 = new Player();
+		nameMap.put(p2, "p2");
 		
 		Game g = new Game();
+		nameMap.put(g, "g");
 		
 		g.SetPlayerForInit(p1);
 		g.SetPlayerForInit(p2);
@@ -276,10 +361,15 @@ public class Skeleton{
 	
 	public void NextRound()
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Player p1 = new Player();
+		nameMap.put(p1, "p1");
 		Player p2 = new Player();
+		nameMap.put(p2, "p2");
 		
 		Game g = new Game();
+		nameMap.put(g, "g");
 		
 		g.SetPlayerForInit(p1);
 		g.SetPlayerForInit(p2);
@@ -291,9 +381,13 @@ public class Skeleton{
 	
 	public void LethalStorm() //testho legyen 1, iglu nincs
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Player p = new Player();
+		nameMap.put(p, "p");
 		
 		IceField f = new IceField();
+		nameMap.put(f, "f");
 		
 		f.AddPlayerForInit(p);
 		
@@ -302,9 +396,13 @@ public class Skeleton{
 	
 	public void IglooStorm() //testho mind1, iglu van
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Player p = new Player();
+		nameMap.put(p, "p");
 		
 		IceField f = new IceField();
+		nameMap.put(f, "f");
 		
 		f.AddPlayerForInit(p);
 		
@@ -313,9 +411,13 @@ public class Skeleton{
 	
 	public void HitStorm() //testho legyen 2+, iglu nincs
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Player p = new Player();
+		nameMap.put(p, "p");
 		
 		IceField f = new IceField();
+		nameMap.put(f, "f");
 		
 		f.AddPlayerForInit(p);
 		
@@ -324,9 +426,13 @@ public class Skeleton{
 	
 	public void Igloo()
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Eskimo p = new Eskimo();
+		nameMap.put(p, "p");
 		
 		IceField f = new IceField();
+		nameMap.put(f, "f");
 		
 		f.AddPlayerForInit(p);
 		
@@ -335,10 +441,15 @@ public class Skeleton{
 	 
 	public void Reveal()
 	{
-		Researcher p = new Researcher();
+		nameMap = new HashMap<Object, String>();
 		
-		IceField f1 = new IceField();
-		IceField f2 = new IceField();
+		Researcher p = new Researcher();
+		nameMap.put(p, "p");
+		
+		IceField f1= new IceField();
+		nameMap.put(f1, "f1");
+		IceField f2= new IceField();
+		nameMap.put(f2, "f2");
 		
 		f1.AddPlayerForInit(p);
 		
