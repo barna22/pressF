@@ -130,6 +130,11 @@ public class Skeleton{
 		Food i = new Food();
 		nameMap.put(i, "i");
 		
+		Game g = new Game();
+		nameMap.put(g, "g");
+		
+		g.SetPlayerForInit(p);
+		
 		p.SetItemForInit(i);
 		
 		p.UseItem(i);
