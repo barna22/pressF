@@ -42,6 +42,9 @@ public class FlareGunPart extends Item {
 		return result;
 	}
 	
+	/*
+	 * Hozzáadja a game-t a FlareGunPart-hoz
+	 */
 	public void SetGameForInit(Game g) {
 		game = g;
 	}

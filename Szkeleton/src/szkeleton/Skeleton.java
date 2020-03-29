@@ -40,10 +40,10 @@ public class Skeleton{
 		IceField f = new IceField();
 		nameMap.put(f, "f");
 		
-		Food i = new Food();
+		Item i = new Food();
 		nameMap.put(i, "i");
 		
-		p.SetItemForInit(i);
+		f.SetItem(i);
 		
 		f.AddPlayerForInit(p);
 		
