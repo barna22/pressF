@@ -171,5 +171,6 @@ public class IceField {
 	 */
 	public void AddPlayerForInit(Player player) {
 		this.players.add(player);
+		player.SetField(this);
 	}
 }
