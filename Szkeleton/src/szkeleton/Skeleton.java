@@ -151,11 +151,11 @@ public class Skeleton{
 		IceField f2 = new IceField();
 		nameMap.put(f2, "f2");
 		IceField f3 = new IceField();
-		nameMap.put(f2, "f2");
+		nameMap.put(f3, "f3");
 		IceField f4 = new IceField();
-		nameMap.put(f2, "f2");
+		nameMap.put(f4, "f4");
 		IceField f5 = new IceField();
-		nameMap.put(f2, "f2");
+		nameMap.put(f5, "f5");
 		
 		Rope i = new Rope();
 		nameMap.put(i, "i");
@@ -190,11 +190,11 @@ public class Skeleton{
 		IceField f2 = new IceField();
 		nameMap.put(f2, "f2");
 		IceField f3 = new IceField();
-		nameMap.put(f2, "f2");
+		nameMap.put(f3, "f3");
 		IceField f4 = new IceField();
-		nameMap.put(f2, "f2");
+		nameMap.put(f4, "f4");
 		IceField f5 = new IceField();
-		nameMap.put(f2, "f2");
+		nameMap.put(f5, "f5");
 		
 		Rope i = new Rope();
 		nameMap.put(i, "i");
