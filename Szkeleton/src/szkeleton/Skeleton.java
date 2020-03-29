@@ -135,7 +135,7 @@ public class Skeleton{
 		
 		Rope i = new Rope();
 		
-		p.SetItem(i);
+		p1.SetItem(i);
 		
 		f1.AddPlayerForInit(p1);
 		f2.AddPlayerForInit(p2);
@@ -244,7 +244,7 @@ public class Skeleton{
 		g.SetPlayerForInit(p2);
 		g.SetActivePlayer(p1);
 		
-		f1.SetPlayer(p);
+		f1.AddPlayerForInit(p1);
 		
 		f1.AddNeighbour(Direction.UP, f2);
 		
