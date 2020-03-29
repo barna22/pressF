@@ -7,7 +7,7 @@ public class Skeleton{
 	
 	//Visszaadja az objektumhoz tartozó változó nevet
 	public static String GetName(Object o) {
-		return nameMap.get(o);
+		return o.getClass().getSimpleName() + " " + nameMap.get(o);
 	}
 	
 	//Map a GetName-nek
