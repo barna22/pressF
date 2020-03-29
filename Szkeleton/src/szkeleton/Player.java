@@ -141,7 +141,6 @@ public abstract class Player {
 	
 	public void SetField(IceField f) {
 		field = f;
-		f.AddPlayerForInit(this);
 	}
 	
 	public void SetGame(Game g) {
