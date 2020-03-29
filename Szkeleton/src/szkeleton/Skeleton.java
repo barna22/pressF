@@ -199,6 +199,9 @@ public class Skeleton{
 		Game g = new Game();
 		nameMap.put(g, "g");
 		
+		g.SetPlayerForInit(p1);
+		g.SetPlayerForInit(p2);
+		
 		IceField f1 = new IceField();
 		nameMap.put(f1, "f1");
 		IceField f2 = new IceField();
