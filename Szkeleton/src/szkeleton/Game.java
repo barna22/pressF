@@ -135,6 +135,7 @@ public class Game {
 	 */
 	public void SetPlayerForInit(Player p) {
 		players.add(p);
+		p.SetGame(this);
 	}
 	/**
 	 * Beállítja az aktív játékost.
