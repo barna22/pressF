@@ -13,7 +13,7 @@ public class Skeleton{
 		
 		IceField f = new IceField();
 
-		f.SetPlayer(p); //kéne
+		f.SetPlayerForInit(p); //kéne
 		
 		p.Dig();
 	}
@@ -28,7 +28,7 @@ public class Skeleton{
 		
 		f.SetItem(i); //kéne
 		
-		f.SetPlayer(p);
+		f.SetPlayerForInit(p);
 		
 		p.PickUpItem();
 	}
@@ -39,13 +39,13 @@ public class Skeleton{
 		
 		Game g = new Game();
 		
-		Icefield f= new IceField();
+		IceField f= new IceField();
 		
 		FlareGunPart p1 = new FlareGunPart();
 		FlareGunPart p2 = new FlareGunPart();
 		FlareGunPart p3 = new FlareGunPart();
 		
-		g.SetPlayer(p); //kéne
+		g.SetPlayerForInit(p); //kéne
 		
 		p.SetItem(p1);
 		p.SetItem(p2);
@@ -63,22 +63,22 @@ public class Skeleton{
 		
 		Game g = new Game();
 		
-		Icefield f1= new IceField();
-		Icefield f2= new IceField();
+		IceField f1= new IceField();
+		IceField f2= new IceField();
 		
 		FlareGunPart p1 = new FlareGunPart();
 		FlareGunPart p2 = new FlareGunPart();
 		FlareGunPart p3 = new FlareGunPart();
 		
-		g.SetPlayer(player1);
-		g.SetPlayer(player2);
+		g.SetPlayerForInit(player1);
+		g.SetPlayerForInit(player2);
 		
 		player1.SetItem(p1);
 		player1.SetItem(p2);
 		player1.SetItem(p3);
 		
-		f1.SetPlayer(player1);
-		f2.SetPlayer(player2);
+		f1.SetPlayerForInit(player1);
+		f2.SetPlayerForInit(player2);
 		
 		p1.UseItem(p1);
 	}
@@ -110,7 +110,7 @@ public class Skeleton{
 		
 		p.SetItem(i);
 		
-		f1.SetPlayer(p);
+		f1.SetPlayerForInit(p);
 		
 		f1.AddNeighbour(Direction.UP, f2);
 		f1.AddNeighbour(Direction.DOWN, f3);
@@ -120,7 +120,7 @@ public class Skeleton{
 		p.UseItem(i);
 	}
 	
-	public void UseRopeSuccess()
+	public void UseRopeSuccess() //legyen a vízben
 	{
 		Player p1 = new Player();
 		Player p2 = new Player();
@@ -137,10 +137,8 @@ public class Skeleton{
 		
 		p.SetItem(i);
 		
-		f1.SetPlayer(p1);
-		f2.SetPlayer(p2);
-		
-		p2.SetIsInWater(true); //kéne
+		f1.SetPlayerForInit(p1);
+		f2.SetPlayerForInit(p2);
 		
 		f1.AddNeighbour(Direction.UP, f2);
 		f1.AddNeighbour(Direction.DOWN, f3);
@@ -158,7 +156,7 @@ public class Skeleton{
 		
 		Shovel i = new Shovel();
 		
-		f.SetPlayer(p);
+		f.SetPlayerForInit(p);
 		
 		p.SetItem(i);
 		
@@ -174,7 +172,7 @@ public class Skeleton{
 		
 		DivingGear i = new DivingGear();
 		
-		f1.SetPlayer(p);
+		f1.SetPlayerForInit(p);
 		
 		p.SetItem(i);
 		
@@ -192,7 +190,7 @@ public class Skeleton{
 		IceField f1 = new IceField();
 		IceField f2 = new IceField();
 		
-		f1.SetPlayer(p);
+		f1.SetPlayerForInit(p);
 		
 		f1.AddNeighbour(Direction.UP, f2);
 		
@@ -206,7 +204,7 @@ public class Skeleton{
 		IceField f1 = new IceField();
 		IceField f2 = new IceField();
 		
-		f1.SetPlayer(p);
+		f1.SetPlayerForInit(p);
 		
 		f1.AddNeighbour(Direction.UP, f2);
 		
@@ -222,10 +220,10 @@ public class Skeleton{
 		IceField f1 = new IceField();
 		IceField f2 = new IceField();
 		
-		g.SetPlayer(p);
+		g.SetPlayerForInit(p);
 		g.SetActivePlayer(p);
 		
-		f1.SetPlayer(p);
+		f1.SetPlayerForInit(p);
 		
 		f1.AddNeighbour(Direction.UP, f2);
 		
@@ -242,8 +240,8 @@ public class Skeleton{
 		IceField f1 = new IceField();
 		IceField f2 = new IceField();
 		
-		g.SetPlayer(p1);
-		g.SetPlayer(p2);
+		g.SetPlayerForInit(p1);
+		g.SetPlayerForInit(p2);
 		g.SetActivePlayer(p1);
 		
 		f1.SetPlayer(p);
@@ -260,8 +258,8 @@ public class Skeleton{
 		
 		Game g = new Game();
 		
-		g.SetPlayer(p1);
-		g.SetPlayer(p2);
+		g.SetPlayerForInit(p1);
+		g.SetPlayerForInit(p2);
 		
 		g.SetActivePlayer(p1);
 		
@@ -275,8 +273,8 @@ public class Skeleton{
 		
 		Game g = new Game();
 		
-		g.SetPlayer(p1);
-		g.SetPlayer(p2);
+		g.SetPlayerForInit(p1);
+		g.SetPlayerForInit(p2);
 		
 		g.SetActivePlayer(p2);
 		
@@ -289,7 +287,7 @@ public class Skeleton{
 		
 		IceField f = new IceField();
 		
-		f.SetPlayer(p);
+		f.SetPlayerForInit(p);
 		
 		f.Storm();
 	}
@@ -300,7 +298,7 @@ public class Skeleton{
 		
 		IceField f = new IceField();
 		
-		f.SetPlayer(p);
+		f.SetPlayerForInit(p);
 		
 		f.Storm();
 	}
@@ -311,7 +309,7 @@ public class Skeleton{
 		
 		IceField f = new IceField();
 		
-		f.SetPlayer(p);
+		f.SetPlayerForInit(p);
 		
 		f.Storm();
 	}
@@ -322,7 +320,7 @@ public class Skeleton{
 		
 		IceField f = new IceField();
 		
-		f.SetPlayer(p);
+		f.SetPlayerForInit(p);
 		
 		p.UseAbility(Direction.UP);
 	}
@@ -334,10 +332,11 @@ public class Skeleton{
 		IceField f1 = new IceField();
 		IceField f2 = new IceField();
 		
-		f1.SetPlayer(p);
+		f1.SetPlayerForInit(p);
 		
 		f1.AddNeighbour(Direction.UP, f2);
 		
 		p.UseAbility(Direction.UP);
 	}
+	//Dávid vége
 }
