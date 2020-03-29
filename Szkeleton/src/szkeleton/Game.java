@@ -31,7 +31,7 @@ public class Game {
 	/**
 	 * Megnézi, hogy teljesülnek-e a gyõzelem feltételei és ha igen, akkor a játékosok nyertek.
 	 * @param f: a vizsgált IceField
-	 * @return	 False, mert a flare
+	 * @return	 True, ha a játékosok nyertek.
 	 */
 	public boolean CheckWinCondition(IceField f) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".CheckWinCondition(" + Skeleton.GetName(f) + ")");
