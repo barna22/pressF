@@ -108,6 +108,7 @@ public class Main
  			System.out.println("Igloo");
  			System.out.println("Reveal");
  			System.out.println("Es az Exit paranccsal pedig kilepni lehet");
+ 			break;
  		default:
  		    System.out.println("Hibas input");
  		}
