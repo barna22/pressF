@@ -29,7 +29,7 @@ public abstract class Player {
 	 * Megváltoztatja a játékos hőmérsékletét.
 	 */
 	public void ChangeTemperature(int dif) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".ChangeTemperature(int dif) (" + dif + ")");
+		MethodPrinter.Println(Skeleton.GetName(this) + ".ChangeTemperature(" + dif + ")");
 		boolean isdead = MethodPrinter.AskQuestion("Meghalt a játékos?");
 		if(isdead) {
 			game.Over(false);
@@ -42,7 +42,7 @@ public abstract class Player {
 	 * Felborul ha, túl sokan állnak így már rajta.
 	 */
 	public boolean GetSaved(IceField f) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".GetSaved(Icefield f)");
+		MethodPrinter.Println(Skeleton.GetName(this) + ".GetSaved(" + Skeleton.GetName(f) + ")");
 		MethodPrinter.IncreaseIndentation();
 		boolean isinwater = MethodPrinter.AskQuestion("Vízben van a játékos?");
 		if(isinwater == false) {
@@ -83,7 +83,7 @@ public abstract class Player {
 	 * A játékos egy item-et használ.
 	 */
 	public void UseItem(Item i) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".UseItem(Item i)");
+		MethodPrinter.Println(Skeleton.GetName(this) + ".UseItem(" + Skeleton.GetName(i) + ")");
 		MethodPrinter.IncreaseIndentation();
 		i.Use(this);
 		MethodPrinter.DecreaseIndentation();
@@ -114,7 +114,7 @@ public abstract class Player {
 	 * Ha már van nála, akkor ezt egy false értékkel jelzi.
 	 */
 	public boolean AddItem(Item i) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".AddItem(Item i)");
+		MethodPrinter.Println(Skeleton.GetName(this) + ".AddItem(" + Skeleton.GetName(i) + ")");
 		MethodPrinter.IncreaseIndentation();
 		for(Item j : items) {
 			if(j.IsTheSame(i))
@@ -126,7 +126,7 @@ public abstract class Player {
 	}
 	
 	public void SetRemainingActions(int a) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".SetRemainingActions(int a) (" + a + ")");
+		MethodPrinter.Println(Skeleton.GetName(this) + ".SetRemainingActions(" + a + ")");
 	}
 	
 	public void FallInWater() {
@@ -142,5 +142,9 @@ public abstract class Player {
 	
 	public IceField GetField() {
 		return field;
+	}
+
+	public void SetHasDivingGear() {
+		MethodPrinter.Println(Skeleton.GetName(this) + ".SetHasDivingGear()");
 	}
 }
