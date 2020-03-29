@@ -5,32 +5,36 @@ import java.util.Map;
 
 public class Skeleton{
 	
+	//Visszaadja az objektumhoz tartozó változó nevet
 	public static String GetName(Object o) {
 		return nameMap.get(o);
 	}
 	
+	//Map a GetName-nek
 	private static Map<Object, String> nameMap;
 	
-	//Dávid
+	//Egy karakter kézzel ás.
 	public void Dig()
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p = new Player();
+		Player p = new Researcher();
 		nameMap.put(p, "p");
 		
 		IceField f = new IceField();
 		nameMap.put(f, "f");
 
 		f.AddPlayerForInit(p);
+		
 		p.Dig();
 	}
 	
+	//Egy karakter felvesz egy itemet.
 	public void TakeItem() //ne legyen hó
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p = new Player();
+		Player p = new Researcher();
 		nameMap.put(p, "p");
 		
 		IceField f = new IceField();
@@ -39,17 +43,19 @@ public class Skeleton{
 		Food i = new Food();
 		nameMap.put(i, "i");
 		
-		f.SetItemForInit(i);
+		p.SetItemForInit(i);
+		
 		f.AddPlayerForInit(p);
 		
 		p.PickUpItem();
 	}
 	
+	//Use flare gun, everyone is here
 	public void FlareGunSuccess()
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p = new Player();
+		Player p = new Researcher();
 		nameMap.put(p, "p");
 		
 		Game g = new Game();
@@ -72,16 +78,17 @@ public class Skeleton{
 		
 		f.AddPlayerForInit(p);
 		
-		p.UseItem(p1);
+		p.UseItem(part1);
 	}
 	
+	//Use flare gun, somebody is missing
 	public void FlareGunFail()
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p1 = new Player();
+		Player p1 = new Researcher();
 		nameMap.put(p1, "p1");
-		Player p2 = new Player();
+		Player p2 = new Researcher();
 		nameMap.put(p2, "p2");
 		
 		Game g = new Game();
@@ -112,11 +119,12 @@ public class Skeleton{
 		p1.UseItem(part1);
 	}
 	
+	//Egy karakter megesz egy adag élelmet.
 	public void UseFood()
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p = new Player();
+		Player p = new Researcher();
 		nameMap.put(p, "p");
 		
 		Food i = new Food();
@@ -127,11 +135,12 @@ public class Skeleton{
 		p.UseItem(i);
 	}
 	
+	//Egy karakter sikertelenül használja a kötelét.
 	public void UseRopeFail()
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p = new Player();
+		Player p = new Researcher();
 		nameMap.put(p, "p");
 		
 		Game g = new Game();
@@ -163,13 +172,14 @@ public class Skeleton{
 		p.UseItem(i);
 	}
 	
+	//Egy karakter sikeresen használja a kötelét.
 	public void UseRopeSuccess() //legyen a vízben
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p1 = new Player();
+		Player p1 = new Researcher();
 		nameMap.put(p1, "p1");
-		Player p2 = new Player();
+		Player p2 = new Researcher();
 		nameMap.put(p2, "p2");
 		
 		Game g = new Game();
@@ -202,11 +212,12 @@ public class Skeleton{
 		p1.UseItem(i);
 	}
 	
+	//Egy karakter ásásra használja az ásóját.
 	public void UseShovel()
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p = new Player();
+		Player p = new Researcher();
 		nameMap.put(p, "p");
 		
 		IceField f = new IceField();
@@ -222,11 +233,12 @@ public class Skeleton{
 		p.UseItem(i);
 	}
 	
+	//Egy karakter rásétál egy mezõre, ahol biztonságosan a vízbe esik, és nem ér véget a köre.
 	public void MoveWithSuit() //instabil
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p = new Player();
+		Player p = new Researcher();
 		nameMap.put(p, "p");
 		
 		IceField f1= new IceField();
@@ -248,11 +260,12 @@ public class Skeleton{
 		p.Move(Direction.UP);
 	}
 	
+	//Egy karakter rásétál egy mezõre, ahol a vízbe esik, és véget ér a köre.
 	public void MoveWithoutSuit() //instabil
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p = new Player();
+		Player p = new Researcher();
 		nameMap.put(p, "p");
 		
 		IceField f1= new IceField();
@@ -267,11 +280,12 @@ public class Skeleton{
 		p.Move(Direction.UP);
 	}
 	
+	//Egy karakter rásétel egy másik mezõre.
 	public void MoveOnStable() //stabil
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p = new Player();
+		Player p = new Researcher();
 		nameMap.put(p, "p");
 		
 		IceField f1= new IceField();
@@ -286,11 +300,12 @@ public class Skeleton{
 		p.Move(Direction.UP);
 	}
 	
+	//Egy karakter rásétel egy másik mezõre, és mivel ez volt az utolsó akciója, véget ér a köre, és mivel ez volt az utolsó akcióval bíró játékos, ezért véget ér a nagy kör is.
 	public void MoveToFinishRound() //remaining action 1-nek kéne hogy legyen, stabilitynek stabil
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p = new Player();
+		Player p = new Researcher();
 		nameMap.put(p, "p");
 		
 		Game g = new Game();
@@ -311,13 +326,14 @@ public class Skeleton{
 		p.Move(Direction.UP);
 	}
 	
+	//Egy karakter rásétel egy másik mezõre, és mive ez volt az utolsó akciója, véget ér a köre.
 	public void MoveToFinishTurn() //remaining action 1-nek kéne hogy legyen, stabilitynek stabil
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p1 = new Player();
+		Player p1 = new Researcher();
 		nameMap.put(p1, "p1");
-		Player p2 = new Player();
+		Player p2 = new Researcher();
 		nameMap.put(p1, "p2");
 		
 		Game g = new Game();
@@ -339,13 +355,14 @@ public class Skeleton{
 		p1.Move(Direction.UP);
 	}
 	
+	//Egy játékos kifogy az akcióiból, és a következõ játékos jön
 	public void NextTurn()
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p1 = new Player();
+		Player p1 = new Researcher();
 		nameMap.put(p1, "p1");
-		Player p2 = new Player();
+		Player p2 = new Researcher();
 		nameMap.put(p2, "p2");
 		
 		Game g = new Game();
@@ -359,13 +376,14 @@ public class Skeleton{
 		g.NextPlayer();
 	}
 	
+	//Egy játékos kifogy az akcióiból, és mivel õ volt az utolsó játékos, a következõ kör kezdõdik
 	public void NextRound()
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p1 = new Player();
+		Player p1 = new Researcher();
 		nameMap.put(p1, "p1");
-		Player p2 = new Player();
+		Player p2 = new Researcher();
 		nameMap.put(p2, "p2");
 		
 		Game g = new Game();
@@ -379,11 +397,12 @@ public class Skeleton{
 		g.NextPlayer();
 	}
 	
+	//A vihar lecsap egy mezõre, ahol karakter tartózkodik, és a vihar megöli ezt a karaktert.
 	public void LethalStorm() //testho legyen 1, iglu nincs
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p = new Player();
+		Player p = new Researcher();
 		nameMap.put(p, "p");
 		
 		IceField f = new IceField();
@@ -394,11 +413,12 @@ public class Skeleton{
 		f.Storm();
 	}
 	
+	//A vihar lecsap egy mezõre, ahol igloo van, ezért nem hûl ki senki.
 	public void IglooStorm() //testho mind1, iglu van
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p = new Player();
+		Player p = new Researcher();
 		nameMap.put(p, "p");
 		
 		IceField f = new IceField();
@@ -409,11 +429,12 @@ public class Skeleton{
 		f.Storm();
 	}
 	
+	//A vihar lecsap egy mezõre, ahol karakter tartózkodik, és a karakter kihûl.
 	public void HitStorm() //testho legyen 2+, iglu nincs
 	{
 		nameMap = new HashMap<Object, String>();
 		
-		Player p = new Player();
+		Player p = new Researcher();
 		nameMap.put(p, "p");
 		
 		IceField f = new IceField();
@@ -424,6 +445,7 @@ public class Skeleton{
 		f.Storm();
 	}
 	
+	//Egy eszkimó használja a képességét a saját mezõjén
 	public void Igloo()
 	{
 		nameMap = new HashMap<Object, String>();
@@ -438,7 +460,8 @@ public class Skeleton{
 		
 		p.UseAbility(Direction.UP);
 	}
-	 
+	
+	//Egy kutató használja a képességét egy szomszédos mezõn
 	public void Reveal()
 	{
 		nameMap = new HashMap<Object, String>();
@@ -457,5 +480,4 @@ public class Skeleton{
 		
 		p.UseAbility(Direction.UP);
 	}
-	//Dávid vége
 }
