@@ -54,7 +54,7 @@ public abstract class Player {
 	 * Ha kimenne a pályáról, a program jelzi, hogy ezt nem teheti.
 	 */
 	public void Move(Direction d) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".UseAbility(Direction d)");
+		MethodPrinter.Println(Skeleton.GetName(this) + ".UseAbility(d)");
 		MethodPrinter.IncreaseIndentation();
 		IceField newfield = field.GetNeighbour(d);
 		if(newfield == null) {
