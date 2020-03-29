@@ -437,6 +437,11 @@ public class Skeleton{
 		IceField f = new IceField();
 		nameMap.put(f, "f");
 		
+		Game g = new Game();
+		nameMap.put(g, "g");
+		
+		p.SetGame(g);
+		
 		f.AddPlayerForInit(p);
 		
 		f.Storm();
@@ -453,6 +458,11 @@ public class Skeleton{
 		IceField f = new IceField();
 		nameMap.put(f, "f");
 		
+		Game g = new Game();
+		nameMap.put(g, "g");
+		
+		p.SetGame(g);
+		
 		f.AddPlayerForInit(p);
 		
 		f.Storm();
@@ -468,6 +478,11 @@ public class Skeleton{
 		
 		IceField f = new IceField();
 		nameMap.put(f, "f");
+		
+		Game g = new Game();
+		nameMap.put(g, "g");
+		
+		p.SetGame(g);
 		
 		f.AddPlayerForInit(p);
 		
