@@ -98,10 +98,12 @@ public class IceField {
 		MethodPrinter.IncreaseIndentation();
 		
 		boolean success = false;
-		for (Player player : players)
-			player.GetSaved(f);
-			success = true;
-		
+		for (int i = 0; i < players.size(); i++) {
+			if(players.get(i).GetSaved(f)) {
+				success = true;
+				i--;
+			}
+		}
 		MethodPrinter.DecreaseIndentation();
 		
 		return success;
