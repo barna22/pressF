@@ -88,6 +88,7 @@ public abstract class Player {
 			if(j.IsTheSame(i))
 				return false;
 		}
+		items.add(i);
 		MethodPrinter.DecreaseIndentation();
 		return true;
 	}
@@ -102,5 +103,8 @@ public abstract class Player {
 		game.PlayerFellInWater();
 		MethodPrinter.DecreaseIndentation();
 	}
-
+	
+	public void SetItem(Item i) {
+		items.add(i);
+	}
 }
