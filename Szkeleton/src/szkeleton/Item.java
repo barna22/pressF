@@ -26,6 +26,7 @@ public abstract class Item {
 	}
 	
 	public boolean IsTheSame(Item i) {
+		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(" + Skeleton.GetName(i) + ")");
 		return false;
 	}
 }
