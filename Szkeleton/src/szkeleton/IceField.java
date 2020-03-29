@@ -178,4 +178,8 @@ public class IceField {
 	public void RevealCapacity() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".RevealCapacity()");
 	}
+	
+	public void SetItem(Item item) {
+		this.item = item;
+	}
 }
