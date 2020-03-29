@@ -2,22 +2,19 @@ package szkeleton;
 
 
 /*
- * Ezekbõl kell összegyûlyteni mindhármat és használni egy helyen állva a játék megnyeréséhez.
+ * Ezekbõl kell összegyûjteni mindhármat és használni egy helyen állva a játék megnyeréséhez.
  */
 public class FlareGunPart extends Item {
 	private Game game;
 	
 	/*
-	 * Megnézi, hogy teljesülnek-e a gyõzelem feltételei és jelez a
-	 * Game-nek, ha igen. True-val tér vissza, ha sikerült használni.
+	 * Szól a Game-nek, hogy ellenõrizze a gyõzelem feltételeit. False-al tér vissza, ha nem teljesültek.
 	 */
 	public boolean Use(Player p) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".Use(" + Skeleton.GetName(p) + ")");
 		MethodPrinter.IncreaseIndentation();
 		IceField f = p.GetField();
-		boolean result = false;
-		if(game.IsEveryoneHere(f))
-			result = f.CountGunParts(this);
+		boolean  result = game.CheckWinCondition(f);
 		MethodPrinter.DecreaseIndentation();
 		return result;
 	}
