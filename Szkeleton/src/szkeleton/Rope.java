@@ -14,9 +14,25 @@ package szkeleton;
 
 
 public class Rope extends Item {
-	public boolean Use(Player p) {
+	public boolean Use(Player p1) {
+		MethodPrinter.Println(Skeleton.GetName(this) + ".Use(Player p1)");
+		MethodPrinter.IncreaseIndentation();
+		IceField f1 =  p1.GetField();
+		boolean success = false;
+		for (Direction d : Direction.values()) {
+			IceField f = GetNeighbour(d);
+			if(f.Save(f1))
+				success = true;
+		}
+		MethodPrinter.DecreaseIndentation();
+		return success;
 	}
 	
 	public boolean IsTheSame(Rope r) {
+		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(Rope r)");
+		MethodPrinter.IncreaseIndentation();
+		boolean result = MethodPrinter.AskQuestion("Ugyanaz a két tárgy?");
+		MethodPrinter.DecreaseIndentation();
+		return result;
 	}
 }

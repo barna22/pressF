@@ -14,12 +14,16 @@ package szkeleton;
 
 
 public abstract class Item {
-	public boolean Use(Player p) {
-	}
+	public abstract boolean Use(Player p);
 	
 	public boolean Equip(Player p) {
+		MethodPrinter.Println(Skeleton.GetName(this) + ".Equip(Player p)");
+		boolean result;
+		MethodPrinter.IncreaseIndentation();
+		result =  p.AddItem(this);
+		MethodPrinter.DecreaseIndentation();
+		return result;
 	}
 	
-	public boolean IsTheSame(Item i) {
-	}
+	public abstract boolean IsTheSame(Item i);
 }
