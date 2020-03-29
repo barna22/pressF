@@ -17,22 +17,34 @@ import java.util.ArrayList;
 
 
 public abstract class Player {
-	private int temperature;
-	private boolean isInWater;
-	private int remainingActions;
-	private boolean hasDivingGear;
+	//private int temperature;
+	//private boolean isInWater;
+	//private int remainingActions;
+	//private boolean hasDivingGear;
 	private ArrayList<Item> items;
 	protected IceField field;
 	private Game game;
 	
+	/**
+	 * Megváltoztatja a játékos hőmérsékletét.
+	 */
 	public void ChangeTemperature(int dif) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".ChangeTemperature(int dif)");
-		temperature -= dif;
+		MethodPrinter.Println(Skeleton.GetName(this) + ".ChangeTemperature(int dif) (" + dif + ")");
+		boolean isdead = MethodPrinter.AskQuestion("Meghalt a játékos?");
+		if(isdead) {
+			game.Over(false);
+		}
 	}
 	
+	
+	/**
+	 * Felveszi a játékost a rajta álló játékosok közé.
+	 * Felborul ha, túl sokan állnak így már rajta.
+	 */
 	public boolean GetSaved(IceField f) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".GetSaved(Icefield f)");
-		if(isInWater == false) {
+		boolean isinwater = MethodPrinter.AskQuestion("Vízben van a játékos?");
+		if(isinwater == false) {
 			return false;
 		}
 		MethodPrinter.IncreaseIndentation();
@@ -51,7 +63,7 @@ public abstract class Player {
 		MethodPrinter.IncreaseIndentation();
 		IceField newfield = field.GetNeighbour(d);
 		if(newfield == null) {
-			System.out.println("Nem lehet kimenni a p�ly�r�l!");
+			System.out.println("Nem lehet kimenni a pályáról!");
 			return;
 		}
 		field.Remove(this);

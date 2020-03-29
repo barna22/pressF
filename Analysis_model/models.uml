@@ -1265,7 +1265,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#OwnedElements" type="integer">42</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">41</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLClass" guid="NozEPdMznESb7gkaDC4H2QAA">
 <XPD:ATTR name="Name" type="string">Item</XPD:ATTR>
 <XPD:ATTR name="IsAbstract" type="boolean">True</XPD:ATTR>
@@ -2484,11 +2484,7 @@
 <XPD:REF name="Views[2]">teWTRJpgi02guMr+Vpm7eQAA</XPD:REF>
 <XPD:REF name="Views[3]">j2nq5lXdX0OHK3i6IufjpAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[39]" type="UMLClass" guid="cDCwySySiEuVsOsdSfs1VgAA">
-<XPD:ATTR name="Name" type="string">Igloo</XPD:ATTR>
-<XPD:REF name="Namespace">L1cB1W+V90GR7IgK9EjQCAAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedElements[40]" type="UMLDependency" guid="5ovbh4ZyNkOtoJ7DIydg/wAA">
+<XPD:OBJ name="OwnedElements[39]" type="UMLDependency" guid="5ovbh4ZyNkOtoJ7DIydg/wAA">
 <XPD:REF name="Namespace">L1cB1W+V90GR7IgK9EjQCAAA</XPD:REF>
 <XPD:REF name="Client">MulT9S9XfUiLuM/HjTIlUwAA</XPD:REF>
 <XPD:REF name="Supplier">7dSUPQSsaUGOWraYdgHxtwAA</XPD:REF>
@@ -2498,7 +2494,7 @@
 <XPD:REF name="Views[2]">wCuTnKkVXUiA/MBuTjqlFgAA</XPD:REF>
 <XPD:REF name="Views[3]">4aBFM48tVESPDJE6WMqMvwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[41]" type="UMLAssociation" guid="0lcrKSrgaUynMsVsBElIEgAA">
+<XPD:OBJ name="OwnedElements[40]" type="UMLAssociation" guid="0lcrKSrgaUynMsVsBElIEgAA">
 <XPD:REF name="Namespace">L1cB1W+V90GR7IgK9EjQCAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">iox32bl3NkKIHROoNjKIxgAA</XPD:REF>
