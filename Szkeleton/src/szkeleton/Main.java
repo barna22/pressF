@@ -10,6 +10,8 @@ public class Main
 		Skeleton skeleton = new Skeleton();
 		Scanner sc = new Scanner(System.in);
 		
+		System.out.println("A help paranccsal tudok megtekinteni a teszparancsok listajat!"); 
+		
 		for(;;) {
  		System.out.println("Kerem a kovetkezo parancsot"); 
  		parancs = sc.nextLine();
@@ -83,6 +85,29 @@ public class Main
  			sc.close();
  			System.exit(0);
  		    break;
+ 		case "help":
+ 			System.out.println("Az alabbi parancsokokkal lehet fuggvenyeket tesztelni:");
+ 			System.out.println("Dig");
+ 			System.out.println("TakeItem");
+ 			System.out.println("FlareGunSuccess");
+ 			System.out.println("FlareGunFail");
+ 			System.out.println("UseFood");
+ 			System.out.println("UseRopeFail");
+ 			System.out.println("UseRopeSuccess");
+ 			System.out.println("UseShovel");
+ 			System.out.println("MoveWithSuit");
+ 			System.out.println("MoveWithoutSuit");
+ 			System.out.println("MoveOnStable");
+ 			System.out.println("MoveToFinishRound");
+ 			System.out.println("MoveToFinishTurn");
+ 			System.out.println("NextTurn");
+ 			System.out.println("NextRound");
+ 			System.out.println("LethalStorm");
+ 			System.out.println("IglooStorm");
+ 			System.out.println("HitStorm");
+ 			System.out.println("Igloo");
+ 			System.out.println("Reveal");
+ 			System.out.println("Es az Exit paranccsal pedig kilepni lehet");
  		default:
  		    System.out.println("Hibas input");
  		}
