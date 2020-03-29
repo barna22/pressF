@@ -59,6 +59,7 @@ public class Skeleton{
 		nameMap.put(p, "p");
 		
 		Game g = new Game();
+		nameMap.put(g, "g");
 		
 		IceField f= new IceField();
 		nameMap.put(f, "f");
@@ -119,6 +120,10 @@ public class Skeleton{
 		
 		f1.AddPlayerForInit(p1);
 		f2.AddPlayerForInit(p2);
+		
+		part1.SetGameForInit(g);
+		part2.SetGameForInit(g);
+		part3.SetGameForInit(g);
 		
 		p1.UseItem(part1);
 	}
