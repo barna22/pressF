@@ -15,7 +15,7 @@ public class DivingGear extends Item {
 	}
 	
 	/*
-	 * Ugyan azt csinálja, mint az Item, csak pluszba beállítja a
+	 * Ugyanazt csinálja, mint az Item, csak pluszba beállítja a
 	 * játékoson a hasDivingGear-t.
 	 */
 	public boolean Equip(Player p) {

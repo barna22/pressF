@@ -29,4 +29,19 @@ public class FlareGunPart extends Item {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(" + Skeleton.GetName(f) + ")");
 		return true;
 	}
+	
+	/*
+	 * Ugyanazt csinálja, mint az Item, csak meghívj a game-n egy FlareGunPartFound()
+	 * nevû metódust, ami csökkenti a hátralévõ gunpartok számát eggyel.
+	 */
+	public boolean Equip(Player p) {
+		MethodPrinter.Println(Skeleton.GetName(this) + ".Equip(" + Skeleton.GetName(p) + ")");
+		boolean result;
+		MethodPrinter.IncreaseIndentation();
+		result =  p.AddItem(this);
+		if(result)
+			game.FlareGunPartFound();
+		MethodPrinter.DecreaseIndentation();
+		return result;
+	}
 }
