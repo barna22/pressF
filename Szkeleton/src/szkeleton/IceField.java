@@ -182,4 +182,11 @@ public class IceField {
 	public void SetItem(Item item) {
 		this.item = item;
 	}
+	
+	/**
+	 * Csak a skeletonba kell inicializáláshoz, végleges programban nem lesz.
+	 */
+	public void AddPlayerForInit(Player player) {
+		this.players.add(player);
+	}
 }
