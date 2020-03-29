@@ -125,10 +125,17 @@ public abstract class Player {
 		return true;
 	}
 	
+	/**
+	 * Beállítja a játékos hátralevő akcióinak számát.
+	 */
 	public void SetRemainingActions(int a) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".SetRemainingActions(" + a + ")");
 	}
 	
+	/**
+	 * A játékos beleesik a vízbe.
+	 * Ezt a játéknak is jelzi a játékos.
+	 */
 	public void FallInWater() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".FallInWater()");
 		MethodPrinter.IncreaseIndentation();
@@ -136,11 +143,12 @@ public abstract class Player {
 		MethodPrinter.DecreaseIndentation();
 	}
 	
-	public void SetItem(Item i) {
+	public void SetItemForInit(Item i) {
 		items.add(i);
 	}
 	
 	public IceField GetField() {
+		MethodPrinter.Println(Skeleton.GetName(this) + ".GetField()");
 		return field;
 	}
 
