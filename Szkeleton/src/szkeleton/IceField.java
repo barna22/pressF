@@ -140,7 +140,7 @@ public class IceField {
 	 * Beállítja kapott irányba levõ szomszédnak a kapott IceFieldet.
 	 */
 	public void AddNeighbour(Direction d, IceField f) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".AddNeighbour(d, " + Skeleton.GetName(f) + ")");
+		//MethodPrinter.Println(Skeleton.GetName(this) + ".AddNeighbour(d, " + Skeleton.GetName(f) + ")");
 		
 		neighbours.put(d, f);
 	}
