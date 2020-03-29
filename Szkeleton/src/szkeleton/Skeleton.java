@@ -1,15 +1,23 @@
 package szkeleton;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Skeleton{
 	
 	public static String GetName(Object o) {
-		return "valami";
+		return nameMap.get(o);
 	}
+	
+	private static Map<Object, String> nameMap;
 	
 	//Dávid
 	public void Dig()
 	{
+		nameMap = new HashMap<Object, String>();
+		
 		Player p = new Player();
+		nameMap.put(p, "p");
 		
 		IceField f = new IceField();
 
