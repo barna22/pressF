@@ -15,7 +15,7 @@ package szkeleton;
 
 public class Shovel extends Item {
 	public boolean Use(Player p) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".Use(Player p)");
+		MethodPrinter.Println(Skeleton.GetName(this) + ".Use(" + Skeleton.GetName(p) + ")");
 		MethodPrinter.IncreaseIndentation();
 		IceField f =  p.GetField();
 		boolean result = MethodPrinter.AskQuestion("Van hó a mezõn?");
@@ -26,10 +26,7 @@ public class Shovel extends Item {
 	}
 	
 	public boolean IsTheSame(Shovel s) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(Shovel s)");
-		MethodPrinter.IncreaseIndentation();
-		boolean result = MethodPrinter.AskQuestion("Ugyanaz a két tárgy?");
-		MethodPrinter.DecreaseIndentation();
-		return result;
+		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(" + Skeleton.GetName(s) + ")");
+		return true;
 	}
 }

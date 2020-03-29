@@ -15,15 +15,12 @@ package szkeleton;
 
 public class DivingGear extends Item {
 	public boolean IsTheSame(DivingGear d) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(DivingGear d)");
-		MethodPrinter.IncreaseIndentation();
-		boolean result = MethodPrinter.AskQuestion("Ugyanaz a két tárgy?");
-		MethodPrinter.DecreaseIndentation();
-		return result;
+		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(" + Skeleton.GetName(d) + ")");
+		return true;
 	}
 	
 	public boolean Equip(Player p) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".Equip(Player p)");
+		MethodPrinter.Println(Skeleton.GetName(this) + ".Equip(" + Skeleton.GetName(p) + ")");
 		boolean result;
 		MethodPrinter.IncreaseIndentation();
 		result =  p.AddItem(this);
