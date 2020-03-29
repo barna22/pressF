@@ -25,8 +25,9 @@ public abstract class Player {
 	
 	
 	/**
-	 * Felveszi a játékost a rajta álló játékosok közé.
-	 * Felborul ha, túl sokan állnak így már rajta.
+	 * A játékost megmentik, amennyiben vízben van.
+	 * Ha nem volt vízben, akkor visszatér hamis értékkel.
+	 * Ha vízben volt, akkor átkerül a paraméterként kapott fieldre.
 	 */
 	public boolean GetSaved(IceField f) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".GetSaved(" + Skeleton.GetName(f) + ")");
