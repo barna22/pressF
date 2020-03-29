@@ -43,7 +43,7 @@ public class Skeleton{
 		Food i = new Food();
 		nameMap.put(i, "i");
 		
-		p.SetItemForInit(i);
+		f.SetItem(i);
 		
 		f.AddPlayerForInit(p);
 		
