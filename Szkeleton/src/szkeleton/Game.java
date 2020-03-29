@@ -29,17 +29,23 @@ public class Game {
 	}
 	
 	/**
-	 * Megnézi, hogy mindenki az átvett fielden áll e.
+	 * Megnézi, hogy teljesülnek-e a gyõzelem feltételei és ha igen, akkor a játékosok nyertek.
 	 * @param f: a vizsgált IceField
-	 * @return	 True, ha mindenki itt van.
+	 * @return	 False, mert a flare
 	 */
-	public boolean IsEveryoneHere(IceField f) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".IsEveryoneHere(" + Skeleton.GetName(f) + ")");
+	public boolean CheckWinCondition(IceField f) {
+		MethodPrinter.Println(Skeleton.GetName(this) + ".CheckWinCondition(" + Skeleton.GetName(f) + ")");
 		MethodPrinter.IncreaseIndentation();
 		for(IceField field : fields)
 			field.GetNumberOfPlayers();
 		MethodPrinter.DecreaseIndentation();
-		return MethodPrinter.AskQuestion("Mindenki ezen a mezõn áll?");
+		boolean result = MethodPrinter.AskQuestion("Mindenki ezen a mezõn áll?") && MethodPrinter.AskQuestion("Az összes alkatrész ki van ásva?");
+		if(result) {
+			MethodPrinter.IncreaseIndentation();
+			Over(true);
+			MethodPrinter.DecreaseIndentation();
+		}
+		return result;
 	}
 	
 	/**
