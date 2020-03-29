@@ -162,7 +162,7 @@ public class IceField {
 	}
 	
 	public void SetItem(Item item) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".SetItem("  + Skeleton.GetName(item) + ")");
+		//MethodPrinter.Println(Skeleton.GetName(this) + ".SetItem("  + Skeleton.GetName(item) + ")");
 		this.item = item;
 	}
 	
