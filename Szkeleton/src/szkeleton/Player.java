@@ -138,6 +138,14 @@ public abstract class Player {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".GetField()");
 		return field;
 	}
+	
+	public void SetField(IceField f) {
+		field = f;
+	}
+	
+	public void SetGame(Game g) {
+		game = g;
+	}
 
 	public void SetHasDivingGear() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".SetHasDivingGear()");
