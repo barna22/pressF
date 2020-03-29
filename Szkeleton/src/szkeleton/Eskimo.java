@@ -15,8 +15,9 @@ package szkeleton;
 
 public class Eskimo extends Player {
 	public void UseAbility(Direction d) {
-	}
-	
-	public void UseAbility(Direction d) {
+		MethodPrinter.Println(Skeleton.GetName(this) + ".UseAbility(Direction d");
+		MethodPrinter.IncreaseIndentation();
+		field.BuildIgloo();
+		MethodPrinter.DecreaseIndentation();
 	}
 }

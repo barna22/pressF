@@ -14,9 +14,12 @@ package szkeleton;
 
 
 public class Researcher extends Player {
-	public void UseAbility(Direction d) {
-	}
 	
 	public void UseAbility(Direction d) {
+		MethodPrinter.Println(Skeleton.GetName(this) + ".UseAbility(Direction d)");
+		MethodPrinter.IncreaseIndentation();
+		IceField researchedfield = field.GetNeighbour(d);
+		researchedfield.RevealCapacity();
+		MethodPrinter.DecreaseIndentation();
 	}
 }
