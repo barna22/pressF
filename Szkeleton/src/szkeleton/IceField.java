@@ -60,7 +60,7 @@ public class IceField {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".Storm()");
 		MethodPrinter.IncreaseIndentation();
 		
-		if(MethodPrinter.AskQuestion("Van a mezõn iglu?"))
+		if(!MethodPrinter.AskQuestion("Van a mezõn iglu?"))
 			for(Player player : players)
 				player.ChangeTemperature(-1);
 		
