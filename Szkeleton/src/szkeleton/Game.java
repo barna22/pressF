@@ -7,6 +7,9 @@ public class Game {
 	private ArrayList<Player> players;
 	private Player activePlayer;
 	
+	Game(){
+		players = new ArrayList<Player>();
+	}
 	private void Storm() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".Storm()");
 		MethodPrinter.IncreaseIndentation();
@@ -72,6 +75,9 @@ public class Game {
 	}
 	public void SetPlayers(ArrayList<Player> p) {
 		players = p;
+	}
+	public void SetPlayerForInit(Player p) {
+		players.add(p);
 	}
 	public void SetActivePlayer(Player p) {
 		activePlayer = p;

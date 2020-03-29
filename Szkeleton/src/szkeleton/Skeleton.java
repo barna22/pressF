@@ -45,7 +45,7 @@ public class Skeleton{
 		FlareGunPart p2 = new FlareGunPart();
 		FlareGunPart p3 = new FlareGunPart();
 		
-		g.SetPlayerForInit(p); //kéne
+		g.SetPlayerForInit(p);
 		
 		p.SetItem(p1);
 		p.SetItem(p2);
