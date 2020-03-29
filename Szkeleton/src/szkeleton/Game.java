@@ -14,6 +14,7 @@ public class Game {
 
 	Game(){
 		players = new ArrayList<Player>();
+		fields = new ArrayList<IceField>();
 	}
 	/**
 	 * Megnézi, hogy mindenki az átvett fielden áll e.
@@ -34,6 +35,10 @@ public class Game {
 	 */
 	public boolean IsEveryoneHere(IceField f) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".IsEveryoneHere(" + Skeleton.GetName(f) + ")");
+		MethodPrinter.IncreaseIndentation();
+		for(IceField field : fields)
+			field.GetNumberOfPlayers();
+		MethodPrinter.DecreaseIndentation();
 		return MethodPrinter.AskQuestion("Mindenki ezen a mezõn áll?");
 	}
 	
@@ -95,6 +100,13 @@ public class Game {
 	 */
 	public void PlayerFellInWater() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".PlayerFellInWater()");
+	}
+	
+	/**
+	 * Ezzel lehet jelezni, hogy megtalálták a jelzõpisztoly egyik alkatrészét.
+	 */
+	public void FlareGunPartFound() {
+		MethodPrinter.Println(Skeleton.GetName(this) + ".FlareGunPartFound()");
 	}
 	
 	/**
