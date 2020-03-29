@@ -14,7 +14,7 @@ public class FlareGunPart extends Item {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".Use(" + Skeleton.GetName(p) + ")");
 		MethodPrinter.IncreaseIndentation();
 		IceField f = p.GetField();
-		boolean  result = game.CheckWinCondition(f);
+		boolean result = game.CheckWinCondition(f);
 		MethodPrinter.DecreaseIndentation();
 		return result;
 	}
@@ -40,5 +40,9 @@ public class FlareGunPart extends Item {
 			game.FlareGunPartFound();
 		MethodPrinter.DecreaseIndentation();
 		return result;
+	}
+	
+	public void SetGameForInit(Game g) {
+		game = g;
 	}
 }
