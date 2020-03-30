@@ -77,6 +77,25 @@ public class Main
  		case "Reveal":
  		    skeleton.Reveal();
  		    break;
+ 		case "ChangeObjectFormat":
+ 			System.out.println("1: Megjelenítés névvel és típussal");
+ 			System.out.println("2: Megjelenítés csak típussal");
+ 			System.out.println("3: Megjelenítés csak névvel");
+ 			System.out.println("\nAdd meg a kívánt formátum számát: ");
+ 			switch (sc.nextLine()) {
+ 			case "1":
+ 				skeleton.SetNameFormat(Skeleton.NameFormat.NAMEANDTYPE);
+ 				break;
+ 			case "2":
+ 				skeleton.SetNameFormat(Skeleton.NameFormat.TYPEONLY);
+ 				break;
+ 			case "3":
+ 				skeleton.SetNameFormat(Skeleton.NameFormat.NAMEONLY);
+ 				break;
+ 			default:
+ 				System.out.println("Hibás bemenet");
+ 			}
+ 			break;
  		case "Exit":
  			sc.close();
  			System.exit(0);

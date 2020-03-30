@@ -5,9 +5,35 @@ import java.util.Map;
 
 public class Skeleton{
 	
+	public enum NameFormat{
+		NAMEONLY,
+		TYPEONLY,
+		NAMEANDTYPE
+	}
+	
+	private static NameFormat nameFormat = NameFormat.NAMEANDTYPE;
+	
+	public void SetNameFormat(NameFormat nameFormat) {
+		Skeleton.nameFormat = nameFormat;
+	}
+	
 	//Visszaadja az objektumhoz tartozó változó nevet
 	public static String GetName(Object o) {
-		return o.getClass().getSimpleName() + " " + nameMap.get(o);
+		String name;
+		switch(nameFormat) {
+		case NAMEONLY:
+			name = nameMap.get(o);
+			break;
+		case TYPEONLY:
+			name = o.getClass().getSimpleName();
+			break;
+		case NAMEANDTYPE:
+			name = o.getClass().getSimpleName() + " " + nameMap.get(o);
+			break;
+		default:
+			name = o.getClass().getSimpleName() + " " + nameMap.get(o);
+		}
+		return name;
 	}
 	
 	//Map a GetName-nek
