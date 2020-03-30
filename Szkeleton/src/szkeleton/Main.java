@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main
 {
+	//Main: egyszerû szöveges menü a tesztesetekre
 	public static void main(String[] args)
 	{
 		String parancs;
@@ -18,64 +19,64 @@ public class Main
  		
  		try {
  	 		switch(parancs) {
- 	 		case "Dig":
+ 	 		case "1":
  	 		    skeleton.Dig();
  	 		    break;
- 	 		case "TakeItem":
+ 	 		case "2":
  	  		    skeleton.TakeItem();
  	  		    break;
- 	 		case "FlareGunSuccess":
+ 	 		case "3":
  	 		    skeleton.FlareGunSuccess();
  	 		    break;
- 	 		case "FlareGunFail":
+ 	 		case "4":
  	 		    skeleton.FlareGunFail();
  	 		    break;
- 	 		case "UseFood":
+ 	 		case "5":
  	 		    skeleton.UseFood();
  	 		    break;
- 	 		case "UseRopeFail":
+ 	 		case "6":
  	 		    skeleton.UseRopeFail();
  	 		    break;
- 	 		case "UseRopeSuccess":
+ 	 		case "7":
  	 		    skeleton.UseRopeSuccess();
  	 		    break;
- 	 		case "UseShovel":
+ 	 		case "8":
  	 		    skeleton.UseShovel();
  	 		    break;
- 	 		case "MoveWithSuit":
+ 	 		case "9":
  	 		    skeleton.MoveWithSuit();
  	 		    break;
- 	 		case "MoveWithoutSuit":
+ 	 		case "10":
  	 		    skeleton.MoveWithoutSuit();
  	 		    break;
- 	 		case "MoveOnStable":
+ 	 		case "11":
  	 		    skeleton.MoveOnStable();
  	 		    break;
- 	 		case "MoveToFinishRound":
+ 	 		case "12":
  	 		    skeleton.MoveToFinishRound();
  	 		    break;
- 	 		case "MoveToFinishTurn":
+ 	 		case "13":
  	 		    skeleton.MoveToFinishTurn();
  	 		    break;
- 	 		case "NextTurn":
+ 	 		case "14":
  	 		    skeleton.NextTurn();
  	 		    break;
- 	 		case "NextRound":
+ 	 		case "15":
  	 		    skeleton.NextRound();
  	 		    break;
- 	 		case "LethalStorm":
+ 	 		case "16":
  	 		    skeleton.LethalStorm();
  	 		    break;
- 	 		case "IglooStorm":
+ 	 		case "17":
  	 		    skeleton.IglooStorm();
  	 		    break;
- 	 		case "HitStorm":
+ 	 		case "18":
  	 		    skeleton.HitStorm();
  	 		    break;
- 	 		case "Igloo":
+ 	 		case "19":
  	 		    skeleton.Igloo();
  	 		    break;
- 	 		case "Reveal":
+ 	 		case "20":
  	 		    skeleton.Reveal();
  	 		    break;
  	 		case "ChangeObjectFormat":
@@ -106,29 +107,29 @@ public class Main
  	 			System.exit(0);
  	 		    break;
  	 		case "help":
- 	 			System.out.println("Az alabbi parancsokokkal lehet fuggvenyeket tesztelni:");
- 	 			System.out.println("Dig");
- 	 			System.out.println("TakeItem");
- 	 			System.out.println("FlareGunSuccess");
- 	 			System.out.println("FlareGunFail");
- 	 			System.out.println("UseFood");
- 	 			System.out.println("UseRopeFail");
- 	 			System.out.println("UseRopeSuccess");
- 	 			System.out.println("UseShovel");
- 	 			System.out.println("MoveWithSuit");
- 	 			System.out.println("MoveWithoutSuit");
- 	 			System.out.println("MoveOnStable");
- 	 			System.out.println("MoveToFinishRound");
- 	 			System.out.println("MoveToFinishTurn");
- 	 			System.out.println("NextTurn");
- 	 			System.out.println("NextRound");
- 	 			System.out.println("LethalStorm");
- 	 			System.out.println("IglooStorm");
- 	 			System.out.println("HitStorm");
- 	 			System.out.println("Igloo");
- 	 			System.out.println("Reveal");
+ 	 			System.out.println("Az alabbi parancsokokkal lehet fuggvenyeket tesztelni: (A számot kell kiadni parancsként)");
+ 	 			System.out.println("1: Dig");
+ 	 			System.out.println("2: TakeItem");
+ 	 			System.out.println("3: FlareGunSuccess");
+ 	 			System.out.println("4: FlareGunFail");
+ 	 			System.out.println("5: UseFood");
+ 	 			System.out.println("6: UseRopeFail");
+ 	 			System.out.println("7: UseRopeSuccess");
+ 	 			System.out.println("8: UseShovel");
+ 	 			System.out.println("9: MoveWithSuit");
+ 	 			System.out.println("10: MoveWithoutSuit");
+ 	 			System.out.println("11: MoveOnStable");
+ 	 			System.out.println("12: MoveToFinishRound");
+ 	 			System.out.println("13: MoveToFinishTurn");
+ 	 			System.out.println("14: NextTurn");
+ 	 			System.out.println("15: NextRound");
+ 	 			System.out.println("16: LethalStorm");
+ 	 			System.out.println("17: IglooStorm");
+ 	 			System.out.println("18: HitStorm");
+ 	 			System.out.println("19: Igloo");
+ 	 			System.out.println("20: Reveal");
  	 			System.out.println("A ChangeObjectFormat paranccsal lehet állítani a kiírt objektumok formátumát");
- 	 			System.out.println("Az Exit paranccsal pedig kilepni lehet");
+ 	 			System.out.println("Az Exit paranccsal pedig kilépni lehet");
  	 			break;
  	 		default:
  	 		    System.out.println("Hibas input");

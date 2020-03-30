@@ -42,6 +42,7 @@ public class Skeleton{
 	//Egy karakter kézzel ás.
 	public void Dig()
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p = new Researcher();
@@ -58,6 +59,7 @@ public class Skeleton{
 	//Egy karakter felvesz egy itemet.
 	public void TakeItem() //ne legyen hó
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: N N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p = new Researcher();
@@ -79,6 +81,7 @@ public class Skeleton{
 	//Use flare gun, everyone is here
 	public void FlareGunSuccess()
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: I I N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p = new Researcher();
@@ -115,6 +118,7 @@ public class Skeleton{
 	//Use flare gun, somebody is missing
 	public void FlareGunFail()
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: N vagy I N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p1 = new Researcher();
@@ -157,6 +161,7 @@ public class Skeleton{
 	//Egy karakter megesz egy adag élelmet.
 	public void UseFood()
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: N N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p = new Researcher();
@@ -215,6 +220,7 @@ public class Skeleton{
 	//Egy karakter sikeresen használja a kötelét.
 	public void UseRopeSuccess() //legyen a vízben
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: I N N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p1 = new Researcher();
@@ -258,6 +264,7 @@ public class Skeleton{
 	//Egy karakter ásásra használja az ásóját.
 	public void UseShovel()
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: I N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p = new Researcher();
@@ -279,6 +286,7 @@ public class Skeleton{
 	//Egy karakter rásétál egy mezõre, ahol biztonságosan a vízbe esik, és nem ér véget a köre.
 	public void MoveWithSuit() //instabil
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: I N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p = new Researcher();
@@ -312,6 +320,7 @@ public class Skeleton{
 	//Egy karakter rásétál egy mezõre, ahol a vízbe esik, és véget ér a köre.
 	public void MoveWithoutSuit() //instabil
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: I N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p = new Researcher();
@@ -338,6 +347,7 @@ public class Skeleton{
 	//Egy karakter rásétel egy másik mezõre.
 	public void MoveOnStable() //stabil
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: N N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p = new Researcher();
@@ -358,6 +368,7 @@ public class Skeleton{
 	//Egy karakter rásétel egy másik mezõre, és mivel ez volt az utolsó akciója, véget ér a köre, és mivel ez volt az utolsó akcióval bíró játékos, ezért véget ér a nagy kör is.
 	public void MoveToFinishRound() //remaining action 1-nek kéne hogy legyen, stabilitynek stabil
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: N I N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p = new Researcher();
@@ -384,6 +395,7 @@ public class Skeleton{
 	//Egy karakter rásétel egy másik mezõre, és mive ez volt az utolsó akciója, véget ér a köre.
 	public void MoveToFinishTurn() //remaining action 1-nek kéne hogy legyen, stabilitynek stabil
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: N I ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p1 = new Researcher();
@@ -434,6 +446,7 @@ public class Skeleton{
 	//Egy játékos kifogy az akcióiból, és mivel õ volt az utolsó játékos, a következõ kör kezdõdik
 	public void NextRound()
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p1 = new Researcher();
@@ -455,6 +468,7 @@ public class Skeleton{
 	//A vihar lecsap egy mezõre, ahol karakter tartózkodik, és a vihar megöli ezt a karaktert.
 	public void LethalStorm() //testho legyen 1, iglu nincs
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: N I ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p = new Researcher();
@@ -476,6 +490,7 @@ public class Skeleton{
 	//A vihar lecsap egy mezõre, ahol igloo van, ezért nem hûl ki senki.
 	public void IglooStorm() //testho mind1, iglu van
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: I ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p = new Researcher();
@@ -497,6 +512,7 @@ public class Skeleton{
 	//A vihar lecsap egy mezõre, ahol karakter tartózkodik, és a karakter kihûl.
 	public void HitStorm() //testho legyen 2+, iglu nincs
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: N N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Player p = new Researcher();
@@ -518,6 +534,7 @@ public class Skeleton{
 	//Egy eszkimó használja a képességét a saját mezõjén
 	public void Igloo()
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Eskimo p = new Eskimo();
@@ -534,6 +551,7 @@ public class Skeleton{
 	//Egy kutató használja a képességét egy szomszédos mezõn
 	public void Reveal()
 	{
+		System.out.println("Kérem a megfelelõ funcionalitás tesztelése érdekében a kérdésekre a következõ válaszokat adja: N ");
 		nameMap = new HashMap<Object, String>();
 		
 		Researcher p = new Researcher();
