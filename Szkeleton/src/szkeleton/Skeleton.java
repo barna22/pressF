@@ -363,7 +363,7 @@ public class Skeleton{
 		Player p1 = new Researcher();
 		nameMap.put(p1, "p1");
 		Player p2 = new Researcher();
-		nameMap.put(p1, "p2");
+		nameMap.put(p2, "p2");
 		
 		Game g = new Game();
 		nameMap.put(g, "g");

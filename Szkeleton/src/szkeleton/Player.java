@@ -66,6 +66,10 @@ public abstract class Player {
 		field.Remove(this);
 		field = newfield;
 		field.Accept(this);
+		boolean lastaction = MethodPrinter.AskQuestion("Ez volt a játékos utolsó akciója?");
+		if(lastaction) {
+			game.NextPlayer();
+		}
 		MethodPrinter.DecreaseIndentation();
 	}
 	
