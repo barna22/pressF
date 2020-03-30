@@ -9,6 +9,10 @@ public class Eskimo extends Player {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".UseAbility(d)");
 		MethodPrinter.IncreaseIndentation();
 		field.BuildIgloo();
+		boolean lastaction = MethodPrinter.AskQuestion("Ez volt a játékos utolsó akciója?");
+		if(lastaction) {
+			game.NextPlayer();
+		}
 		MethodPrinter.DecreaseIndentation();
 	}
 }

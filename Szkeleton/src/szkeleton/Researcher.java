@@ -11,6 +11,10 @@ public class Researcher extends Player {
 		MethodPrinter.IncreaseIndentation();
 		IceField researchedfield = field.GetNeighbour(d);
 		researchedfield.RevealCapacity();
+		boolean lastaction = MethodPrinter.AskQuestion("Ez volt a játékos utolsó akciója?");
+		if(lastaction) {
+			game.NextPlayer();
+		}
 		MethodPrinter.DecreaseIndentation();
 	}
 }
