@@ -156,6 +156,9 @@ public abstract class Player {
 		items.add(i);
 	}
 	
+	/**
+	 * Get függvény a field mezőhöz.
+	 */
 	public IceField GetField() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".GetField()");
 		return field;
@@ -169,6 +172,9 @@ public abstract class Player {
 		game = g;
 	}
 
+	/**
+	 * Beállítja a hasDivingGear attribútum értékét.
+	 */
 	public void SetHasDivingGear() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".SetHasDivingGear()");
 	}
