@@ -79,11 +79,13 @@ public abstract class Player {
 	public void UseItem(Item i) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".UseItem(" + Skeleton.GetName(i) + ")");
 		MethodPrinter.IncreaseIndentation();
-		i.Use(this);
-		boolean lastaction = MethodPrinter.AskQuestion("Ez volt a játékos utolsó akciója?");
+		if(i.Use(this)) {
+			boolean lastaction = MethodPrinter.AskQuestion("Ez volt a játékos utolsó akciója?");
 		if(lastaction) {
 			game.NextPlayer();
 		}
+		}
+		
 		MethodPrinter.DecreaseIndentation();
 	}
 	
@@ -93,10 +95,11 @@ public abstract class Player {
 	public void PickUpItem() {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".PickUpItem()");
 		MethodPrinter.IncreaseIndentation();
-		field.TakeItem(this);
-		boolean lastaction = MethodPrinter.AskQuestion("Ez volt a játékos utolsó akciója?");
-		if(lastaction) {
-			game.NextPlayer();
+		if(field.TakeItem(this)) {
+			boolean lastaction = MethodPrinter.AskQuestion("Ez volt a játékos utolsó akciója?");
+			if(lastaction) {
+				game.NextPlayer();
+			}
 		}
 		MethodPrinter.DecreaseIndentation();
 	}
