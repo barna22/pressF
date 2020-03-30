@@ -126,7 +126,8 @@ public class Main
  			System.out.println("HitStorm");
  			System.out.println("Igloo");
  			System.out.println("Reveal");
- 			System.out.println("Es az Exit paranccsal pedig kilepni lehet");
+ 			System.out.println("A ChangeObjectFormat paranccsal lehet állítani a kiírt objektumok formátumát");
+ 			System.out.println("Az Exit paranccsal pedig kilepni lehet");
  			break;
  		default:
  		    System.out.println("Hibas input");
