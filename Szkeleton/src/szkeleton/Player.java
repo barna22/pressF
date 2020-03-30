@@ -19,7 +19,9 @@ public abstract class Player {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".ChangeTemperature(" + dif + ")");
 		boolean isdead = MethodPrinter.AskQuestion("Meghalt a játékos?");
 		if(isdead) {
+			MethodPrinter.IncreaseIndentation();
 			game.Over(false);
+			MethodPrinter.DecreaseIndentation();
 		}
 	}
 	
