@@ -1,5 +1,6 @@
 package proto;
 
+
 public class IceBear extends Entity implements Steppable {
 
 	/**
@@ -15,7 +16,7 @@ public class IceBear extends Entity implements Steppable {
 	 * így nem történik semmi.
 	 */
 	@Override
-	public void FallInWater() {
+	public void FallInWater(IceField field) {
 		
 	}
 	

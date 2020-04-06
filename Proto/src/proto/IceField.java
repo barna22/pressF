@@ -14,34 +14,36 @@ import java.util.Map;
  * (A hóval fedett lyuk egy 0 kapacitású jégtábla.)
  */
 public class IceField {
-	//private int snowLevel;
-	//private int capacity;
-	//private boolean hasIgloo;
-	//private boolean capacityRevealed
+	private int snowLevel;
+	private int capacity;
+	private boolean hasIgloo = false;
+	private Tent tent;
+	private boolean capacityRevealed = false;
 	private Item item;
-	private List<Player> players = new ArrayList<Player>();
+	private List<Entity> entities = new ArrayList<Entity>();
+	private List<Player> playersInWater = new ArrayList<Player>();
+	
 	private Map<Direction, IceField> neighbours = new HashMap<Direction, IceField>();
+	
+	public IceField(int capacity, int snowLevel) {
+		this.capacity = capacity;
+		this.snowLevel = snowLevel;
+	}
 	
 	/**
 	 * Felborul a jégtábla, így minden rajta álló játékos vízbe esik.
 	 */
-	private void Capsize() {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".Capsize()");
-		MethodPrinter.IncreaseIndentation();
+	/*private void Capsize() {
+
+		for (Entity entity : entities)
+			entity.FallInWater(this);
 		
-		for (Player player : players)
-			player.FallInWater();
-			//Hiányzó metódus a playerbõl.
-		
-		MethodPrinter.DecreaseIndentation();
-	}
+	}*/
 	
 	/**
 	 * Visszaadja a szomszédos jégtáblát a megadott irányba.
 	 */
 	public IceField GetNeighbour(Direction d) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".GetNeighbour(d)");
-		
 		return neighbours.get(d);
 	}
 	
@@ -49,73 +51,83 @@ public class IceField {
 	 * Csökkenti a hóréteg vastagságát a megadott értékkel.
 	 */
 	public void RemoveSnow(int a) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".RemoveSnow(" + a + ")");
+		//boolean visszatérési érték jelezni, hogy sikerült-e?
+		if (snowLevel - a < 0)
+			snowLevel = 0;
+		else
+			snowLevel -= a;
 	}
 	
 	/**
-	 * Növeli a hóréteget és csökkenti a rajtalevõ játékosok testhõjét,
-	 * ha nincs a jégtáblán iglu.
+	 * Növeli a hóréteget és meghívja az entitások
+	 * CaughtByStorm metódusát, ha nincs a jégtáblán iglu vagy sátor.
 	 */
 	public void Storm() {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".Storm()");
-		MethodPrinter.IncreaseIndentation();
+		snowLevel++;
 		
-		if(!MethodPrinter.AskQuestion("Van a mezõn iglu?"))
-			for(Player player : players)
-				player.ChangeTemperature(-1);
+		if(!hasIgloo && tent == null)
+			for(Entity entity : entities)
+				entity.CaughtByStorm();
 		
-		MethodPrinter.DecreaseIndentation();
 	}
 	
 	/**
 	 * Iglut épít a jégtáblára.
 	 */
 	public void BuildIgloo() {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".BuildIgloo()");
+		//boolean visszatérési érték jelezni, hogy sikerült-e?
+		hasIgloo = true;
 	}
 	
 	/**
 	 * Felveszi a játékost a rajta álló játékosok közé.
 	 * Felborul ha, túl sokan állnak így már rajta.
 	 */
-	public void Accept(Entity entity) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".Accept(" + Skeleton.GetName(entity) + ")");
-		MethodPrinter.IncreaseIndentation();
+	public void Accept(Entity incomingEntity) {
+		if (entities.size() >= capacity){
+			//Capsize();
+			hasIgloo = false;
+			tent = null;
+			for (Entity entity : entities)
+				entity.FallInWater(this);
+			incomingEntity.FallInWater(this);
+		}
+		if (!hasIgloo)
+			for (Entity entity : entities)
+				entity.Meet(incomingEntity);
 		
-		players.add(entity);
-		if(MethodPrinter.AskQuestion("Túl sokan állnak a jégtáblán?"))
-			Capsize();
-		
-		MethodPrinter.DecreaseIndentation();
+		entities.add(incomingEntity);
 	}
 	
 	/**
-	 * Végighívja a GetSaved(Icefield f)-et a rajta álló játékosokon.
+	 * Végighívja a GetSaved(Icefield f)-et a vízben lévõ játékosokon.
 	 * True-val tér vissza, ha legalább 1 játékos ki lett mentve.
 	 */
 	public boolean Save(IceField f) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".Save(" + Skeleton.GetName(f) + ")");
-		MethodPrinter.IncreaseIndentation();
-		
 		boolean success = false;
-		for (int i = 0; i < players.size(); i++) {
-			if(players.get(i).GetSaved(f)) {
+		for (int i = 0; i < playersInWater.size(); i++) {
+			if(playersInWater.get(i).GetSaved(f)) {
 				success = true;
 				i--;
 			}
 		}
-		MethodPrinter.DecreaseIndentation();
-		
 		return success;
 	}
 	
 	/**
-	 * Kiveszi a játékost a rajta állók listájából.
+	 * Kiveszi a playert a vízben lévõk, és az entitások listájából.
+	 */
+	public void Remove(Player player) {
+		if (playersInWater.contains(player))
+			playersInWater.remove(player);
+		entities.remove(player);
+	}
+	
+	/**
+	 * Kiveszi az entitást a rajta tartózkodók listájából.
 	 */
 	public void Remove(Entity entity) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".Remove(" + Skeleton.GetName(entity) + ")");
-		
-		players.remove(entity);
+		entities.remove(entity);
 	}
 	
 	/**
@@ -123,17 +135,12 @@ public class IceField {
 	 * True-val tér vissza, ha sikerült.
 	 */
 	public boolean TakeItem(Player p) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".TakeItem(" + Skeleton.GetName(p) + ")");
-		MethodPrinter.IncreaseIndentation();
-		
-		if(MethodPrinter.AskQuestion("Van hó a mezõn?"))
+		if(snowLevel > 0)
 			return false;
 		
 		boolean success = item.Equip(p);
 		if(success)
 			item = null;
-		
-		MethodPrinter.DecreaseIndentation();
 		
 		return success;
 	}
@@ -142,8 +149,6 @@ public class IceField {
 	 * Beállítja kapott irányba levõ szomszédnak a kapott IceFieldet.
 	 */
 	public void AddNeighbour(Direction d, IceField f) {
-		//MethodPrinter.Println(Skeleton.GetName(this) + ".AddNeighbour(d, " + Skeleton.GetName(f) + ")");
-		
 		neighbours.put(d, f);
 	}
 	
@@ -152,27 +157,19 @@ public class IceField {
 	 * Innentõl kezdve végig látszik.
 	 */
 	public void RevealCapacity() {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".RevealCapacity()");
+		capacityRevealed = true;
 	}
 	
 	/**
-	 * Visszaadja a fielden lévõ játékosok számát.
+	 * Visszaadja a fielden lévõ entitások számát.
 	 */
-	public int GetNumberOfPlayers() {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".GetNumberOfPlayers()");
-		return players.size();
+	public int GetNumberOfEntities() {
+		return entities.size();
 	}
 	
 	public void SetItem(Item item) {
-		//MethodPrinter.Println(Skeleton.GetName(this) + ".SetItem("  + Skeleton.GetName(item) + ")");
 		this.item = item;
 	}
 	
-	/**
-	 * Csak a skeletonba kell inicializáláshoz, végleges programban nem lesz.
-	 */
-	public void AddPlayerForInit(Player player) {
-		this.players.add(player);
-		player.SetField(this);
-	}
+	
 }

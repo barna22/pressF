@@ -39,7 +39,7 @@ public abstract class Player extends Entity {
 		}
 		f.Accept(this);
 		game.PlayerSaved();
-		field.Remove(this);
+		field.Remove(this); //úgy írtam a field Remove-ját, hogy itt ne kelljen még külön a vízben lévők közül is kiszedni
 		field = f;
 		MethodPrinter.DecreaseIndentation();
 		return true;
@@ -144,7 +144,7 @@ public abstract class Player extends Entity {
 	 * A játékos beleesik a vízbe.
 	 * Ezt a játéknak is jelzi a játékos.
 	 */
-	public void FallInWater() {
+	public void FallInWater(IceField field) {
 		MethodPrinter.Println(Skeleton.GetName(this) + ".FallInWater()");
 		MethodPrinter.IncreaseIndentation();
 		game.PlayerFellInWater();

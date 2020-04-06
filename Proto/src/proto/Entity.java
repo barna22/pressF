@@ -15,8 +15,9 @@ public abstract class Entity {
 	
 	/**
 	 * Az entitás vízbe esik.
+	 * @param field TODO
 	 */
-	public abstract void FallInWater();
+	public abstract void FallInWater(IceField field);
 	
 	
 	/**
@@ -33,17 +34,13 @@ public abstract class Entity {
 	 * Ha kimenne a pályáról, a program jelzi, hogy ezt nem teheti.
 	 */
 	public void Move(Direction d) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".UseAbility(d)");
-		MethodPrinter.IncreaseIndentation();
 		IceField newfield = field.GetNeighbour(d);
 		if(newfield == null) {
-			System.out.println("Nem lehet kimenni a pályáról!");
+			//System.out.println("Nem lehet kimenni a pályáról!");
 			return;
 		}
 		field.Remove(this);
 		field = newfield;
 		field.Accept(this);
-
-		MethodPrinter.DecreaseIndentation();
 	}
 }
