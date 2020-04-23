@@ -4,7 +4,7 @@ package proto;
 public class IceBear extends Entity implements Steppable {
 
 	/**
-	 *Vihar esetén a medvével nem történik semmi.
+	 *Vihar esetÃ©n a medvÃ©vel nem tÃ¶rtÃ©nik semmi.
 	 */
 	@Override
 	public void CaughtByStorm() {
@@ -12,8 +12,8 @@ public class IceBear extends Entity implements Steppable {
 	}
 
 	/**
-	 * A medve vízbe esik, ez azonban nem akadályozza a mozgásban,
-	 * így nem történik semmi.
+	 * A medve vÃ­zbe esik, ez azonban nem akadÃ¡lyozza a mozgÃ¡sban,
+	 * Ã­gy nem tÃ¶rtÃ©nik semmi.
 	 */
 	@Override
 	public void FallInWater(IceField field) {
@@ -21,17 +21,18 @@ public class IceBear extends Entity implements Steppable {
 	}
 	
 	/**
-	 * A medve megöli a játékost akivel találkozik.
+	 * A medve megÃ¶li a jÃ¡tÃ©kost akivel talÃ¡lkozik.
 	 */
 	public void Meet(Player player) {
-		Player.Die();
+		player.Die();
 	}
 
 	/**
-	 * A medve véletlenszerû irányba lép egyet.
+	 * A medve vÃ©letlenszerÃ» irÃ¡nyba lÃ©p egyet.
 	 */
 	@Override
 	public void Step() {
+		//ellenÅ‘rizni kell hogy lÃ©phet-e oda
 		
 	}
 

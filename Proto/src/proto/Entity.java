@@ -24,7 +24,7 @@ public abstract class Entity {
 	 * Az entitás másik entitással találkozik.
 	 */
 	public void Meet(Entity entity) {
-
+			
 	}
 	
 	

@@ -15,4 +15,8 @@ public class Eskimo extends Player {
 		}
 		MethodPrinter.DecreaseIndentation();
 	}
+	
+	public void CaughtByStorm() {
+		
+	}
 }
