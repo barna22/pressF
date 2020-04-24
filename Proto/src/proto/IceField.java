@@ -29,7 +29,6 @@ public class IceField {
 		this.capacity = capacity;
 		this.snowLevel = snowLevel;
 	}
-	
 	/**
 	 * Felborul a jégtábla, így minden rajta álló játékos vízbe esik.
 	 */
@@ -170,6 +169,17 @@ public class IceField {
 	public void SetItem(Item item) {
 		this.item = item;
 	}
-	
+	public Item GetItem() {
+		return item;
+	}
+	public int GetCapacity() {
+		return capacity;
+	}
+	public void SetCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+	public void SetSnowLevel(int snowLevel) {
+		this.snowLevel = snowLevel;
+	}
 	
 }
