@@ -137,10 +137,6 @@ public abstract class Player extends Entity {
 		return field;
 	}
 	
-	public void SetField(IceField f) {
-		field = f;
-	}
-	
 	public void SetGame(Game g) {
 		game = g;
 	}

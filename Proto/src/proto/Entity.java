@@ -43,4 +43,7 @@ public abstract class Entity {
 		field = newfield;
 		field.Accept(this);
 	}
+	public void SetField(IceField f) {
+		field = f;
+	}
 }
