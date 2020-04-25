@@ -8,7 +8,7 @@ public class Main
 	public static void main(String[] args)
 	{
 		String parancs;
-		Skeleton skeleton = new Skeleton();
+		ConsoleApp skeleton = new ConsoleApp();
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("A help paranccsal tudok megtekinteni a teszparancsok listajat!"); 
@@ -86,13 +86,13 @@ public class Main
  	 			System.out.println("\nAdd meg a kívánt formátum számát: ");
  	 			switch (sc.nextLine()) {
  	 			case "1":
- 	 				skeleton.SetNameFormat(Skeleton.NameFormat.NAMEANDTYPE);
+ 	 				skeleton.SetNameFormat(ConsoleApp.NameFormat.NAMEANDTYPE);
  	 				break;
  	 			case "2":
- 	 				skeleton.SetNameFormat(Skeleton.NameFormat.TYPEONLY);
+ 	 				skeleton.SetNameFormat(ConsoleApp.NameFormat.TYPEONLY);
  	 				break;
  	 			case "3":
- 	 				skeleton.SetNameFormat(Skeleton.NameFormat.NAMEONLY);
+ 	 				skeleton.SetNameFormat(ConsoleApp.NameFormat.NAMEONLY);
  	 				break;
  	 			default:
  	 				System.out.println("Hibás bemenet");

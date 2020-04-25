@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 
 public abstract class Player extends Entity {
-	private int temperature;
-	private boolean isInWater;
-	private int remainingActions;
-	private boolean hasDivingGear;
+	protected int temperature;
+	protected boolean isInWater;
+	protected int remainingActions;
+	protected boolean hasDivingGear;
 	protected ArrayList<Item> items = new ArrayList<Item>();
 	protected Game game;
 	
@@ -19,6 +19,10 @@ public abstract class Player extends Entity {
 		if(temperature <= 0) {
 			game.Over(false);
 		}
+	}
+	
+	public void CaughtByStorm() {
+		
 	}
 	
 	public void Die() {
@@ -145,6 +149,6 @@ public abstract class Player extends Entity {
 	 * Beállítja a hasDivingGear attribútum értékét.
 	 */
 	public void SetHasDivingGear() {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".SetHasDivingGear()");
+		MethodPrinter.Println(ConsoleApp.GetName(this) + ".SetHasDivingGear()");
 	}
 }

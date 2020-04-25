@@ -10,7 +10,7 @@ public class DivingGear extends Item {
 	 * True-val tér vissza.
 	 */
 	public boolean IsTheSame(DivingGear d) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(" + Skeleton.GetName(d) + ")");
+		MethodPrinter.Println(ConsoleApp.GetName(this) + ".IsTheSame(" + ConsoleApp.GetName(d) + ")");
 		return true;
 	}
 	
@@ -19,7 +19,7 @@ public class DivingGear extends Item {
 	 * játékoson a hasDivingGear-t.
 	 */
 	public boolean Equip(Player p) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".Equip(" + Skeleton.GetName(p) + ")");
+		MethodPrinter.Println(ConsoleApp.GetName(this) + ".Equip(" + ConsoleApp.GetName(p) + ")");
 		boolean result;
 		MethodPrinter.IncreaseIndentation();
 		result =  p.AddItem(this);

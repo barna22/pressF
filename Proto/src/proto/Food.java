@@ -10,7 +10,7 @@ public class Food extends Item {
 	 * A játékos testhõjét növeli. True-val tér vissza
 	 */
 	public boolean Use(Player p) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".Use(" + Skeleton.GetName(p) + ")");
+		MethodPrinter.Println(ConsoleApp.GetName(this) + ".Use(" + ConsoleApp.GetName(p) + ")");
 		MethodPrinter.IncreaseIndentation();
 		p.ChangeTemperature(1);
 		MethodPrinter.DecreaseIndentation();
@@ -21,7 +21,7 @@ public class Food extends Item {
 	 * True-val tér vissza.
 	 */
 	public boolean IsTheSame(Food f) {
-		MethodPrinter.Println(Skeleton.GetName(this) + ".IsTheSame(" + Skeleton.GetName(f) + ")");
+		MethodPrinter.Println(ConsoleApp.GetName(this) + ".IsTheSame(" + ConsoleApp.GetName(f) + ")");
 		return true;
 	}
 }
