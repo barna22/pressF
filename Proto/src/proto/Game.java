@@ -1,6 +1,8 @@
 package proto;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Collections; 
 
 /**
  * Inicializálja a játék elemeit és nyilvántartja a játék állapotát.
@@ -12,14 +14,14 @@ public class Game {
 	private ArrayList<Steppable> steppables;// a sátrak és medvék
 	private ArrayList<Player> players;// a játékosok
 	private Player activePlayer;// a soron levõ játékos
-	private String state = "running";//running, win, lose
+	private String state = "running";//uninitialized, running, ended
 	private int playersInWater = 0, gunPartsFound = 0;// a vízben levõ játékosok és megtalált jelzõpisztoly alkatrészek száma
 
 	Game(){
 		fields = new ArrayList<IceField>();
 		steppables = new ArrayList<Steppable>();
 		players = new ArrayList<Player>();
-		
+		state = "uninitialized";
 	}
 	/**
 	 * Vihart indít minden jégtáblán
@@ -31,7 +33,7 @@ public class Game {
 	}
 	 /**
 	  * Inicializálja a játékot. A pálya elrendezése majdnem teljesen véletlenszerû.
-	  * (pl. biztosan lesz olyan jégmezõ, amire egyszerre rá tud állni mindenki anélkül, hogy felborulna.)
+	  * Minden entitás külön mezõn kezd
 	 * @param row sorok száma
 	 * @param col oszlopok száma
 	 * @param e eszkimók száma
@@ -40,14 +42,68 @@ public class Game {
 	 */
 	public void init(int row, int col, int e, int r, int ib) {
 		CreateFields(row, col, e+r);
-	    // TODO játékosok és medvék inicializálása
-		
-	 }
+		for(int i = 0; i < e; i++) 
+			InitPlayer(new Eskimo());
+		for(int i = 0; i < r; i++) 
+			InitPlayer(new Researcher());
+		PutBearsOnFields(ib);
+		Collections.shuffle(players);
+		start();
+	}
+	/**
+	 * Beállítja a kezdõjátékost és a state-et
+	 * (akkor kell kívülrõl hívni, ha az init helyett manuálisan lettek beállítva a mezõk és entitások)
+	 */
+	public void start() {
+		activePlayer = players.get(0);
+		state = "running";
+	}
+	/**
+	 * Felteszi a játékost egy véletlenszerû mezõre, ami még így nem borul fel tõle és
+	 * hozzáadja a játékost a játékosok listájához
+	 * @param newPlayer Az elhelyezendõ játékos
+	 */
+	private void InitPlayer(Player player) {
+		Random random = new Random();
+		IceField startingField;
+		do {//megfelelõ kezdõ mezõ sorsolás
+			startingField = fields.get(random.nextInt(fields.size()));
+		}while(startingField.GetNumberOfEntities() >= startingField.GetCapacity());//már nem fér a mezõre
 
+		player.SetField(startingField);
+		startingField.Accept(player);//lehet, hogy gondot okoz, hogy az Accept-el adja hozá, de elvileg nem kéne
+		players.add(player);
+	}
+	/**
+	 * Elhelyez a mezõkön ib darab jegesmedvét úgy, hogy ott még ne álljon olyan entitás, amit nem
+	 * ez a függvény tesz föl.
+	 * @param ib Az elhelyezendõ medvék száma
+	 */
+	private void PutBearsOnFields(int ib) {
+		Random random = new Random();
+		ArrayList<IceField> chosenFields = new ArrayList<IceField>();
+		//kisorsol ib db IceField-et, ahova majd rak 1-1 medvét. Egy IceField szerepelhet többször is.
+		for(int i = 0; i < ib; i++) {
+			IceField newField;
+			do {
+				newField = fields.get(random.nextInt(fields.size()));
+			}while(newField.GetNumberOfEntities() != 0);//van már valaki itt
+			chosenFields.add(newField);
+
+			
+		}
+		//A kisorsolt mezõkre tesz egy-egy medvét.
+		for(IceField field : chosenFields) {
+			IceBear newIceBear = new IceBear();
+			newIceBear.SetField(field);
+			field.Accept(newIceBear);//lehet, hogy gondot okoz, hogy az Accept-el adja hozá, de elvileg nem kéne
+			steppables.add(newIceBear);
+		}
+	}
 	/**
 	 * row*col méretû négyzetrácsnak megfelelõen készít jégtáblákat
 	 * kisorsolja a kapacitást, hóréteget és a befagyott tárgyakat az alábbiakat garantálva:
-	 * -min 3 jégtábla van, amire rá tudnak állni egyszerre a játékosok
+	 * -min 3 jégtábla van, amire rá tudnak állni egyszerre a játékosok anélkül, hogy felborulna
 	 * -3db nem 0 kapacitásó jégtáblába lesznek fagyva a jelzõpisztoly alkatrészei
 	 * @param row sorok száma
 	 * @param col oszlopok száma
@@ -246,8 +302,17 @@ public class Game {
 	 * @return Az aktív játékost adja vissza.
 	 */
 	public Player GetActivePlayer() {
-		if(activePlayer == null)
-			activePlayer = players.get(0);
 		return activePlayer;
+	}
+	/**
+	 * Kiírja az adatait a standard kimenetre
+	 */
+	public void PrintInfo() {
+		PrintWriter pw = new PrintWriter(System.out);
+		pw.println("State: " + state);
+		pw.println("Playersinwater: " + playersInWater);
+		pw.println("Gunpartsfound: " + gunPartsFound);
+		pw.println("ActivePlayer: player" + (players.indexOf(activePlayer)+1) );//nem biztos hogy így jó
+		pw.close();
 	}
 }
