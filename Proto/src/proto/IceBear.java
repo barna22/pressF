@@ -9,7 +9,6 @@ public class IceBear extends Entity implements Steppable {
 	 */
 	@Override
 	public void CaughtByStorm() {
-		
 	}
 
 	/**
@@ -34,9 +33,15 @@ public class IceBear extends Entity implements Steppable {
 	@Override
 	public boolean Step() {
 		Random random = new Random();
-		int dir = random.nextInt(4);
+		int dir = random.nextInt(field.GetNumberOfNeighbours());
+		while(field.GetNeighbour(dir) == null) {
+			dir = random.nextInt(field.GetNumberOfNeighbours());
+		}
 		Move(dir);
 		return true;
 	}
 
+	public void PrintInfo() {
+		System.out.println(ConsoleApp.GetName(field));
+	}
 }

@@ -181,5 +181,7 @@ public class IceField {
 	public void SetSnowLevel(int snowLevel) {
 		this.snowLevel = snowLevel;
 	}
-	
+	public int GetNumberOfNeighbours() {
+		return neighbours.size();
+	}
 }

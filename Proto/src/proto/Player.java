@@ -51,13 +51,13 @@ public abstract class Player extends Entity {
 	/**
 	 * Absztrakt metódus a képesség használatára.
 	 */
-	public abstract void UseAbility(Direction d);
+	public abstract void UseAbility(int d);
 	
 	/**
 	 * A játékos átlép egy másik mezőre.
 	 * Ha kimenne a pályáról, a program jelzi, hogy ezt nem teheti.
 	 */
-	public void Move(Direction d) {
+	public void Move(int d) {
 		IceField newfield = field.GetNeighbour(d);
 		if(newfield == null) {
 			System.out.println("Can't go outside the map!");
@@ -115,6 +115,17 @@ public abstract class Player extends Entity {
 		return true;
 	}
 	
+	private void PlayerInfo() {
+		System.out.println("Field: " + ConsoleApp.GetName(field));
+		System.out.println("Temperature : " + temperature);
+		System.out.println("Isinwater: " + isInWater);
+		System.out.println("Remainingactions: " + remainingActions);
+		System.out.println("Hasdivingear: " + hasDivingGear);
+		for(Item i : items) {
+			System.out.println("Item" + items.indexOf(i) + ": " + ConsoleApp.GetName(i));
+		}
+	}
+	
 	/**
 	 * Beállítja a játékos hátralevő akcióinak számát.
 	 */
@@ -141,6 +152,22 @@ public abstract class Player extends Entity {
 		return field;
 	}
 	
+	public int GetTemp() {
+		return temperature;
+	}
+	
+	public boolean GetIsInWater() {
+		return isInWater;
+	}
+	
+	public int GetRemaningActions() {
+		return remainingActions;
+	}
+	
+	public boolean GetHasDivingGear() {
+		return hasDivingGear;
+	}
+	
 	public void SetGame(Game g) {
 		game = g;
 	}
@@ -150,5 +177,11 @@ public abstract class Player extends Entity {
 	 */
 	public void SetHasDivingGear() {
 		MethodPrinter.Println(ConsoleApp.GetName(this) + ".SetHasDivingGear()");
+	}
+
+	public void DisplayItems() {
+		for(Item i : items) {
+			System.out.println("Item" + items.indexOf(i) + ": " + ConsoleApp.GetName(i));
+		}
 	}
 }
