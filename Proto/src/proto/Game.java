@@ -5,8 +5,11 @@ import java.util.Random;
 import java.util.Collections; 
 
 /**
- * Inicializálja a játék elemeit és nyilvántartja a játék állapotát.
- *
+ * Inicializálja a játékot. Nyilvántartja a játék állapotát. 
+ * Számon tartja, hogy hányan vannak vízbe esve és hány alkatrésze van kiásva a jelzõpisztolynak. 
+ * A játék véget ér, ha a kör végén valaki vízbe van esve. Minden kör végén lépteti a Steppable
+ * interfészt megvalósító objektumokat és vihart indít a jégtáblákon.
+ * 
  */
 public class Game {
 
@@ -117,13 +120,17 @@ public class Game {
 				IceField neighbour, newField = new IceField(-1, random.nextInt(4));
 				if(i>0) {//felsõ szomszéd
 					neighbour = fields.get((i-1)*col + j);
-					newField.AddNeighbour(Direction.UP, neighbour);
-					neighbour.AddNeighbour(Direction.DOWN, newField);
+					//newField.AddNeighbour(Direction.UP, neighbour);
+					//neighbour.AddNeighbour(Direction.DOWN, newField);
+					newField.AddNeighbour(1, neighbour);
+					neighbour.AddNeighbour(3, newField);
 				}
 				if(j>0) {//bal oldali szomszéd
 					neighbour = fields.get(i*col + j-1);
-					newField.AddNeighbour(Direction.LEFT, neighbour);
-					neighbour.AddNeighbour(Direction.RIGHT, newField);
+					//newField.AddNeighbour(Direction.LEFT, neighbour);
+					//neighbour.AddNeighbour(Direction.RIGHT, newField);
+					newField.AddNeighbour(0, neighbour);
+					neighbour.AddNeighbour(2, newField);
 				}
 				fields.add(newField);
 			}
