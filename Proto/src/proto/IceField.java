@@ -23,7 +23,7 @@ public class IceField {
 	private List<Entity> entities = new ArrayList<Entity>();
 	private List<Player> playersInWater = new ArrayList<Player>();
 	
-	private Map<Direction, IceField> neighbours = new HashMap<Direction, IceField>();
+	private Map<Integer, IceField> neighbours = new HashMap<Integer, IceField>();
 	
 	public IceField(int capacity, int snowLevel) {
 		this.capacity = capacity;
@@ -42,7 +42,7 @@ public class IceField {
 	/**
 	 * Visszaadja a szomszédos jégtáblát a megadott irányba.
 	 */
-	public IceField GetNeighbour(Direction d) {
+	public IceField GetNeighbour(int d) {
 		return neighbours.get(d);
 	}
 	
@@ -147,7 +147,7 @@ public class IceField {
 	/**
 	 * Beállítja kapott irányba levõ szomszédnak a kapott IceFieldet.
 	 */
-	public void AddNeighbour(Direction d, IceField f) {
+	public void AddNeighbour(int d, IceField f) {
 		neighbours.put(d, f);
 	}
 	

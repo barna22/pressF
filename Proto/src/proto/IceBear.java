@@ -1,5 +1,6 @@
 package proto;
 
+import java.util.Random;
 
 public class IceBear extends Entity implements Steppable {
 
@@ -31,9 +32,11 @@ public class IceBear extends Entity implements Steppable {
 	 * A medve véletlenszerû irányba lép egyet.
 	 */
 	@Override
-	public void Step() {
-		//ellenőrizni kell hogy léphet-e oda
-		
+	public boolean Step() {
+		Random random = new Random();
+		int dir = random.nextInt(4);
+		Move(dir);
+		return true;
 	}
 
 }

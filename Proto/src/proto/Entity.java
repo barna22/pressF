@@ -24,7 +24,7 @@ public abstract class Entity {
 	 * Az entitás másik entitással találkozik.
 	 */
 	public void Meet(Entity entity) {
-			
+			entity.Meet(this);
 	}
 	
 	
@@ -33,10 +33,10 @@ public abstract class Entity {
 	 * Az entitás átlép egy másik mezõre.
 	 * Ha kimenne a pályáról, a program jelzi, hogy ezt nem teheti.
 	 */
-	public void Move(Direction d) {
+	public void Move(int d) {
 		IceField newfield = field.GetNeighbour(d);
 		if(newfield == null) {
-			//System.out.println("Nem lehet kimenni a pályáról!");
+			System.out.println("Can't go outside the map");
 			return;
 		}
 		field.Remove(this);
