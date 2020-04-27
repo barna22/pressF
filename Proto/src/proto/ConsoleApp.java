@@ -69,6 +69,7 @@ public class ConsoleApp{
 		put(entity, name);
 		IceField fi = (IceField)GetObject(field);
 		fi.Accept(entity);
+		entity.SetField(fi);
 	}
 
 	public void CreateItem(String name, String type, String field) {

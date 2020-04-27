@@ -327,7 +327,7 @@ public class Game {
 		pw.println("State: " + state);
 		pw.println("Playersinwater: " + playersInWater);
 		pw.println("Gunpartsfound: " + gunPartsFound);
-		pw.println("ActivePlayer: " + ConsoleApp.GetName(activePlayer) );
+		pw.println("ActivePlayer: " + activePlayer==null ? "-" : ConsoleApp.GetName(activePlayer) );
 		pw.close();
 	}
 }
