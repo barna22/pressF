@@ -1,37 +1,34 @@
 package proto;
 
 /**
- * Jégtáblák közötti mozgásra képes entitás
+ * Jï¿½gtï¿½blï¿½k kï¿½zï¿½tti mozgï¿½sra kï¿½pes entitï¿½s
  */
 public abstract class Entity implements Printable{
-	
+
 	protected IceField field;
 
 	/**
-	 * Az entitást vihar éri.
+	 * Az entitï¿½st vihar ï¿½ri.
 	 */
 	public abstract void CaughtByStorm();
-	
-	
+
+
 	/**
-	 * Az entitás vízbe esik.
+	 * Az entitï¿½s vï¿½zbe esik.
 	 * @param field TODO
 	 */
 	public abstract void FallInWater(IceField field);
-	
-	
-	/**
-	 * Az entitás másik entitással találkozik.
-	 */
-	public void Meet(Entity entity) {
-			//entity.Meet(this);
-	}
-	
-	
+
 
 	/**
-	 * Az entitás átlép egy másik mezõre.
-	 * Ha kimenne a pályáról, a program jelzi, hogy ezt nem teheti.
+	 * Az entitï¿½s mï¿½sik entitï¿½ssal talï¿½lkozik.
+	 */
+	public void Meet(Entity other) {
+	}
+
+	/**
+	 * Az entitï¿½s ï¿½tlï¿½p egy mï¿½sik mezï¿½re.
+	 * Ha kimenne a pï¿½lyï¿½rï¿½l, a program jelzi, hogy ezt nem teheti.
 	 */
 	public void Move(int d) {
 		IceField newfield = field.GetNeighbour(d);

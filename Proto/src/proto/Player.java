@@ -60,6 +60,11 @@ public abstract class Player extends Entity {
 	 * A játékos átlép egy másik mezőre.
 	 * Ha kimenne a pályáról, a program jelzi, hogy ezt nem teheti.
 	 */
+	
+	public void Meet(IceBear bear) {
+		Die();
+	}
+	
 	public void Move(int d) {
 		IceField newfield = field.GetNeighbour(d);
 		if(newfield == null) {
