@@ -8,7 +8,6 @@ public class Tent extends Item implements Steppable {
 	 */
 	public boolean Use(Player p) {
 		field = p.GetField();
-		//SetTent függvény hiányzik vagy megváltozott a mûködés?
 		field.SetTent(this);
 		return true;
 	}
@@ -25,7 +24,6 @@ public class Tent extends Item implements Steppable {
 	 */
 	@Override
 	public void Step() {
-		//RemoveTent függvény hiányzik vagy megváltozott a mûködés?
 		field.RemoveTent();
 		field = null;
 	}
