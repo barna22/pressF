@@ -17,14 +17,14 @@ public class Game {
 	private ArrayList<Steppable> steppables;// a sátrak és medvék
 	private ArrayList<Player> players;// a játékosok
 	private Player activePlayer;// a soron levõ játékos
-	private String state = "running";//uninitialized, running, ended
+	private String state = "running";//running, ended
 	private int playersInWater = 0, gunPartsFound = 0;// a vízben levõ játékosok és megtalált jelzõpisztoly alkatrészek száma
 
 	Game(){
 		fields = new ArrayList<IceField>();
 		steppables = new ArrayList<Steppable>();
 		players = new ArrayList<Player>();
-		state = "uninitialized";
+		state = "running";
 	}
 	/**
 	 * Vihart indít minden jégtáblán
@@ -51,16 +51,8 @@ public class Game {
 			InitPlayer(new Researcher());
 		PutBearsOnFields(ib);
 		Collections.shuffle(players);
-		start();
 	}
-	/**
-	 * Beállítja a kezdõjátékost és a state-et
-	 * (akkor kell kívülrõl hívni, ha az init helyett manuálisan lettek beállítva a mezõk és entitások)
-	 */
-	public void start() {
-		activePlayer = players.get(0);
-		state = "running";
-	}
+	
 	/**
 	 * Felteszi a játékost egy véletlenszerû mezõre, ami még így nem borul fel tõle és
 	 * hozzáadja a játékost a játékosok listájához
@@ -298,6 +290,13 @@ public class Game {
 		p.SetGame(this);
 	}
 	/**
+	 * Hozzáad egy jégtáblát a jégtáblák listájához.
+	 * @param field A hozzáadandó jégtábla.
+	 */
+	public void AddField(IceField field) {
+		fields.add(field);
+	}
+	/**
 	 * Beállítja az aktív játékost.
 	 * @param p: A játékos, akit beállít.
 	 */
@@ -309,7 +308,16 @@ public class Game {
 	 * @return Az aktív játékost adja vissza.
 	 */
 	public Player GetActivePlayer() {
+		if(activePlayer == null)
+			activePlayer = players.get(0);
 		return activePlayer;
+	}
+	/**
+	 * Hozzáad egy jegesmedvét a steppable listához.
+	 * @param ib A hozzáadandó jegesmedve.
+	 */
+	public void AddBear(IceBear ib) {
+		steppables.add(ib);
 	}
 	/**
 	 * Kiírja az adatait a standard kimenetre
@@ -319,7 +327,7 @@ public class Game {
 		pw.println("State: " + state);
 		pw.println("Playersinwater: " + playersInWater);
 		pw.println("Gunpartsfound: " + gunPartsFound);
-		pw.println("ActivePlayer: player" + (players.indexOf(activePlayer)+1) );//nem biztos hogy így jó
+		pw.println("ActivePlayer: " + ConsoleApp.GetName(activePlayer) );
 		pw.close();
 	}
 }
