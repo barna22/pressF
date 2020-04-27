@@ -319,15 +319,15 @@ public class Game {
 	 * Kiírja az adatait a standard kimenetre
 	 */
 	public void PrintInfo() {
-		PrintWriter pw = new PrintWriter(System.out);
-		pw.println("game:");
-		pw.println("	State: " + state);
-		pw.println("	Playersinwater: " + playersInWater);
-		pw.println("	Gunpartsfound: " + gunPartsFound);
+
+		System.out.println("game:");
+		System.out.println("	State: " + state);
+		System.out.println("	Playersinwater: " + playersInWater);
+		System.out.println("	Gunpartsfound: " + gunPartsFound);
 		if(activePlayer==null)
-			pw.println("	Activeplayer: -" );
+			System.out.println("	Activeplayer: -" );
 		else
-			pw.println("	ActivePlayer: " + ConsoleApp.GetName(activePlayer) );
-		pw.close();
+			System.out.println("	ActivePlayer: " + ConsoleApp.GetName(activePlayer) );
+
 	}
 }

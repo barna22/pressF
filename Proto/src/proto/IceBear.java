@@ -44,10 +44,8 @@ public class IceBear extends Entity implements Steppable {
 	}
 
 	public void PrintInfo() {
-		//PrintWriter pw = new PrintWriter(System.out);
 		System.out.println(ConsoleApp.GetName(this) + ":");
 		System.out.println("	field: " + ConsoleApp.GetName(field));
-		//pw.close();
 	}
 
 	@Override
