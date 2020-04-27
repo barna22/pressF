@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class ConsoleApp{
 	
+	private Game game;
 	public enum NameFormat{
 		NAMEONLY,
 		TYPEONLY,
@@ -38,6 +39,10 @@ public class ConsoleApp{
 	
 	//Map a GetName-nek
 	private static Map<Object, String> nameMap;
+	
+	public void Init() {
+		game = new Game();
+	}
 	
 	public void ReadCommand() {
 		
@@ -91,7 +96,7 @@ public class ConsoleApp{
 		
 	}
 	
-	public void Info() {
+	public void Info(String name) {
 		
 	}
 	
@@ -100,18 +105,22 @@ public class ConsoleApp{
 	}
 	
 	public void Dig() {
-		
+		game.GetActivePlayer().Dig();
 	}
 	
 	public void PickUpItem() {
-		
+		game.GetActivePlayer().PickUpItem();
 	}
 	
 	public void Save() {
 		
 	}
 	
-	public void AddItem() {
-		
+	public void AddItem(String playername, String itemname) {
+		Item newitem;
+		switch (itemname) {
+		case ""
+		}
+		p.AddItem(i);
 	}
 }
