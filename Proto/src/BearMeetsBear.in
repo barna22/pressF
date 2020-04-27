@@ -12,4 +12,4 @@ movebear bear1 3
 movebear bear2 1
 info bear1
 info bear2
-info f_1_2
+info game
