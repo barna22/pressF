@@ -24,11 +24,9 @@ public abstract class Entity implements Printable{
 	 * Az entitás másik entitással találkozik.
 	 */
 	public void Meet(Entity entity) {
-			entity.Meet(this);
+		entity.Meet(this);
 	}
 	
-	
-
 	/**
 	 * Az entitás átlép egy másik mezõre.
 	 * Ha kimenne a pályáról, a program jelzi, hogy ezt nem teheti.
