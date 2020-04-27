@@ -26,7 +26,7 @@ public class Tent extends Item implements Steppable {
 	@Override
 	public void Step() {
 		//RemoveTent függvény hiányzik vagy megváltozott a mûködés?
-		field.RemoveTent(this);
+		field.RemoveTent();
 		field = null;
 	}
 
