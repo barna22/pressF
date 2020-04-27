@@ -23,8 +23,7 @@ public abstract class Entity implements Printable{
 	/**
 	 * Az entitás másik entitással találkozik.
 	 */
-	public void Meet(Entity entity) {
-		entity.Meet(this);
+	public void Meet(Entity other) {
 	}
 	
 	/**
