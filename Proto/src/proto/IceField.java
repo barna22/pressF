@@ -1,5 +1,6 @@
 package proto;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -194,5 +195,23 @@ public class IceField {
 	
 	public boolean HasStormProtection() {
 		return (hasIgloo || tent != null);
+	}
+	
+	/**
+	 * Kiírja az adatait a standard kimenetre
+	 */
+	public void PrintInfo() {
+		PrintWriter pw = new PrintWriter(System.out);
+		for (int i = 0; i < neighbours.size(); i++)
+			pw.println("Neighbor " + (i+1) + ": " + neighbours.get(i));
+		pw.println("Snowlevel: " + snowLevel);
+		pw.println("Capacity: " + capacity);
+		pw.println("Hasigloo: " + hasIgloo);
+		if (item != null)
+			pw.println("Item: " + item);
+		for (int i = 0; i < entities.size(); i++)
+			pw.println("Entity " + (i+1) + ": " + ConsoleApp.GetName(entities.get(i)));
+		pw.println("Capacityrevealed: " + capacityRevealed);
+		pw.close();
 	}
 }
