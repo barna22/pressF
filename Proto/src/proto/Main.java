@@ -13,6 +13,7 @@ public class Main
 	{
 		ArrayList<String> lines = ReadLines();
 		ConsoleApp app = new ConsoleApp();
+		app.Init();
 		
 		for(String line : lines) {
 			String[] pieces = line.split(" ");

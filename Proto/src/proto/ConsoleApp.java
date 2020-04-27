@@ -139,18 +139,20 @@ public class ConsoleApp{
 	}
 
 	public void Info(String name) {
-		if(name == "game") {
+		if(name.equals("game")) {
 			game.PrintInfo();
+		}else {
+			Printable p = (Printable)objectMap.get(name);
+			p.PrintInfo();
 		}
-		Printable p = (Printable)objectMap.get(name);
-		p.PrintInfo();
+		
 	}
 
 	public void SetRandom(String value) {
-		if(value == "true") {
+		if(value.equals("true")) {
 			random = true;
 		}
-		if(value == "false") {
+		if(value.equals("false")) {
 			random = false;
 		}
 	}
