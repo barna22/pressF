@@ -31,14 +31,13 @@ public class IceBear extends Entity implements Steppable {
 	 * A medve véletlenszerû irányba lép egyet.
 	 */
 	@Override
-	public boolean Step() {
+	public void Step() {
 		Random random = new Random();
 		int dir = random.nextInt(field.GetNumberOfNeighbours());
 		while(field.GetNeighbour(dir) == null) {
 			dir = random.nextInt(field.GetNumberOfNeighbours());
 		}
 		Move(dir);
-		return true;
 	}
 
 	public void PrintInfo() {

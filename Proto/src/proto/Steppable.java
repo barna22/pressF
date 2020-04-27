@@ -9,5 +9,5 @@ public interface Steppable {
 	/**
 	 * A kör végén végrehajtásra kerülõ mûvelet.
 	 */
-	public abstract boolean Step();
+	public abstract void Step();
 }
