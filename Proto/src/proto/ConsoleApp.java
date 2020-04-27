@@ -33,7 +33,7 @@ public class ConsoleApp{
 
 	public void CreateField(String name, int snow, int capacity) {
 		IceField field = new IceField(capacity, snow);
-		nameMap.put(field, name);
+		put(field, name);
 		game.AddField(field);
 	}
 
@@ -58,7 +58,7 @@ public class ConsoleApp{
 				game.AddPlayer((Eskimo)entity);
 				break;
 		}
-		nameMap.put(entity, name);
+		put(entity, name);
 	}
 
 	public void CreateItem(String name, String type, IceField field) {
@@ -87,7 +87,7 @@ public class ConsoleApp{
 				break;
 		}
 		field.SetItem(item);
-		nameMap.put(item, name);
+		put(item, name);
 	}
 
 	public void UseItem(Item item) {
