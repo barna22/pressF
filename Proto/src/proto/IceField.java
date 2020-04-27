@@ -63,10 +63,8 @@ public class IceField {
 	 */
 	public void Storm() {
 		snowLevel++;
-		
-		if(!hasIgloo && tent == null)
-			for(Entity entity : entities)
-				entity.CaughtByStorm();
+		for(Entity entity : entities)
+			entity.CaughtByStorm();
 		
 	}
 	
@@ -183,5 +181,17 @@ public class IceField {
 	}
 	public int GetNumberOfNeighbours() {
 		return neighbours.size();
+	}
+	
+	public void SetTent(Tent tent) {
+		this.tent = tent;
+	}
+	
+	public void RemoveTent() {
+		this.tent = null;
+	}
+	
+	public boolean HasStormProtection() {
+		return (hasIgloo || tent != null);
 	}
 }
