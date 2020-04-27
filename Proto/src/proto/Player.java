@@ -22,8 +22,11 @@ public abstract class Player extends Entity {
 	}
 	
 	public void CaughtByStorm() {
-		if(!field.HasIgloo()) {
+		if(!field.HasStormProtection()) {
 			temperature -= 1;
+		}
+		if(temperature <= 0) {
+			game.Over(false);
 		}
 	}
 	
