@@ -43,7 +43,7 @@ public class IceField {
 	 * Visszaadja a szomszédos jégtáblát a megadott irányba.
 	 */
 	public IceField GetNeighbour(int d) {
-		return neighbours.get(d);
+		return neighbours.get(d - 1);
 	}
 	
 	/**
@@ -146,7 +146,7 @@ public class IceField {
 	 * Beállítja kapott irányba levõ szomszédnak a kapott IceFieldet.
 	 */
 	public void AddNeighbour(int d, IceField f) {
-		neighbours.put(d, f);
+		neighbours.put(d - 1, f);
 	}
 	
 	/**
