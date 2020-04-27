@@ -39,6 +39,10 @@ public class ConsoleApp{
 	//Map a GetName-nek
 	private static Map<Object, String> nameMap;
 	
+	public void ReadCommand() {
+		
+	}
+	
 	//Egy karakter kézzel ás.
 	public void Dig()
 	{

@@ -175,6 +175,7 @@ public class IceField {
 	public int GetCapacity() {
 		return capacity;
 	}
+	
 	public void SetCapacity(int capacity) {
 		this.capacity = capacity;
 	}

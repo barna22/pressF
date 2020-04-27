@@ -15,22 +15,22 @@ public abstract class Player extends Entity {
 	 * Megváltoztatja a játékos hőmérsékletét.
 	 */
 	public void ChangeTemperature(int dif) {
-		temperature -= dif;
+		temperature += dif;
 		if(temperature <= 0) {
 			game.Over(false);
 		}
 	}
 	
 	public void CaughtByStorm() {
-		
+		if(!field.HasIgloo()) {
+			temperature -= 1;
+		}
 	}
 	
 	public void Die() {
 		game.Over(false);
 	}
 	
-	public void Info() {
-	}
 	
 	/**
 	 * A játékost megmentik, amennyiben vízben van.
@@ -66,6 +66,7 @@ public abstract class Player extends Entity {
 		field.Remove(this);
 		field = newfield;
 		field.Accept(this);
+		remainingActions -= 1;
 		if(remainingActions <= 0) {
 			game.NextPlayer();
 		}
@@ -86,6 +87,7 @@ public abstract class Player extends Entity {
 	 */
 	public void PickUpItem() {
 		if(field.TakeItem(this)) {
+			remainingActions -= 1;
 			if(remainingActions <= 0) {
 				game.NextPlayer();
 			}
@@ -97,6 +99,7 @@ public abstract class Player extends Entity {
 	 */
 	public void Dig() {
 		field.RemoveSnow(1);
+		remainingActions -= 1;
 		if(remainingActions == 0) {
 			game.NextPlayer();
 		}
@@ -113,6 +116,10 @@ public abstract class Player extends Entity {
 		}
 		items.add(i);
 		return true;
+	}
+	
+	public boolean RemoveItem(Item i) {
+		return items.remove(i);
 	}
 	
 	private void PrintInfo() {
@@ -175,8 +182,8 @@ public abstract class Player extends Entity {
 	/**
 	 * Beállítja a hasDivingGear attribútum értékét.
 	 */
-	public void SetHasDivingGear() {
-		MethodPrinter.Println(ConsoleApp.GetName(this) + ".SetHasDivingGear()");
+	public void SetHasDivingGear(boolean value) {
+		hasDivingGear = value;
 	}
 
 	public void DisplayItems() {
