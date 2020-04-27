@@ -10,8 +10,7 @@ public class Food extends Item {
 	 * A játékos testhõjét növeli. True-val tér vissza
 	 */
 	public boolean Use(Player p) {
-		//ChangeTemperature függvénynek nem hozzáadni kellene értéket és -1-t átadni CaughtbyStorm-nál?
-		p.ChangeTemperature(1); //Visszatérési érték boolean?
+		p.ChangeTemperature(1); 
 		return true;
 	}
 	

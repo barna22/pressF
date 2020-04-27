@@ -13,9 +13,9 @@ public class Rope extends Item {
 	public boolean Use(Player p1) {
 		IceField f1 =  p1.GetField();
 		boolean success = false;
-		for (Direction d : Direction.values()) {
-			//Akkor direction helyett számok 0-3-ig?
-			IceField f = f1.GetNeighbour(d);
+		int neighbours = f1.GetNumberOfNeighbours();
+		for (int x = 0; x < neighbours; x++) {
+			IceField f = f1.GetNeighbour(x);
 			if(f.Save(f1))
 				success = true;
 		}
