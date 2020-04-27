@@ -139,6 +139,9 @@ public class ConsoleApp{
 	}
 
 	public void Info(String name) {
+		if(name == "game") {
+			game.PrintInfo();
+		}
 		Printable p = (Printable)objectMap.get(name);
 		p.PrintInfo();
 	}
