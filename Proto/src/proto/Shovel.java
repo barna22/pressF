@@ -12,7 +12,7 @@ public class Shovel extends Item {
 	 */
 	public boolean Use(Player p) {
 		IceField f =  p.GetField();
-		f.RemoveSnow(2);//Visszatérési érték boolean?
+		f.RemoveSnow(2);
 		return true;
 	}
 	

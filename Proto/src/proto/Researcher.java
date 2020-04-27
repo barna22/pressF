@@ -8,6 +8,7 @@ public class Researcher extends Player {
 	 */
 	public void UseAbility(int d) {
 		field.GetNeighbour(d).RevealCapacity();
+		remainingActions -= 1;
 		if(remainingActions <= 0) {
 			game.NextPlayer();
 		}

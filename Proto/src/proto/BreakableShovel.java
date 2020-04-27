@@ -13,10 +13,10 @@ public class BreakableShovel extends Shovel {
 	 */
 	public boolean Use(Player p) {
 		IceField f = p.GetField();
-		f.RemoveSnow(2);//Visszatérési érték boolean?
+		f.RemoveSnow(2);
 		this.durability -= 1;
 		if(this.durability == 0)
-			p.RemoveItem(this);//Függvény hiányzik vagy változott a mûködés?
+			p.RemoveItem(this);
 		return true;
 		
 	}

@@ -7,6 +7,7 @@ public class Eskimo extends Player {
 	 */
 	public void UseAbility(int d) {
 		field.BuildIgloo();
+		remainingActions -= 1;
 		if(remainingActions <=0) {
 			game.NextPlayer();
 		}
