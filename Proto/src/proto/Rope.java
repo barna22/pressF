@@ -14,7 +14,7 @@ public class Rope extends Item {
 		IceField f1 =  p1.GetField();
 		boolean success = false;
 		int neighbours = f1.GetNumberOfNeighbours();
-		for (int x = 0; x < neighbours; x++) {
+		for (int x = 1; x < neighbours; x++) {
 			IceField f = f1.GetNeighbour(x);
 			if(f.Save(f1))
 				success = true;
