@@ -22,9 +22,7 @@ public abstract class Player extends Entity {
 	}
 	
 	public void CaughtByStorm() {
-		if(!field.HasIgloo()) {
-			temperature -= 1;
-		}
+		temperature -= 1;
 	}
 	
 	public void Die() {

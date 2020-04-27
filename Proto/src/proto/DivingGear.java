@@ -21,7 +21,7 @@ public class DivingGear extends Item {
 		boolean success;
 		 success = p.AddItem(this);
 		if(success)
-			p.SetHasDivingGear();
+			p.SetHasDivingGear(true);
 		return success;
 	}
 }
