@@ -1,10 +1,10 @@
 package proto;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class ConsoleApp{
 	
+<<<<<<< HEAD
 	private Game game;
 	public enum NameFormat{
 		NAMEONLY,
@@ -18,23 +18,11 @@ public class ConsoleApp{
 		ConsoleApp.nameFormat = nameFormat;
 	}
 	
+=======
+>>>>>>> 352fd8652048621f9793740c8df57cc57bbedeb1
 	//Visszaadja az objektumhoz tartozó változó nevet
 	public static String GetName(Object o) {
-		String name;
-		switch(nameFormat) {
-		case NAMEONLY:
-			name = nameMap.get(o);
-			break;
-		case TYPEONLY:
-			name = o.getClass().getSimpleName();
-			break;
-		case NAMEANDTYPE:
-			name = o.getClass().getSimpleName() + " " + nameMap.get(o);
-			break;
-		default:
-			name = o.getClass().getSimpleName() + " " + nameMap.get(o);
-		}
-		return name;
+		return nameMap.get(o);
 	}
 	
 	//Map a GetName-nek
