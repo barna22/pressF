@@ -24,12 +24,12 @@ public abstract class Entity implements Printable{
 	 * Az entit�s m�sik entit�ssal tal�lkozik.
 	 */
 	public void Meet(IceBear other) {
-		Die();
+		
 	}
 	public void Meet(Player other) {
 		
 	}
-	protected abstract void Die();
+
 
 	/**
 	 * Az entit�s �tl�p egy m�sik mez�re.
