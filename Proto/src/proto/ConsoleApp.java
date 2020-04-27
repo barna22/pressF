@@ -129,7 +129,8 @@ public class ConsoleApp{
 	}
 
 	public void Info(String name) {
-
+		Printable p = (Printable)objectMap.get(name);
+		p.PrintInfo();
 	}
 
 	public void SetRandom() {
@@ -144,15 +145,26 @@ public class ConsoleApp{
 		game.GetActivePlayer().PickUpItem();
 	}
 
-	public void Save() {
-
-	}
-
 	public void AddItem(String playername, String itemname) {
-		Item newitem;
+		Item newitem = new Item();
+		Player p = (Player)objectMap.get(playername);
 		switch (itemname) {
-		case ""
+		case "shovel":
+			newitem = new Shovel();
+		case "rope":
+			newitem = new Rope();
+		case "divinggear":
+			newitem = new DivingGear();
+			p.SetHasDivingGear(true);
+		case "flaregunpart":
+			newitem = new FlareGunPart();
+		case "food":
+			newitem = new Food();
+		case "tent":
+			newitem = new Tent();
+		case "breakableshovel":
+			newitem = new BreakableShovel();
 		}
-		p.AddItem(i);
+		p.AddItem(newitem);
 	}
 }

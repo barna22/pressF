@@ -125,7 +125,7 @@ public abstract class Player extends Entity {
 		return items.remove(i);
 	}
 	
-	private void PrintInfo() {
+	public void PrintInfo() {
 		System.out.println("Field: " + ConsoleApp.GetName(field));
 		System.out.println("Temperature : " + temperature);
 		System.out.println("Isinwater: " + isInWater);
