@@ -22,7 +22,12 @@ public abstract class Player extends Entity {
 	}
 	
 	public void CaughtByStorm() {
-		temperature -= 1;
+		if(!field.HasStormProtection()) {
+			temperature -= 1;
+		}
+		if(temperature <= 0) {
+			game.Over(false);
+		}
 	}
 	
 	public void Die() {
