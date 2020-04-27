@@ -168,10 +168,10 @@ public class ConsoleApp{
 		game.GetActivePlayer().PickUpItem();
 	}
 
-	public void AddItem(String playername, String itemname) {
+	public void AddItem(String playerName, String type, String itemName) {
 		Item newitem = new Item();
-		Player p = (Player)objectMap.get(playername);
-		switch (itemname) {
+		Player p = (Player)objectMap.get(playerName);
+		switch (type) {
 		case "shovel":
 			newitem = new Shovel();
 			break;
@@ -196,5 +196,6 @@ public class ConsoleApp{
 			break;
 		}
 		p.AddItem(newitem);
+		put(newitem, itemName);
 	}
 }

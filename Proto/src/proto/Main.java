@@ -67,7 +67,7 @@ public class Main
 					app.PickUpItem();
 					break;
 				case "additem":
-					app.AddItem(pieces[1], pieces[2]);
+					app.AddItem(pieces[1], pieces[2], pieces[3]);
 					break;
 			}
 		}

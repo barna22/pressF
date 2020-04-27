@@ -227,7 +227,9 @@ public class IceField implements Printable{
 		pw.println("	Snowlevel: " + snowLevel);
 		pw.println("	Capacity: " + capacity);
 		pw.println("	Hasigloo: " + hasIgloo);
-		if (item != null)
+		if (item == null)
+			pw.println("	Item: -");
+		else
 			pw.println("	Item: " + item);
 		for (int i = 0; i < entities.size(); i++)
 			pw.println("	Entity " + (i+1) + ": " + ConsoleApp.GetName(entities.get(i)));

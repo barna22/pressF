@@ -8,8 +8,8 @@ setneighbor f_1_2 1 f_1_3 3
 entity player1 eskimo f_2_1
 entity bear1 bear f_1_1
 entity bear2 bear f_1_3
-movebear bear1 3
-movebear bear2 1
+movebear bear1 1
+movebear bear2 3
 info bear1
 info bear2
 info game

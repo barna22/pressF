@@ -5,7 +5,7 @@ entity player1 researcher f_1_1
 setactiveplayer player1
 setactions 4
 additem player1 divinggear divinggear1
-useitem divinggear
+useitem divinggear1
 move 1
 info player1
 info game

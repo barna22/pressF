@@ -3,8 +3,8 @@ entity player1 researcher f_1_1
 additem player1 breakableshovel breakableshovel1
 setactiveplayer player1
 setactions 4
-useitem breakableshovel
-useitem breakableshovel
-useitem breakableshovel
-useitem breakableshovel
+useitem breakableshovel1
+useitem breakableshovel1
+useitem breakableshovel1
+useitem breakableshovel1
 info player1
