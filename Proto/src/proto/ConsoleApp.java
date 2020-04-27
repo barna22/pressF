@@ -31,20 +31,21 @@ public class ConsoleApp{
 		game = new Game();
 	}
 
-	public void CreateField(String name, int snow, int capacity) {
-		IceField field = new IceField(capacity, snow);
+	public void CreateField(String name, String snow, String capacity) {
+		
+		IceField field = new IceField(Integer.parseInt(capacity), Integer.parseInt(snow));
 		put(field, name);
 		game.AddField(field);
 	}
 
-	public void SetNeighbour(String fieldName1, int dir1, String fieldName2, int dir2) {
+	public void SetNeighbour(String fieldName1, String dir1, String fieldName2, String dir2) {
 		IceField f1 = (IceField)objectMap.get(fieldName1);
 		IceField f2 = (IceField)objectMap.get(fieldName2);
-		f1.AddNeighbour(dir1, f2);
-		f2.AddNeighbour(dir2, f1);
+		f1.AddNeighbour(Integer.parseInt(dir1), f2);
+		f2.AddNeighbour(Integer.parseInt(dir2), f1);
 	}
 
-	public void CreateEntity(String name, String type, IceField field) {
+	public void CreateEntity(String name, String type, String field) {
 		Entity entity;
 		switch(type) {
 			default://medve
@@ -61,10 +62,13 @@ public class ConsoleApp{
 				break;
 		}
 		put(entity, name);
+		IceField fi = (IceField)GetObject(field);
+		fi.Accept(entity);
 	}
 
-	public void CreateItem(String name, String type, IceField field) {
+	public void CreateItem(String name, String type, String field) {
 		Item item;
+		IceField fi = (IceField)GetObject(field);
 		switch(type) {
 			default://breakableShovel
 				item = new BreakableShovel();
@@ -88,26 +92,27 @@ public class ConsoleApp{
 				item = new Tent();
 				break;
 		}
-		field.SetItem(item);
+		fi.SetItem(item);
 		put(item, name);
 	}
 
-	public void UseItem(Item item) {
-		game.GetActivePlayer().UseItem(item);
+	public void UseItem(String item) {
+		Item it = (Item)GetObject(item);
+		game.GetActivePlayer().UseItem(it);
 	}
 
-	public void UseAbility(int dir) {
-		game.GetActivePlayer().UseAbility(dir);
+	public void UseAbility(String dir) {
+		game.GetActivePlayer().UseAbility(Integer.parseInt(dir));
 	}
 
-	public void Move(int d) {
+	public void Move(String d) {
 		Player player = game.GetActivePlayer();
-		player.Move(d);
+		player.Move(Integer.parseInt(d));
 	}
 
-	public void MoveBear(String name, int d) {
+	public void MoveBear(String name, String d) {
 		IceBear bear = (IceBear)objectMap.get(name);
-		bear.Move(d);
+		bear.Move(Integer.parseInt(d));
 	}
 
 	public void PlaceIgloo(String name) {
@@ -120,12 +125,12 @@ public class ConsoleApp{
 		game.SetActivePlayer(player);
 	}
 
-	public void SetActions(int actions) {
-		game.GetActivePlayer().SetRemainingActions(actions);
+	public void SetActions(String actions) {
+		game.GetActivePlayer().SetRemainingActions(Integer.parseInt(actions));
 	}
 
-	public void SetTemp(int temperature) {
-		game.GetActivePlayer().SetTemperature(temperature);
+	public void SetTemp(String temperature) {
+		game.GetActivePlayer().SetTemperature(Integer.parseInt(temperature));
 	}
 
 	public void Info(String name) {
