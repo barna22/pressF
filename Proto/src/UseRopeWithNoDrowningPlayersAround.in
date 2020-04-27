@@ -1,0 +1,9 @@
+createfield f_1_1 0 3
+entity player1 researcher f_1_1
+entity player2 researcher f_1_1
+additem player2 rope
+setactiveplayer player2
+setactions 4
+useitem rope
+info player1
+info player2

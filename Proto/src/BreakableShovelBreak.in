@@ -1,0 +1,10 @@
+createfield f_1_1 5 3
+entity player1 researcher f_1_1
+additem player1 breakableshovel
+setactiveplayer player1
+setactions 4
+useitem breakableshovel
+useitem breakableshovel
+useitem breakableshovel
+useitem breakableshovel
+info player1

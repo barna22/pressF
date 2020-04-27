@@ -1,0 +1,13 @@
+player1:
+	Field: f_1_1
+	Temperature: 4
+	Isinwater: true
+	Remainingactions: 0
+	Hasdivingear: false
+game:
+	State: ended
+	Playersinwater: 0
+	Gunpartsfound: 0
+	Activeplayer: -
+bear1:
+	Field: f_1_1

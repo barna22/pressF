@@ -1,0 +1,10 @@
+createfield f_1_1 3 3
+setrandom false
+entity player1 researcher f_1_1
+additem player1 tent
+setactiveplayer player1
+setactions 1
+useitem tent
+storm 1
+f_1_1
+info player1

@@ -1,0 +1,13 @@
+player1:
+	Field: f_1_1
+	Temperature: 5
+	Isinwater: false
+	Remainingactions: 4
+	Hasdivingear: false
+f_1_1:
+	Snowlevel: 3
+	Capacity: 3
+	Hasigloo: true
+	Item: -
+	Entity1: player1
+	Capacityrevealed: false

@@ -1,0 +1,23 @@
+game:
+	State: ended
+	Playersinwater: 0
+	Gunpartsfound: 0
+	Activeplayer: -
+player1:
+	Field: f_2_2
+	Temperature: 5
+	Isinwater: false
+	Remainingactions: 2
+	Hasdivingear: false
+player2:
+	Field: f_4_2
+	Temperature: 4
+	Isinwater: true
+	Remainingactions: 0
+	Hasdivingear: false
+player3:
+	Field: f_4_2
+	Temperature: 4
+	Isinwater: true
+	Remainingactions: 0
+	Hasdivingear: false

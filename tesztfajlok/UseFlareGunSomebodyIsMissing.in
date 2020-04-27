@@ -1,0 +1,11 @@
+createfield f_1_1 3 3
+createfield f_1_2 3 3
+entity player1 researcher f_1_1
+entity player2 researcher f_1_2
+additem player1 flaregunpart
+additem player1 flaregunpart
+additem player2 flaregunpart
+setactiveplayer player1
+setactions 4
+useitem flaregunpart
+info game
