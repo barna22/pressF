@@ -37,7 +37,9 @@ public class ConsoleApp{
 		game.AddField(field);
 	}
 
-	public void SetNeighbour(IceField f1, int dir1, IceField f2, int dir2) {
+	public void SetNeighbour(String fieldName1, int dir1, String fieldName2, int dir2) {
+		IceField f1 = (IceField)objectMap.get(fieldName1);
+		IceField f2 = (IceField)objectMap.get(fieldName2);
 		f1.AddNeighbour(dir1, f2);
 		f2.AddNeighbour(dir2, f1);
 	}
