@@ -4,22 +4,8 @@ import java.util.Map;
 
 public class ConsoleApp{
 	
-<<<<<<< HEAD
 	private Game game;
-	public enum NameFormat{
-		NAMEONLY,
-		TYPEONLY,
-		NAMEANDTYPE
-	}
 	
-	private static NameFormat nameFormat = NameFormat.NAMEANDTYPE;
-	
-	public void SetNameFormat(NameFormat nameFormat) {
-		ConsoleApp.nameFormat = nameFormat;
-	}
-	
-=======
->>>>>>> 352fd8652048621f9793740c8df57cc57bbedeb1
 	//Visszaadja az objektumhoz tartozó változó nevet
 	public static String GetName(Object o) {
 		return nameMap.get(o);
@@ -32,34 +18,73 @@ public class ConsoleApp{
 		game = new Game();
 	}
 	
-	public void ReadCommand() {
-		
+	public void CreateField(String name, int snow, int capacity) {
+		IceField field = new IceField(capacity, snow);
+		nameMap.put(field, name);
+		game.AddField(field);
 	}
 	
-	public void CreateField() {
-		
+	public void SetNeighbour(IceField f1, int dir1, IceField f2, int dir2) {
+		f1.AddNeighbour(dir1, f2);
+		f2.AddNeighbour(dir2, f1);
 	}
 	
-	public void SetNeighbour() {
-		
+	public void CreateEntity(String name, String type, IceField field) {
+		Entity entity;
+		switch(type) {
+			default://medve
+				entity = new IceBear();
+				game.AddBear((IceBear)entity);
+				break;
+			case "researcher":
+				entity = new Researcher();
+				game.AddPlayer((Researcher)entity);
+				break;
+			case "eskimo":
+				entity = new Eskimo();
+				game.AddPlayer((Eskimo)entity);
+				break;
+		}
+		nameMap.put(entity, name);
 	}
 	
-	public void CreateEntity() {
-		
+	public void CreateItem(String name, String type, IceField field) {
+		Item item;
+		switch(type) {
+			default://breakableShovel
+				item = new BreakableShovel();
+				break;
+			case "divinggear":
+				item = new DivingGear();
+				break;
+			case "flaregunpart":
+				item = new FlareGunPart();
+				break;
+			case "food":
+				item = new Food();
+				break;
+			case "rope":
+				item = new Rope();
+				break;
+			case "shovel":
+				item = new Shovel();
+				break;
+			case "tent":
+				item = new Tent();
+				break;
+		}
+		field.SetItem(item);
+		nameMap.put(item, name);
 	}
 	
-	public void CreateItem() {
-		
+	public void UseItem(Item item) {
+		game.GetActivePlayer().UseItem(item);
 	}
 	
-	public void UseItem() {
-		
+	public void UseAbility(int dir) {
+		game.GetActivePlayer().UseAbility(dir);
 	}
-	
-	public void UseAbility() {
-		
-	}
-	
+	//----
 	public void Move() {
 		
 	}
