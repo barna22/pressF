@@ -5,7 +5,7 @@ player1:
 	Remainingactions: 4
 	Hasdivingear: false
 f_1_1:
-	Snowlevel: 3
+	Snowlevel: 4
 	Capacity: 3
 	Hasigloo: true
 	Item: -

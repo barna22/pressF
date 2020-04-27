@@ -74,7 +74,7 @@ public class ConsoleApp{
 		entity.SetField(fi);
 	}
 
-	public void CreateItem(String name, String type, String field) {
+	public void CreateItem(String type, String field, String name) {
 		Item item;
 		IceField fi = (IceField)GetObject(field);
 		switch(type) {
@@ -197,5 +197,8 @@ public class ConsoleApp{
 		}
 		p.AddItem(newitem);
 		put(newitem, itemName);
+	}
+	public void Storm() {
+		game.Storm();
 	}
 }

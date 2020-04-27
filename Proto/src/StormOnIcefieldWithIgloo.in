@@ -2,10 +2,9 @@ createfield f_1_1 2 3
 setrandom false
 entity player1 eskimo f_1_1
 setactiveplayer player1
-sethealth 2
 setactions 1
-useability
-storm 1
+useability 0
+storm
 f_1_1
 info player1
 info f_1_1

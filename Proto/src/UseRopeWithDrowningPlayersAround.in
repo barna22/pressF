@@ -9,7 +9,7 @@ move 1
 additem player2 rope rope1
 setactiveplayer player2
 setactions 4
-useitem rope
+useitem rope1
 info player1
 info player2
 info game

@@ -9,6 +9,7 @@ public class Tent extends Item implements Steppable {
 	public boolean Use(Player p) {
 		field = p.GetField();
 		field.SetTent(this);
+		p.RemoveItem(this);
 		return true;
 	}
 	

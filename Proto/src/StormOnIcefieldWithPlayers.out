@@ -8,7 +8,7 @@ player2:
 	Field: f_1_1
 	Temperature: 2
 	Isinwater: false
-	Remainingactions: 4
+	Remainingactions: 0
 	Hasdivingear: false
 game:
 	State: running

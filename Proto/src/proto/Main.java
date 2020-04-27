@@ -51,7 +51,7 @@ public class Main
 				case "setactions":
 					app.SetActions(pieces[1]);
 					break;
-				case "settemp":
+				case "sethealth":
 					app.SetTemp(pieces[1]);
 					break;
 				case "info":
@@ -69,6 +69,8 @@ public class Main
 				case "additem":
 					app.AddItem(pieces[1], pieces[2], pieces[3]);
 					break;
+				case "storm":
+					app.Storm();
 			}
 		}
 		

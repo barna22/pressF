@@ -29,7 +29,7 @@ public class Game {
 	/**
 	 * Vihart indít minden jégtáblán
 	 */
-	private void Storm() {
+	public void Storm() {
 		for(IceField f : fields){
 			f.Storm();
 		}
@@ -217,8 +217,11 @@ public class Game {
 	 * Lépteti a Steppable-ket
 	 */
 	private void RoundOver() {
+		
 		if(playersInWater > 0)
 			Over(false);
+		if(state.equals("ended"))
+			return;
 		Storm();
 		for(Steppable s : steppables)
 			s.Step();
@@ -233,12 +236,14 @@ public class Game {
 		int idx = players.indexOf(activePlayer);
 		if( idx == players.size()-1 ) {//utolsó játékos van soron
 			RoundOver();
+			if(state.contentEquals("ended"))
+				return;
 			idx = 0;
 		}
 		else
 			idx++;
-
-		players.get(idx).SetRemainingActions(4);
+		activePlayer = players.get(idx);
+		activePlayer.SetRemainingActions(4);
 	}
 	
 	/**

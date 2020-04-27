@@ -5,7 +5,7 @@ player1:
 	Remainingactions: 0
 	Hasdivingear: false
 game:
-	State: ended
+	State: running
 	Playersinwater: 1
 	Gunpartsfound: 0
-	Activeplayer: -
+	Activeplayer: player2

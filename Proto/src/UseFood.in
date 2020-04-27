@@ -4,5 +4,5 @@ additem player1 food food1
 setactiveplayer player1
 sethealth 1
 setactions 4
-useitem food
+useitem food1
 info player1

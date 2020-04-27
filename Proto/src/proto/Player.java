@@ -76,6 +76,8 @@ public abstract class Player extends Entity {
 		field = newfield;
 		field.Accept(this);
 		remainingActions -= 1;
+		if(isInWater)//vízbe esett a lépés során
+			remainingActions = 0;
 		if(remainingActions <= 0) {
 			game.NextPlayer();
 		}
@@ -85,11 +87,12 @@ public abstract class Player extends Entity {
 	 * A játékos egy item-et használ.
 	 */
 	public void UseItem(Item i) {
-		remainingActions -= 1;
+		if(i.Use(this))
+			remainingActions -= 1;
 		if(remainingActions == 0) {
 			game.NextPlayer();
 		}
-		i.Use(this);
+
 	}
 	
 	/**
@@ -156,8 +159,11 @@ public abstract class Player extends Entity {
 	 * Ezt a játéknak is jelzi a játékos.
 	 */
 	public void FallInWater(IceField field) {
-		isInWater = true;
-		game.PlayerFellInWater();
+		if(!hasDivingGear) {
+			isInWater = true;
+			game.PlayerFellInWater();
+		}
+		
 	}
 	
 	public void SetItemForInit(Item i) {

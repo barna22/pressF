@@ -6,8 +6,8 @@ setactiveplayer player1
 sethealth 2
 setactiveplayer player2
 sethealth 3
-storm 1
+storm
 f_1_1
 info player1
 info player2
-info f_1_1
+info game

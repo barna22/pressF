@@ -6,5 +6,5 @@ additem player1 flaregunpart flaregunpart2
 additem player1 flaregunpart flaregunpart3
 setactiveplayer player1
 setactions 4
-useitem flaregunpart
+useitem flaregunpart3
 info game

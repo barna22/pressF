@@ -220,20 +220,18 @@ public class IceField implements Printable{
 	 * Kiírja az adatait a standard kimenetre
 	 */
 	public void PrintInfo() {
-		PrintWriter pw = new PrintWriter(System.out);
-		pw.println(ConsoleApp.GetName(this) + ":");
+		System.out.println(ConsoleApp.GetName(this) + ":");
 		for (int i = 0; i < neighbours.size(); i++)
-			pw.println("	Neighbor " + (i+1) + ": " + neighbours.get(i));
-		pw.println("	Snowlevel: " + snowLevel);
-		pw.println("	Capacity: " + capacity);
-		pw.println("	Hasigloo: " + hasIgloo);
+			System.out.println("	Neighbor " + (i+1) + ": " + ConsoleApp.GetName(neighbours.get(i)));
+		System.out.println("	Snowlevel: " + snowLevel);
+		System.out.println("	Capacity: " + capacity);
+		System.out.println("	Hasigloo: " + hasIgloo);
 		if (item == null)
-			pw.println("	Item: -");
+			System.out.println("	Item: -");
 		else
-			pw.println("	Item: " + item);
+			System.out.println("	Item: " + item);
 		for (int i = 0; i < entities.size(); i++)
-			pw.println("	Entity " + (i+1) + ": " + ConsoleApp.GetName(entities.get(i)));
-		pw.println("	Capacityrevealed: " + capacityRevealed);
-		pw.close();
+			System.out.println("	Entity " + (i+1) + ": " + ConsoleApp.GetName(entities.get(i)));
+		System.out.println("	Capacityrevealed: " + capacityRevealed);
 	}
 }

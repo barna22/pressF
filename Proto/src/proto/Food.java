@@ -11,6 +11,7 @@ public class Food extends Item {
 	 */
 	public boolean Use(Player p) {
 		p.ChangeTemperature(1); 
+		p.RemoveItem(this);
 		return true;
 	}
 	
