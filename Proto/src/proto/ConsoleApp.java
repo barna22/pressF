@@ -6,7 +6,7 @@ import java.util.Map;
 public class ConsoleApp{
 
 	private Game game;
-	private static boolean random;
+	private static boolean random = true;
 
 	//Visszaadja az objektumhoz tartoz� v�ltoz� nevet
 	public static String GetName(Object o) {
@@ -143,8 +143,13 @@ public class ConsoleApp{
 		p.PrintInfo();
 	}
 
-	public void SetRandom(boolean value) {
-		random = value;
+	public void SetRandom(String value) {
+		if(value == "true") {
+			random = true;
+		}
+		if(value == "false") {
+			random = false;
+		}
 	}
 
 	public void Dig() {
@@ -161,19 +166,26 @@ public class ConsoleApp{
 		switch (itemname) {
 		case "shovel":
 			newitem = new Shovel();
+			break;
 		case "rope":
 			newitem = new Rope();
+			break;
 		case "divinggear":
 			newitem = new DivingGear();
 			p.SetHasDivingGear(true);
+			break;
 		case "flaregunpart":
 			newitem = new FlareGunPart();
+			break;
 		case "food":
 			newitem = new Food();
+			break;
 		case "tent":
 			newitem = new Tent();
+			break;
 		case "breakableshovel":
 			newitem = new BreakableShovel();
+			break;
 		}
 		p.AddItem(newitem);
 	}

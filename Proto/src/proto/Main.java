@@ -65,9 +65,6 @@ public class Main
 				case "pickupitem":
 					app.PickUpItem();
 					break;
-				case "save":
-					app.Save();
-					break;
 				case "additem":
 					app.AddItem(pieces[1], pieces[2]);
 					break;
