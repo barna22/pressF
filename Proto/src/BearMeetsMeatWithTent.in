@@ -4,7 +4,7 @@ setrandom false
 setneighbor f_1_1 1 f_1_2 3
 entity player1 researcher f_1_1
 entity bear1 bear f_1_2
-additem player1 tent
+additem player1 tent tent1
 setactiveplayer player1
 setactions 1
 useitem tent

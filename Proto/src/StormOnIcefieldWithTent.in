@@ -1,7 +1,7 @@
 createfield f_1_1 3 3
 setrandom false
 entity player1 researcher f_1_1
-additem player1 tent
+additem player1 tent tent1
 setactiveplayer player1
 setactions 1
 useitem tent

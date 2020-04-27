@@ -6,7 +6,7 @@ entity player2 researcher f_1_1
 setactiveplayer player1
 setactions 4
 move 1
-additem player2 rope
+additem player2 rope rope1
 setactiveplayer player2
 setactions 4
 useitem rope
