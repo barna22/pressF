@@ -11,16 +11,14 @@ public class Rope extends Item {
 	 * True-val tér vissza, ha legalább egy játékost kimentett.
 	 */
 	public boolean Use(Player p1) {
-		MethodPrinter.Println(ConsoleApp.GetName(this) + ".Use(" + ConsoleApp.GetName(p1) + ")");
-		MethodPrinter.IncreaseIndentation();
 		IceField f1 =  p1.GetField();
 		boolean success = false;
 		for (Direction d : Direction.values()) {
+			//Akkor direction helyett számok 0-3-ig?
 			IceField f = f1.GetNeighbour(d);
 			if(f.Save(f1))
 				success = true;
 		}
-		MethodPrinter.DecreaseIndentation();
 		return success;
 	}
 	
@@ -28,7 +26,6 @@ public class Rope extends Item {
 	 * True-val tér vissza.
 	 */
 	public boolean IsTheSame(Rope r) {
-		MethodPrinter.Println(ConsoleApp.GetName(this) + ".IsTheSame(" + ConsoleApp.GetName(r) + ")");
 		return true;
 	}
 }

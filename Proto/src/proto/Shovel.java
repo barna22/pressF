@@ -11,21 +11,15 @@ public class Shovel extends Item {
 	 * használója áll.
 	 */
 	public boolean Use(Player p) {
-		MethodPrinter.Println(ConsoleApp.GetName(this) + ".Use(" + ConsoleApp.GetName(p) + ")");
-		MethodPrinter.IncreaseIndentation();
 		IceField f =  p.GetField();
-		boolean result = MethodPrinter.AskQuestion("Van hó a mezõn?");
-		if(result)
-			f.RemoveSnow(2);
-		MethodPrinter.DecreaseIndentation();
-		return result;
+		f.RemoveSnow(2);//Visszatérési érték boolean?
+		return true;
 	}
 	
 	/*
 	 * True-val tér vissza.
 	 */
 	public boolean IsTheSame(Shovel s) {
-		MethodPrinter.Println(ConsoleApp.GetName(this) + ".IsTheSame(" + ConsoleApp.GetName(s) + ")");
 		return true;
 	}
 }

@@ -10,7 +10,6 @@ public class Item {
 	 * sikerült.
 	 */
 	public boolean Use(Player p) {
-		MethodPrinter.Println(ConsoleApp.GetName(this) + ".IsTheSame(" + ConsoleApp.GetName(p) + ")");
 		return false;
 	}
 	
@@ -19,12 +18,7 @@ public class Item {
 	 * vissza.
 	 */
 	public boolean Equip(Player p) {
-		MethodPrinter.Println(ConsoleApp.GetName(this) + ".Equip(" + ConsoleApp.GetName(p) + ")");
-		boolean result;
-		MethodPrinter.IncreaseIndentation();
-		result =  p.AddItem(this);
-		MethodPrinter.DecreaseIndentation();
-		return result;
+		return p.AddItem(this);
 	}
 	
 	/*
@@ -33,7 +27,6 @@ public class Item {
 	 * azok true-val térnek vissza. Így meg lehet nézni, hogy a kapott item ugyanolyan fajtae, mint ez.
 	 */
 	public boolean IsTheSame(Item i) {
-		MethodPrinter.Println(ConsoleApp.GetName(this) + ".IsTheSame(" + ConsoleApp.GetName(i) + ")");
 		return false;
 	}
 }
