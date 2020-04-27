@@ -1,4 +1,4 @@
-function runtest([string]$infile, [string]$outfile) 
+function runtest([string]$infile, [string]$outfile)
 {
     $result = cat $outfile
     $input = cat $infile
@@ -27,7 +27,7 @@ function runtest([string]$infile, [string]$outfile)
 if($args.Count -eq 2) 
 {
     runtest $args[0] $args[1]
-} 
+}
 else 
 {
     echo "Error! Wrong input."

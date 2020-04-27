@@ -1,6 +1,6 @@
 game:
 	State: ended
-	Playersinwater: 0
+	Playersinwater: 2
 	Gunpartsfound: 0
 	Activeplayer: -
 player1:

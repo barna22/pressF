@@ -4,7 +4,7 @@ setneighbor f_1_1 1 f_1_2 3
 entity player1 researcher f_1_1
 setactiveplayer player1
 setactions 4
-additem player1 divinggear
+additem player1 divinggear divinggear1
 useitem divinggear
 move 1
 info player1

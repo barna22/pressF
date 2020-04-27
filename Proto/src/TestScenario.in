@@ -42,10 +42,10 @@ entity bear1 bear f_1_2
 entity player1 eskimo f_2_3
 entity player2 researcher f_4_2
 entity player3 researcher f_4_3
-createitem flaregunpart f_1_1
-createitem flaregunpart f_2_2
-createitem flaregunpart f_3_1
-createitem shovel f_3_2
+createitem flaregunpart f_1_1 flaregunpart1
+createitem flaregunpart f_2_2 flaregunpart2
+createitem flaregunpart f_3_1 flaregunpart3
+createitem shovel f_3_2 shovel1
 setactiveplayer player1
 setactions 4
 useability 1

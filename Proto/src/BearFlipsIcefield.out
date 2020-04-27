@@ -6,7 +6,7 @@ player1:
 	Hasdivingear: false
 game:
 	State: ended
-	Playersinwater: 0
+	Playersinwater: 1
 	Gunpartsfound: 0
 	Activeplayer: -
 bear1:
