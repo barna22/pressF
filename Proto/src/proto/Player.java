@@ -79,6 +79,7 @@ public abstract class Player extends Entity {
 	 * A játékos egy item-et használ.
 	 */
 	public void UseItem(Item i) {
+		remainingActions -= 1;
 		if(remainingActions == 0) {
 			game.NextPlayer();
 		}
@@ -140,6 +141,7 @@ public abstract class Player extends Entity {
 	 * Beállítja a játékos hátralevő akcióinak számát.
 	 */
 	public void SetRemainingActions(int a) {
+		remainingActions = a;
 	}
 	
 	/**
