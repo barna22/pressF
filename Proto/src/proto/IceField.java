@@ -197,7 +197,6 @@ public class IceField implements Printable{
 		return (hasIgloo || tent != null);
 	}
 	
-<<<<<<< HEAD
 	/**
 	 * Kiírja az adatait a standard kimenetre
 	 */
@@ -215,6 +214,4 @@ public class IceField implements Printable{
 		pw.println("Capacityrevealed: " + capacityRevealed);
 		pw.close();
 	}
-=======
->>>>>>> ee3a6f24a7f81e5668e1e6717ea24171eb5b84b2
 }

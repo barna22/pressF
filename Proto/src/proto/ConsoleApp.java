@@ -6,6 +6,7 @@ import java.util.Map;
 public class ConsoleApp{
 
 	private Game game;
+	private static boolean random;
 
 	//Visszaadja az objektumhoz tartoz� v�ltoz� nevet
 	public static String GetName(Object o) {
@@ -23,6 +24,10 @@ public class ConsoleApp{
 		objectMap.put(name, o);
 	}
 
+	public static boolean GetRandom() {
+		return random;
+	}
+	
 	//Map a GetName-nek
 	private static Map<Object, String> nameMap = new HashMap<Object, String>();
 	private static Map<String, Object> objectMap = new HashMap<String, Object>();
@@ -138,8 +143,8 @@ public class ConsoleApp{
 		p.PrintInfo();
 	}
 
-	public void SetRandom() {
-
+	public void SetRandom(boolean value) {
+		random = value;
 	}
 
 	public void Dig() {
