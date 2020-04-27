@@ -23,23 +23,19 @@ public abstract class Entity implements Printable{
 	/**
 	 * Az entit�s m�sik entit�ssal tal�lkozik.
 	 */
-	public void Meet(Entity other) {
+	public void Meet(IceBear other) {
+		Die();
 	}
+	public void Meet(Player other) {
+		
+	}
+	protected abstract void Die();
 
 	/**
 	 * Az entit�s �tl�p egy m�sik mez�re.
 	 * Ha kimenne a p�ly�r�l, a program jelzi, hogy ezt nem teheti.
 	 */
-	public void Move(int d) {
-		IceField newfield = field.GetNeighbour(d);
-		if(newfield == null) {
-			System.out.println("Can't go outside the map");
-			return;
-		}
-		field.Remove(this);
-		field = newfield;
-		field.Accept(this);
-	}
+	public abstract void Move(int d);
 	public void SetField(IceField f) {
 		field = f;
 	}

@@ -206,10 +206,7 @@ public class Game {
 	 * @param victory True/false: a játékosok nyertek/vesztettek.
 	 */
 	public void Over(boolean victory) {
-		if(victory)
-			state = "win";
-		else
-			state = "lose";
+		state = "ended";
 	}
 	
 	/**
@@ -327,7 +324,10 @@ public class Game {
 		pw.println("State: " + state);
 		pw.println("Playersinwater: " + playersInWater);
 		pw.println("Gunpartsfound: " + gunPartsFound);
-		pw.println("ActivePlayer: " + activePlayer==null ? "-" : ConsoleApp.GetName(activePlayer) );
+		if(activePlayer==null)
+			pw.println("Activeplayer: -" );
+		else
+			pw.println("ActivePlayer: " + ConsoleApp.GetName(activePlayer) );
 		pw.close();
 	}
 }

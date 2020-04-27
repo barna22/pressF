@@ -51,24 +51,26 @@ public class ConsoleApp{
 	}
 
 	public void CreateEntity(String name, String type, String field) {
+		IceField fi = (IceField)GetObject(field);
 		Entity entity;
 		switch(type) {
 			default://medve
 				entity = new IceBear();
+				fi.Accept((IceBear)entity);
 				game.AddBear((IceBear)entity);
 				break;
 			case "researcher":
 				entity = new Researcher();
+				fi.Accept((Researcher)entity);
 				game.AddPlayer((Researcher)entity);
 				break;
 			case "eskimo":
 				entity = new Eskimo();
+				fi.Accept((Eskimo)entity);
 				game.AddPlayer((Eskimo)entity);
 				break;
 		}
 		put(entity, name);
-		IceField fi = (IceField)GetObject(field);
-		fi.Accept(entity);
 		entity.SetField(fi);
 	}
 

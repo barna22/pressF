@@ -78,23 +78,42 @@ public class IceField implements Printable{
 	}
 	
 	/**
-	 * Felveszi a játékost a rajta álló játékosok közé.
+	 * Felveszi a játékost a rajta álló entitások közé.
 	 * Felborul ha, túl sokan állnak így már rajta.
 	 */
-	public void Accept(Entity incomingEntity) {
+	public void Accept(Player incomingPlayer) {
 		if (entities.size() >= capacity){
 			//Capsize();
 			hasIgloo = false;
 			tent = null;
 			for (Entity entity : entities)
 				entity.FallInWater(this);
-			incomingEntity.FallInWater(this);
+			incomingPlayer.FallInWater(this);
 		}
 		if (!hasIgloo)
 			for (Entity entity : entities)
-				entity.Meet(incomingEntity);
+				entity.Meet(incomingPlayer);
 		
-		entities.add(incomingEntity);
+		entities.add(incomingPlayer);
+	}
+	/**
+	 * Felveszi a játékost a rajta álló entitások közé.
+	 * Felborul ha, túl sokan állnak így már rajta.
+	 */
+	public void Accept(IceBear incomingIceBear) {
+		if (entities.size() >= capacity){
+			//Capsize();
+			hasIgloo = false;
+			tent = null;
+			for (Entity entity : entities)
+				entity.FallInWater(this);
+			incomingIceBear.FallInWater(this);
+		}
+		if (!hasIgloo)
+			for (Entity entity : entities)
+				entity.Meet(incomingIceBear);
+		
+		entities.add(incomingIceBear);
 	}
 	
 	/**
