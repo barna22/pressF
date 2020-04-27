@@ -23,6 +23,7 @@ public class ConsoleApp{
 		objectMap.put(name, o);
 	}
 	
+	
 	//Map a GetName-nek
 	private static Map<Object, String> nameMap = new HashMap<Object, String>();
 	private static Map<String, Object> objectMap = new HashMap<String, Object>();
@@ -108,8 +109,20 @@ public class ConsoleApp{
 	public void AddItem(String playername, String itemname) {
 		Item newitem;
 		switch (itemname) {
-		case ""
+		case "shovel":
+			newitem = new Shovel();
+		case "rope":
+			newitem = new Rope();
+		case "divinggear":
+			newitem = new DivingGear();
+		case "flaregunpart":
+			newitem = new FlareGunPart();
+		case "food":
+			newitem = new Food();
+		case "tent":
+			newitem = new Tent();
 		}
+		Player p = nameMap;
 		p.AddItem(i);
 	}
 }
