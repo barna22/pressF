@@ -1,32 +1,31 @@
 package proto;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class ConsoleApp{
 	
-<<<<<<< HEAD
 	private Game game;
-	public enum NameFormat{
-		NAMEONLY,
-		TYPEONLY,
-		NAMEANDTYPE
-	}
-	
-	private static NameFormat nameFormat = NameFormat.NAMEANDTYPE;
-	
-	public void SetNameFormat(NameFormat nameFormat) {
-		ConsoleApp.nameFormat = nameFormat;
-	}
-	
-=======
->>>>>>> 352fd8652048621f9793740c8df57cc57bbedeb1
+
 	//Visszaadja az objektumhoz tartozó változó nevet
 	public static String GetName(Object o) {
 		return nameMap.get(o);
 	}
 	
+	//Visszaadja a névhez tartozó változót
+	public static Object GetObject(String name) {
+		return objectMap.get(name);
+	}
+	
+	//eltárolja a név objektum párost
+	public static void put(Object o, String name) {
+		nameMap.put(o, name);
+		objectMap.put(name, o);
+	}
+	
 	//Map a GetName-nek
-	private static Map<Object, String> nameMap;
+	private static Map<Object, String> nameMap = new HashMap<Object, String>();
+	private static Map<String, Object> objectMap = new HashMap<String, Object>();
 	
 	public void Init() {
 		game = new Game();
@@ -60,12 +59,14 @@ public class ConsoleApp{
 		
 	}
 	
-	public void Move() {
-		
+	public void Move(int d) {
+		Player player = game.GetActivePlayer();
+		player.Move(d);
 	}
 	
-	public void MoveBear() {
-		
+	public void MoveBear(String name, int d) {
+		IceBear bear = nameMap
+		bear.Move(d);
 	}
 	
 	public void PlaceIgloo() {
