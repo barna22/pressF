@@ -13,7 +13,7 @@ import java.util.Map;
  * ki lehet ásni a tárgyat, ha nincs rajta hó.
  * (A hóval fedett lyuk egy 0 kapacitású jégtábla.)
  */
-public class IceField {
+public class IceField implements Printable{
 	private int snowLevel;
 	private int capacity;
 	private boolean hasIgloo = false;
@@ -195,4 +195,5 @@ public class IceField {
 	public boolean HasStormProtection() {
 		return (hasIgloo || tent != null);
 	}
+	
 }

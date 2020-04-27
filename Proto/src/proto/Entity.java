@@ -3,7 +3,7 @@ package proto;
 /**
  * Jégtáblák közötti mozgásra képes entitás
  */
-public abstract class Entity {
+public abstract class Entity implements Printable{
 	
 	protected IceField field;
 
