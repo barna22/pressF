@@ -207,6 +207,7 @@ public class Game {
 	 */
 	public void Over(boolean victory) {
 		state = "ended";
+		activePlayer = null;
 	}
 	
 	/**
@@ -305,8 +306,6 @@ public class Game {
 	 * @return Az aktív játékost adja vissza.
 	 */
 	public Player GetActivePlayer() {
-		if(activePlayer == null)
-			activePlayer = players.get(0);
 		return activePlayer;
 	}
 	/**
@@ -321,13 +320,14 @@ public class Game {
 	 */
 	public void PrintInfo() {
 		PrintWriter pw = new PrintWriter(System.out);
-		pw.println("State: " + state);
-		pw.println("Playersinwater: " + playersInWater);
-		pw.println("Gunpartsfound: " + gunPartsFound);
+		pw.println("game:");
+		pw.println("	State: " + state);
+		pw.println("	Playersinwater: " + playersInWater);
+		pw.println("	Gunpartsfound: " + gunPartsFound);
 		if(activePlayer==null)
-			pw.println("Activeplayer: -" );
+			pw.println("	Activeplayer: -" );
 		else
-			pw.println("ActivePlayer: " + ConsoleApp.GetName(activePlayer) );
+			pw.println("	ActivePlayer: " + ConsoleApp.GetName(activePlayer) );
 		pw.close();
 	}
 }

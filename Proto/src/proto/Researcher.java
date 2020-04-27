@@ -8,7 +8,7 @@ public class Researcher extends Player {
 	 */
 	public Researcher() {
 		temperature = 4;
-		remainingActions = 4;
+		remainingActions = 0;
 		isInWater = false;
 		hasDivingGear = false;
 	}

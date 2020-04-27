@@ -221,16 +221,17 @@ public class IceField implements Printable{
 	 */
 	public void PrintInfo() {
 		PrintWriter pw = new PrintWriter(System.out);
+		pw.println(ConsoleApp.GetName(this) + ":");
 		for (int i = 0; i < neighbours.size(); i++)
-			pw.println("Neighbor " + (i+1) + ": " + neighbours.get(i));
-		pw.println("Snowlevel: " + snowLevel);
-		pw.println("Capacity: " + capacity);
-		pw.println("Hasigloo: " + hasIgloo);
+			pw.println("	Neighbor " + (i+1) + ": " + neighbours.get(i));
+		pw.println("	Snowlevel: " + snowLevel);
+		pw.println("	Capacity: " + capacity);
+		pw.println("	Hasigloo: " + hasIgloo);
 		if (item != null)
-			pw.println("Item: " + item);
+			pw.println("	Item: " + item);
 		for (int i = 0; i < entities.size(); i++)
-			pw.println("Entity " + (i+1) + ": " + ConsoleApp.GetName(entities.get(i)));
-		pw.println("Capacityrevealed: " + capacityRevealed);
+			pw.println("	Entity " + (i+1) + ": " + ConsoleApp.GetName(entities.get(i)));
+		pw.println("	Capacityrevealed: " + capacityRevealed);
 		pw.close();
 	}
 }

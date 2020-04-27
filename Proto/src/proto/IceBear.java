@@ -1,5 +1,6 @@
 package proto;
 
+import java.io.PrintWriter;
 import java.util.Random;
 
 public class IceBear extends Entity implements Steppable {
@@ -43,7 +44,10 @@ public class IceBear extends Entity implements Steppable {
 	}
 
 	public void PrintInfo() {
-		System.out.println(ConsoleApp.GetName(field));
+		PrintWriter pw = new PrintWriter(System.out);
+		pw.println(ConsoleApp.GetName(this) + ":");
+		pw.println("	field: " + ConsoleApp.GetName(field));
+		pw.close();
 	}
 
 	@Override

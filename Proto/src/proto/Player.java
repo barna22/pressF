@@ -1,5 +1,6 @@
 package proto;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 
@@ -132,13 +133,14 @@ public abstract class Player extends Entity {
 	}
 	
 	public void PrintInfo() {
-		System.out.println("Field: " + ConsoleApp.GetName(field));
-		System.out.println("Temperature : " + temperature);
-		System.out.println("Isinwater: " + isInWater);
-		System.out.println("Remainingactions: " + remainingActions);
-		System.out.println("Hasdivingear: " + hasDivingGear);
+		System.out.println(ConsoleApp.GetName(this)+":");
+		System.out.println("	Field: " + ConsoleApp.GetName(field));
+		System.out.println("	Temperature: " + temperature);
+		System.out.println("	Isinwater: " + isInWater);
+		System.out.println("	Remainingactions: " + remainingActions);
+		System.out.println("	Hasdivingear: " + hasDivingGear);
 		for(Item i : items) {
-			System.out.println("Item" + items.indexOf(i) + ": " + ConsoleApp.GetName(i));
+			System.out.println("	Item" + items.indexOf(i) + ": " + ConsoleApp.GetName(i));
 		}
 	}
 	
