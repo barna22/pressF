@@ -181,6 +181,10 @@ public abstract class Player extends Entity {
 	public void SetGame(Game g) {
 		game = g;
 	}
+	
+	public void SetTemperature(int value) {
+		temperature = value;
+	}
 
 	/**
 	 * Beállítja a hasDivingGear attribútum értékét.

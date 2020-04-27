@@ -65,24 +65,26 @@ public class ConsoleApp{
 	}
 	
 	public void MoveBear(String name, int d) {
-		IceBear bear = nameMap
+		IceBear bear = (IceBear)objectMap.get(name);
 		bear.Move(d);
 	}
 	
-	public void PlaceIgloo() {
-		
+	public void PlaceIgloo(String name) {
+		IceField field = (IceField)objectMap.get(name);
+		field.BuildIgloo();
 	}
 	
-	public void SetActivePlayer() {
-		
+	public void SetActivePlayer(String name) {
+		Player player = (Player)objectMap.get(name);
+		game.SetActivePlayer(player);
 	}
 	
-	public void SetActions() {
-		
+	public void SetActions(int actions) {
+		game.GetActivePlayer().SetRemainingActions(actions);
 	}
 	
-	public void SetTemp() {
-		
+	public void SetTemp(int temperature) {
+		game.GetActivePlayer().SetTemperature(temperature);
 	}
 	
 	public void Info(String name) {
