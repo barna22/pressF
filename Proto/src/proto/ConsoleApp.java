@@ -4,127 +4,155 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ConsoleApp{
-	
+
 	private Game game;
 
-	//Visszaadja az objektumhoz tartozó változó nevet
+	//Visszaadja az objektumhoz tartozï¿½ vï¿½ltozï¿½ nevet
 	public static String GetName(Object o) {
 		return nameMap.get(o);
 	}
 	
-	//Visszaadja a névhez tartozó változót
+	//Visszaadja a nï¿½vhez tartozï¿½ vï¿½ltozï¿½t
 	public static Object GetObject(String name) {
 		return objectMap.get(name);
 	}
-	
-	//eltárolja a név objektum párost
+
+	//eltï¿½rolja a nï¿½v objektum pï¿½rost
 	public static void put(Object o, String name) {
 		nameMap.put(o, name);
 		objectMap.put(name, o);
 	}
-	
-	
+
 	//Map a GetName-nek
 	private static Map<Object, String> nameMap = new HashMap<Object, String>();
 	private static Map<String, Object> objectMap = new HashMap<String, Object>();
-	
+
 	public void Init() {
 		game = new Game();
 	}
-	
-	public void ReadCommand() {
-		
+
+	public void CreateField(String name, int snow, int capacity) {
+		IceField field = new IceField(capacity, snow);
+		put(field, name);
+		game.AddField(field);
 	}
-	
-	public void CreateField() {
-		
+
+	public void SetNeighbour(String fieldName1, int dir1, String fieldName2, int dir2) {
+		IceField f1 = (IceField)objectMap.get(fieldName1);
+		IceField f2 = (IceField)objectMap.get(fieldName2);
+		f1.AddNeighbour(dir1, f2);
+		f2.AddNeighbour(dir2, f1);
 	}
-	
-	public void SetNeighbour() {
-		
+
+	public void CreateEntity(String name, String type, IceField field) {
+		Entity entity;
+		switch(type) {
+			default://medve
+				entity = new IceBear();
+				game.AddBear((IceBear)entity);
+				break;
+			case "researcher":
+				entity = new Researcher();
+				game.AddPlayer((Researcher)entity);
+				break;
+			case "eskimo":
+				entity = new Eskimo();
+				game.AddPlayer((Eskimo)entity);
+				break;
+		}
+		put(entity, name);
 	}
-	
-	public void CreateEntity() {
-		
+
+	public void CreateItem(String name, String type, IceField field) {
+		Item item;
+		switch(type) {
+			default://breakableShovel
+				item = new BreakableShovel();
+				break;
+			case "divinggear":
+				item = new DivingGear();
+				break;
+			case "flaregunpart":
+				item = new FlareGunPart();
+				break;
+			case "food":
+				item = new Food();
+				break;
+			case "rope":
+				item = new Rope();
+				break;
+			case "shovel":
+				item = new Shovel();
+				break;
+			case "tent":
+				item = new Tent();
+				break;
+		}
+		field.SetItem(item);
+		put(item, name);
 	}
-	
-	public void CreateItem() {
-		
+
+	public void UseItem(Item item) {
+		game.GetActivePlayer().UseItem(item);
 	}
-	
-	public void UseItem() {
-		
+
+	public void UseAbility(int dir) {
+		game.GetActivePlayer().UseAbility(dir);
 	}
-	
-	public void UseAbility() {
-		
-	}
-	
+
 	public void Move(int d) {
 		Player player = game.GetActivePlayer();
 		player.Move(d);
 	}
-	
+
 	public void MoveBear(String name, int d) {
-		IceBear bear = nameMap
+		IceBear bear = (IceBear)objectMap.get(name);
 		bear.Move(d);
 	}
-	
-	public void PlaceIgloo() {
-		
+
+	public void PlaceIgloo(String name) {
+		IceField field = (IceField)objectMap.get(name);
+		field.BuildIgloo();
 	}
-	
-	public void SetActivePlayer() {
-		
+
+	public void SetActivePlayer(String name) {
+		Player player = (Player)objectMap.get(name);
+		game.SetActivePlayer(player);
 	}
-	
-	public void SetActions() {
-		
+
+	public void SetActions(int actions) {
+		game.GetActivePlayer().SetRemainingActions(actions);
 	}
-	
-	public void SetTemp() {
-		
+
+	public void SetTemp(int temperature) {
+		game.GetActivePlayer().SetTemperature(temperature);
 	}
-	
+
 	public void Info(String name) {
-		Printable p = (Printable)objectMap.get(name);
-		p.PrintInfo();
+
 	}
-	
+
 	public void SetRandom() {
-		
+
 	}
-	
+
 	public void Dig() {
 		game.GetActivePlayer().Dig();
 	}
-	
+
 	public void PickUpItem() {
 		game.GetActivePlayer().PickUpItem();
 	}
-	
+
 	public void Save() {
-		
+
 	}
-	
+
 	public void AddItem(String playername, String itemname) {
-		Item newitem = new Item();
-		Player p = (Player)objectMap.get(playername);
+		Item newitem;
 		switch (itemname) {
-		case "shovel":
-			newitem = new Shovel();
-		case "rope":
-			newitem = new Rope();
-		case "divinggear":
-			newitem = new DivingGear();
-			p.SetHasDivingGear(true);
-		case "flaregunpart":
-			newitem = new FlareGunPart();
-		case "food":
-			newitem = new Food();
-		case "tent":
-			newitem = new Tent();
+		case ""
 		}
-		p.AddItem(newitem);
+		p.AddItem(i);
 	}
 }
