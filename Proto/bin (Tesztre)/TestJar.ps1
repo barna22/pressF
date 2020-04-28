@@ -2,7 +2,7 @@ function runtest([string]$infile, [string]$outfile)
 {
     $result = cat $outfile
     $input = cat $infile
-    $output = echo $input | java -cp . .\proto.Main
+    $output = echo $input | java -cp . proto.Main
 
     $diff = compare $output $result
 
