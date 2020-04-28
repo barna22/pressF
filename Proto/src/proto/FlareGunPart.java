@@ -17,8 +17,14 @@ public class FlareGunPart extends Item {
 	/*
 	 * True-val tér vissza.
 	 */
-	public boolean IsTheSame(FlareGunPart f) {
+
+	public boolean Equip(Player p) {
+		super.Equip(p);
+		game.GunPartFound();
 		return true;
 	}
-
+	
+	public void SetGame(Game g) {
+		game = g;
+	}
 }
