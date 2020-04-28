@@ -85,7 +85,9 @@ public class ConsoleApp{
 				item = new DivingGear();
 				break;
 			case "flaregunpart":
-				item = new FlareGunPart();
+				FlareGunPart flaregun = new FlareGunPart();
+				flaregun.SetGame(game);
+				item = flaregun;
 				break;
 			case "food":
 				item = new Food();
@@ -183,7 +185,9 @@ public class ConsoleApp{
 			p.SetHasDivingGear(true);
 			break;
 		case "flaregunpart":
-			newitem = new FlareGunPart();
+			FlareGunPart flaregun = new FlareGunPart();
+			flaregun.SetGame(game);
+			newitem = flaregun;
 			break;
 		case "food":
 			newitem = new Food();
