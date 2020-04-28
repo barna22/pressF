@@ -144,7 +144,7 @@ public abstract class Player extends Entity {
 		System.out.println("	Remainingactions: " + remainingActions);
 		System.out.println("	Hasdivingear: " + hasDivingGear);
 		for(Item i : items) {
-			System.out.println("	Item" + items.indexOf(i) + ": " + ConsoleApp.GetName(i));
+			System.out.println("	Item" + (items.indexOf(i)+1) + ": " + ConsoleApp.GetName(i));
 		}
 	}
 	
