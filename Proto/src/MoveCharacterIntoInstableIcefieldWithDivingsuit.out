@@ -7,6 +7,6 @@ player1:
 	Item1: divinggear
 game:
 	State: running
-	Playersinwater: 1
+	Playersinwater: 0
 	Gunpartsfound: 0
 	Activeplayer: player1
