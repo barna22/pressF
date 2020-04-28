@@ -1,9 +1,0 @@
-bear1:
-	Field: f_1_2
-bear2:
-	Field: f_1_2
-game:
-	State: running
-	Playersinwater: 0
-	Gunpartsfound: 0
-	Activeplayer: -

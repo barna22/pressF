@@ -1,8 +1,0 @@
-createfield f_1_1 0 3
-entity player1 researcher f_1_1
-setactiveplayer player1
-setactions 4
-createitem shovel f_1_1 shovel1
-pickupitem
-info f_1_1
-info player1

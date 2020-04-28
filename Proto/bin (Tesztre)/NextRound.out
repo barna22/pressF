@@ -1,5 +1,0 @@
-game:
-	State: running
-	Playersinwater: 0
-	Gunpartsfound: 0
-	Activeplayer: player1

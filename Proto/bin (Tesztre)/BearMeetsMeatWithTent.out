@@ -1,7 +1,0 @@
-game:
-	State: ended
-	Playersinwater: 0
-	Gunpartsfound: 0
-	Activeplayer: -
-bear1:
-	Field: f_1_1

@@ -1,7 +1,0 @@
-createfield f_1_1 3 3
-entity player1 researcher f_1_1
-additem player1 shovel shovel1
-setactiveplayer player1
-setactions 4
-useitem shovel1
-info f_1_1

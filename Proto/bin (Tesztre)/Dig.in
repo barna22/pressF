@@ -1,6 +1,0 @@
-createfield f_1_1 3 3
-entity player1 researcher f_1_1
-setactiveplayer player1
-setactions 4
-dig
-info f_1_1
