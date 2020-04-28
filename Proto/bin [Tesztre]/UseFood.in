@@ -1,0 +1,8 @@
+createfield f_1_1 0 3
+entity player1 researcher f_1_1
+additem player1 food food1
+setactiveplayer player1
+sethealth 1
+setactions 4
+useitem food1
+info player1

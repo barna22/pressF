@@ -1,0 +1,7 @@
+game:
+	State: running
+	Playersinwater: 0
+	Gunpartsfound: 0
+	Activeplayer: player1
+bear1:
+	Field: f_1_1

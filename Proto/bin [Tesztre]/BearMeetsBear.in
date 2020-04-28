@@ -1,0 +1,15 @@
+createfield f_1_1 1 3
+createfield f_1_2 1 3
+createfield f_1_3 1 3
+createfield f_2_1 1 3
+setrandom false
+setneighbor f_1_1 1 f_1_2 3
+setneighbor f_1_2 1 f_1_3 3
+entity player1 eskimo f_2_1
+entity bear1 bear f_1_1
+entity bear2 bear f_1_3
+movebear bear1 1
+movebear bear2 3
+info bear1
+info bear2
+info game

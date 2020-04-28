@@ -1,0 +1,10 @@
+createfield f_1_1 1 1
+createfield f_1_2 1 1
+setrandom false
+setneighbor f_1_1 1 f_1_2 3
+entity player1 researcher f_1_1
+entity bear1 bear f_1_2
+movebear bear1 3
+info player1
+info game
+info bear1

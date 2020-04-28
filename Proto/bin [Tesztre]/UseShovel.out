@@ -1,0 +1,7 @@
+f_1_1:
+	Snowlevel: 1
+	Capacity: 3
+	Hasigloo: false
+	Item: -
+	Entity1: player1
+	Capacityrevealed: false

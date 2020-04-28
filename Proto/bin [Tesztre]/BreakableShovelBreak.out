@@ -1,0 +1,6 @@
+player1:
+	Field: f_1_1
+	Temperature: 3
+	Isinwater: false
+	Remainingactions: 4
+	Hasdivingear: false

@@ -1,0 +1,8 @@
+f_1_1:
+	Neighbor 1: f_1_2
+	Snowlevel: 1
+	Capacity: 3
+	Hasigloo: true
+	Item: -
+	Entity1: player1
+	Capacityrevealed: false
