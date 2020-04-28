@@ -1,7 +1,7 @@
 player1:
 	Field: f_1_2
 	Temperature: 4
-	Isinwater: true
+	Isinwater: false
 	Remainingactions: 2
 	Hasdivingear: true
 	Item1: divinggear
