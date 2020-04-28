@@ -199,7 +199,7 @@ public class ConsoleApp{
 			newitem = new BreakableShovel();
 			break;
 		}
-		p.AddItem(newitem);
+		newitem.Equip(p);
 		put(newitem, itemName);
 	}
 	public void Storm() {

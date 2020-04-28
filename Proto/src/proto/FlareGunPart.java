@@ -19,6 +19,7 @@ public class FlareGunPart extends Item {
 	 */
 
 	public boolean Equip(Player p) {
+		super.Equip(p);
 		game.GunPartFound();
 		return true;
 	}
