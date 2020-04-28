@@ -66,7 +66,7 @@ public class IceField implements Printable{
 	 * Iglut épít a jégtáblára.
 	 */
 	public boolean BuildIgloo() {
-		if (hasIgloo = true)
+		if (hasIgloo == true)
 			return false;
 		hasIgloo = true;
 		return true;
