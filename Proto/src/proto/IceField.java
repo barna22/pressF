@@ -227,7 +227,7 @@ public class IceField implements Printable{
 		else
 			System.out.println("	Item: " + item);
 		for (int i = 0; i < entities.size(); i++)
-			System.out.println("	Entity " + (i+1) + ": " + ConsoleApp.GetName(entities.get(i)));
+			System.out.println("	Entity" + (i+1) + ": " + ConsoleApp.GetName(entities.get(i)));
 		System.out.println("	Capacityrevealed: " + capacityRevealed);
 	}
 	public ArrayList<IceField> getNeighbours(){
