@@ -112,8 +112,8 @@ public abstract class Player extends Entity {
 	 * A játékos leszed egy hóréteget a mezejéről.
 	 */
 	public void Dig() {
-		field.RemoveSnow(1);
-		remainingActions -= 1;
+		if(field.RemoveSnow(1))
+			remainingActions -= 1;
 		if(remainingActions == 0) {
 			game.NextPlayer();
 		}

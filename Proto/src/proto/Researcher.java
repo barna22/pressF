@@ -14,7 +14,10 @@ public class Researcher extends Player {
 	}
 	
 	public void UseAbility(int d) {
-		field.GetNeighbour(d).RevealCapacity();
+		IceField neighbour = field.GetNeighbour(d);
+		if (neighbour == null)
+			return;
+		neighbour.RevealCapacity();
 		remainingActions -= 1;
 		if(remainingActions <= 0) {
 			game.NextPlayer();

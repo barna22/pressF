@@ -30,15 +30,6 @@ public class IceField implements Printable{
 		this.capacity = capacity;
 		this.snowLevel = snowLevel;
 	}
-	/**
-	 * Felborul a jégtábla, így minden rajta álló játékos vízbe esik.
-	 */
-	/*private void Capsize() {
-
-		for (Entity entity : entities)
-			entity.FallInWater(this);
-		
-	}*/
 	
 	/**
 	 * Visszaadja a szomszédos jégtáblát a megadott irányba.
@@ -50,12 +41,14 @@ public class IceField implements Printable{
 	/**
 	 * Csökkenti a hóréteg vastagságát a megadott értékkel.
 	 */
-	public void RemoveSnow(int a) {
-		//boolean visszatérési érték jelezni, hogy sikerült-e?
+	public boolean RemoveSnow(int a) {
+		if (snowLevel == 0)
+			return false;
 		if (snowLevel - a < 0)
 			snowLevel = 0;
 		else
 			snowLevel -= a;
+		return true;
 	}
 	
 	/**
@@ -72,9 +65,11 @@ public class IceField implements Printable{
 	/**
 	 * Iglut épít a jégtáblára.
 	 */
-	public void BuildIgloo() {
-		//boolean visszatérési érték jelezni, hogy sikerült-e?
+	public boolean BuildIgloo() {
+		if (hasIgloo = true)
+			return false;
 		hasIgloo = true;
+		return true;
 	}
 	
 	/**
