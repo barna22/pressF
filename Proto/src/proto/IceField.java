@@ -89,6 +89,7 @@ public class IceField implements Printable{
 			for (Entity entity : entities)
 				entity.FallInWater(this);
 			incomingPlayer.FallInWater(this);
+			playersInWater.add(incomingPlayer);
 		}
 		if (!hasIgloo)
 			for (Entity entity : entities)
@@ -221,8 +222,8 @@ public class IceField implements Printable{
 	 */
 	public void PrintInfo() {
 		System.out.println(ConsoleApp.GetName(this) + ":");
-		for (int i = 0; i < neighbours.size(); i++)
-			System.out.println("	Neighbor " + (i+1) + ": " + ConsoleApp.GetName(neighbours.get(i)));
+		//for (int i = 0; i < neighbours.size(); i++)
+		//	System.out.println("	Neighbor " + (i+1) + ": " + ConsoleApp.GetName(neighbours.get(i)));
 		System.out.println("	Snowlevel: " + snowLevel);
 		System.out.println("	Capacity: " + capacity);
 		System.out.println("	Hasigloo: " + hasIgloo);
@@ -233,5 +234,12 @@ public class IceField implements Printable{
 		for (int i = 0; i < entities.size(); i++)
 			System.out.println("	Entity " + (i+1) + ": " + ConsoleApp.GetName(entities.get(i)));
 		System.out.println("	Capacityrevealed: " + capacityRevealed);
+	}
+	public ArrayList<IceField> getNeighbours(){
+		ArrayList<IceField> fields = new ArrayList<IceField>();
+		for (int key: neighbours.keySet()) {
+		    fields.add(neighbours.get(key));
+		}
+		return fields;
 	}
 }

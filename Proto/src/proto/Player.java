@@ -45,6 +45,7 @@ public abstract class Player extends Entity {
 		if(isInWater == false) {
 			return false;
 		}
+		isInWater = false;
 		f.Accept(this);
 		game.PlayerSaved();
 		field.Remove(this); //úgy írtam a field Remove-ját, hogy itt ne kelljen még külön a vízben lévők közül is kiszedni

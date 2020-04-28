@@ -13,12 +13,9 @@ public class Rope extends Item {
 	public boolean Use(Player p1) {
 		IceField f1 =  p1.GetField();
 		boolean success = false;
-		int neighbours = f1.GetNumberOfNeighbours();
-		for (int x = 1; x < neighbours; x++) {
-			IceField f = f1.GetNeighbour(x);
+		for (IceField f : f1.getNeighbours()) 
 			if(f.Save(f1))
 				success = true;
-		}
 		return success;
 	}
 	
