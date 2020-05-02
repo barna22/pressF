@@ -1,6 +1,5 @@
 package proto;
 
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -50,6 +49,7 @@ public class IceField{
 			snowLevel = 0;
 		else
 			snowLevel -= a;
+		fieldView.draw();
 		return true;
 	}
 	
@@ -61,6 +61,7 @@ public class IceField{
 		snowLevel++;
 		for(Entity entity : entities)
 			entity.CaughtByStorm();
+		//Animáció
 		
 	}
 	
@@ -71,6 +72,7 @@ public class IceField{
 		if (hasIgloo == true)
 			return false;
 		hasIgloo = true;
+		fieldView.draw();
 		return true;
 	}
 	
@@ -93,6 +95,7 @@ public class IceField{
 				entity.Meet(incomingPlayer);
 		
 		entities.add(incomingPlayer);
+		fieldView.draw();
 	}
 	/**
 	 * Felveszi a játékost a rajta álló entitások közé.
@@ -112,6 +115,7 @@ public class IceField{
 				entity.Meet(incomingIceBear);
 		
 		entities.add(incomingIceBear);
+		fieldView.draw();
 	}
 	
 	/**
@@ -126,6 +130,8 @@ public class IceField{
 				i--;
 			}
 		}
+		if (success)
+			fieldView.draw();
 		return success;
 	}
 	
@@ -204,6 +210,7 @@ public class IceField{
 	
 	public void SetTent(Tent tent) {
 		this.tent = tent;
+		fieldView.draw();
 	}
 	
 	public void RemoveTent() {

@@ -17,13 +17,17 @@ public class FieldView extends JPanel {
 
 	public FieldView(IceField field) {
 		this.field = field;
+		readImages();
+
+	}
+	
+	private void readImages() {
 		try {
 			if (diver == null)
 				diver = ImageIO.read(new File("images" + File.separator + "diver.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public void paintComponent(Graphics g) {
@@ -36,7 +40,9 @@ public class FieldView extends JPanel {
 		 int ovalWidth = (int) (getWidth() * 0.9); int ovalHeight = (int) (getHeight() * 0.9);
 		 g.setColor(Color.WHITE); g.fillOval(center.x - ovalWidth / 2, center.y - ovalHeight / 2, ovalWidth, ovalHeight);
 		 
-		 g.drawImage(diver,
+		 
+		 
+		/* g.drawImage(diver,
 				 (int)(getWidth() * 0.2), (int)(getHeight() * 0.2), (int)(getWidth() * 0.4), (int)(getHeight() * 0.4),
 				 0, 0, 32, 32,
 				 null);
@@ -52,5 +58,9 @@ public class FieldView extends JPanel {
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, (int) (center.getX()), (int) (center.getY()));*/
 
+	}
+
+	public void draw() {
+		this.repaint();
 	}
 }
