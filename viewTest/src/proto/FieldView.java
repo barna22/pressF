@@ -21,6 +21,9 @@ public class FieldView extends JPanel {
 
 	}
 	
+	/**
+	 * Beolvassa a megjelenítéshez használt képeket
+	 */
 	private void readImages() {
 		try {
 			if (diver == null)
@@ -30,6 +33,9 @@ public class FieldView extends JPanel {
 		}
 	}
 
+	/**
+	 * Kirajzolja a jégtáblát, az állapotának megfelelõen
+	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
