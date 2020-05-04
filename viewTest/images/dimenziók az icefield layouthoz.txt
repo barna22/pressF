@@ -1,0 +1,19 @@
+Tent/Igloo:
+19,12 bal felső
+vagy
+50,43 jobb alsó
+
+Entity:
+10,45 bal felső
+vagy
+41,85 jobb alsó
+
+Bag (alsó 32x16 pixel):
+52,18 bal felső
+vagy
+83,33 jobb alsó
+
+Entity in water (felső 32x16 pixel):
+58,67 bal felső
+vagy
+89,82 jobb alsó
