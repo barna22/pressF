@@ -95,7 +95,7 @@ public class IceField{
 				entity.Meet(incomingPlayer);
 		
 		entities.add(incomingPlayer);
-		fieldView.draw();
+		//fieldView.draw();
 	}
 	/**
 	 * Felveszi a játékost a rajta álló entitások közé.
@@ -115,7 +115,7 @@ public class IceField{
 				entity.Meet(incomingIceBear);
 		
 		entities.add(incomingIceBear);
-		fieldView.draw();
+		//fieldView.draw();
 	}
 	
 	/**

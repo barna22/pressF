@@ -48,12 +48,12 @@ public class FieldView extends JPanel {
 		 
 		 
 		 
-		/* g.drawImage(diver,
-				 (int)(getWidth() * 0.2), (int)(getHeight() * 0.2), (int)(getWidth() * 0.4), (int)(getHeight() * 0.4),
-				 0, 0, 32, 32,
+		g.drawImage(diver,
+				 (int)(getWidth() * 0), (int)(getHeight() * 0), (int)(getWidth() * 0.2), (int)(getHeight() * 0.125),
+				 0, 0, 32, 20,
 				 null);
 		 
-		 g.drawImage(diver,
+		/* g.drawImage(diver,
 				 (int)(getWidth() * 0.2), (int)(getHeight() * 0.2), (int)(getWidth() * 0.4), (int)(getHeight() * 0.4),
 				 0, 0, 32, 32,
 				 null);
