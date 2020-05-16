@@ -10,8 +10,13 @@ public class GameView extends JPanel{
 	private Game game;
 	private List<FieldView> fieldViews = new ArrayList<FieldView>();
 	private int rows, columns;
+	public static GameView instance;
 	
-	public GameView(int rows, int columns, Game game) {
+	public static void init(int rows, int columns, Game game) {
+		instance = new GameView(rows, columns, game);
+	}
+	
+	private GameView(int rows, int columns, Game game) {
 		super();
 		this.game = game;
 		this.rows = rows;
