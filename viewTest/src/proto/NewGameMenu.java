@@ -121,7 +121,7 @@ public class NewGameMenu extends JPanel {
 	    add(colField, c);
 
 	    Font buttonFont = new Font("Arial", Font.PLAIN, 40);
-	    Insets buttonInsets = new Insets(30,30,30,30);
+	    Insets buttonInsets = new Insets(30,30,30,30);// padding
 	    
 	    JButton backButton = new JButton("Vissza");
 	    backButton.setFont(buttonFont);
@@ -130,7 +130,7 @@ public class NewGameMenu extends JPanel {
 	    c.gridwidth = 2;
 	    c.gridx = 0;
 	    c.gridy = 3;
-	    c.insets = buttonInsets; //padding
+	    c.insets = buttonInsets; 
 	    add(backButton, c);
 	    
 	    backButton.addActionListener(new ActionListener() {
