@@ -16,11 +16,6 @@ import javax.swing.JPanel;
 public class FieldView extends JPanel {
 	private IceField field;
 	private static BufferedImage diver;
-	private List<PlayerView> players;
-	private List<PlayerView> playersinwater;
-	private ItemView item;
-	private IceBearView bear;
-	private JComponent igloo;
 	
 	
 
