@@ -1,11 +1,13 @@
 package proto;
 
-public class ItemView implements Updatable{
+import java.awt.image.BufferedImage;
 
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
+public class ItemView{
+	private Item item;
+	private BufferedImage itemimage;
+	
+	public BufferedImage GetImage() {
+		return itemimage;
 	}
 
 }
