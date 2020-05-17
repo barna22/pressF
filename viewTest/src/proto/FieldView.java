@@ -7,18 +7,26 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.imageio.ImageIO;
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 public class FieldView extends JPanel {
 	private IceField field;
 	private static BufferedImage diver;
+	private List<PlayerView> players;
+	private List<PlayerView> playersinwater;
+	private ItemView item;
+	private IceBearView bear;
+	private JComponent igloo;
+	
+	
 
 	public FieldView(IceField field) {
 		this.field = field;
 		readImages();
-
 	}
 	
 	/**
