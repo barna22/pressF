@@ -237,4 +237,12 @@ public class IceField{
 	public void addFieldView(FieldView fieldView) {
 		this.fieldView = fieldView;
 	}
+	
+	public boolean isCapacityRevealed() {
+		return capacityRevealed;
+	}
+	
+	public int getSnowLevel() {
+		return snowLevel;
+	}
 }

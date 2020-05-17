@@ -6,11 +6,14 @@ import java.util.ArrayList;
 
 public abstract class Player extends Entity {
 	protected int temperature;
+	protected int maxTemperature;
 	protected boolean isInWater;
 	protected int remainingActions;
 	protected boolean hasDivingGear;
 	protected ArrayList<Item> items = new ArrayList<Item>();
 	protected Game game;
+	protected String name = "nincs";
+	
 	
 	/**
 	 * Megváltoztatja a játékos hőmérsékletét.
@@ -197,5 +200,10 @@ public abstract class Player extends Entity {
 		hasDivingGear = value;
 	}
 
-	
+	public String GetName() {
+		return name;
+	}
+	public int GetMaxTemperature() {
+		return maxTemperature;
+	}
 }

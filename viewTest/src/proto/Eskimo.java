@@ -6,6 +6,7 @@ public class Eskimo extends Player {
 	 * Az eszkimó használja a képességét, mellyel épít egy iglut.
 	 */
 	public Eskimo() {
+		maxTemperature = 5;
 		temperature = 5;
 		remainingActions = 4;
 		isInWater = false;
