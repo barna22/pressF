@@ -35,7 +35,7 @@ public class GameView extends JPanel implements Updatable{
 		
 		tablePanel = new JPanel();
 		tablePanel.setLayout(new GridLayout(rows, columns));
-		c.weightx = 0.7;
+		c.weightx = 1.7;
 	    c.gridheight = 2;
 	    c.gridx = 0;
 	    c.gridy = 0;
@@ -43,7 +43,7 @@ public class GameView extends JPanel implements Updatable{
 		
 		fieldPanel = new FieldPanel();
 		c.weightx = 0.3;
-		c.weighty = 0.40;
+		c.weighty = 0.3;
 	    c.gridheight = 1;
 	    c.gridx = 1;
 	    c.gridy = 1;
@@ -51,7 +51,7 @@ public class GameView extends JPanel implements Updatable{
 		
 		playerPanel = new PlayerPanel();
 		c.weightx = 0.3;
-		c.weighty = 0.60;
+		c.weighty = 0.7;
 	    c.gridheight = 1;
 	    c.gridx = 1;
 	    c.gridy = 0;

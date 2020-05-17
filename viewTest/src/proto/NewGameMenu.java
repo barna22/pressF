@@ -39,7 +39,7 @@ public class NewGameMenu extends JPanel {
 	    c.gridy = 0;
 	    add(eskimoLabel, c);
 	    
-	    JTextField eskimoField = new JTextField();
+	    JTextField eskimoField = new JTextField("3");
 	    eskimoField.setHorizontalAlignment(JTextField.CENTER);
 	    eskimoField.setFont(defaultFont);
 	    c.weightx = 0.25;
@@ -57,7 +57,7 @@ public class NewGameMenu extends JPanel {
 	    c.gridy = 1;
 	    add(researcherLabel, c);
 	    
-	    JTextField researcherField = new JTextField();
+	    JTextField researcherField = new JTextField("3");
 	    researcherField.setHorizontalAlignment(JTextField.CENTER);
 	    researcherField.setFont(defaultFont);
 	    c.weightx = 0.25;
@@ -75,7 +75,7 @@ public class NewGameMenu extends JPanel {
 	    c.gridy = 2;
 	    add(icebearLabel, c);
 	    
-	    JTextField icebearField = new JTextField();
+	    JTextField icebearField = new JTextField("2");
 	    icebearField.setHorizontalAlignment(JTextField.CENTER);
 	    icebearField.setFont(defaultFont);
 	    c.weightx = 0.25;
@@ -93,7 +93,7 @@ public class NewGameMenu extends JPanel {
 	    c.gridy = 1;
 	    add(rowLabel, c);
 	    
-	    JTextField rowField = new JTextField();
+	    JTextField rowField = new JTextField("5");
 	    rowField.setHorizontalAlignment(JTextField.CENTER);
 	    rowField.setFont(defaultFont);
 	    c.weightx = 0.25;
@@ -111,7 +111,7 @@ public class NewGameMenu extends JPanel {
 	    c.gridy = 2;
 	    add(colLabel, c);
 	    
-	    JTextField colField = new JTextField();
+	    JTextField colField = new JTextField("5");
 	    colField.setHorizontalAlignment(JTextField.CENTER);
 	    colField.setFont(defaultFont);
 	    c.weightx = 0.25;
