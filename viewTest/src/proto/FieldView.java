@@ -1,36 +1,42 @@
 package proto;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 import javax.imageio.ImageIO;
-import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-public class FieldView extends JPanel {
+public class FieldView extends JPanel implements Updatable {
+	
 	private IceField field;
-	private static BufferedImage diver;
-	
-	
+	private static BufferedImage fieldImage, igluImage, tentImage, itemImage;
+	private static boolean imagesLoaded = false;
+	private static Area buildingArea = new Area(0.19, 0.12, 0.32, 0.32);
+	private static Area entityArea = new Area(0.1, 0.45, 0.32, 0.32);
+	private static Area itemArea = new Area(0.52, 0.18, 0.32, 0.16);
+	private static Area waterArea = new Area(0.58, 0.67, 0.32, 0.16);
 
 	public FieldView(IceField field) {
 		this.field = field;
 		readImages();
 	}
-	
+
 	/**
 	 * Beolvassa a megjelenítéshez használt képeket
 	 */
 	private void readImages() {
 		try {
-			if (diver == null)
-				diver = ImageIO.read(new File("images" + File.separator + "diver.png"));
+			if (!imagesLoaded) {
+				fieldImage = ImageIO.read(new File("images" + File.separator + "icefield.png"));
+				igluImage = ImageIO.read(new File("images" + File.separator + "iglu.png"));
+				tentImage = ImageIO.read(new File("images" + File.separator + "tent.png"));
+				itemImage = ImageIO.read(new File("images" + File.separator + "item.png"));
+				imagesLoaded = true;
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -43,33 +49,28 @@ public class FieldView extends JPanel {
 		super.paintComponent(g);
 
 		
-		 g.setColor(Color.BLUE); g.fillRect(0, 0, getWidth(), getHeight());
-		 
-		 Point center = new Point(getWidth() / 2, getHeight() / 2);
-		 int ovalWidth = (int) (getWidth() * 0.9); int ovalHeight = (int) (getHeight() * 0.9);
-		 g.setColor(Color.WHITE); g.fillOval(center.x - ovalWidth / 2, center.y - ovalHeight / 2, ovalWidth, ovalHeight);
-		 
-		 
-		 
-		g.drawImage(diver,
-				 (int)(getWidth() * 0), (int)(getHeight() * 0), (int)(getWidth() * 0.2), (int)(getHeight() * 0.125),
-				 0, 0, 32, 20,
-				 null);
-		 
-		/* g.drawImage(diver,
-				 (int)(getWidth() * 0.2), (int)(getHeight() * 0.2), (int)(getWidth() * 0.4), (int)(getHeight() * 0.4),
-				 0, 0, 32, 32,
-				 null);
-		 
-		/*g.setColor(Color.BLUE);
-		g.fillRect(0, 0, getWidth(), getHeight());
-		Point center = new Point(getWidth() / 2, getHeight() / 2);
-		g.setColor(Color.WHITE);
-		g.fillRect(0, 0, (int) (center.getX()), (int) (center.getY()));*/
-
+		//jégtábla kirajzolása
+		g.drawImage(fieldImage, 0, 0, getWidth(), getHeight(),
+				0, 0, fieldImage.getWidth(), fieldImage.getHeight(), null);
+		
+		//iglu vagy sátor megjelenítése
+		if (field.HasIgloo())
+			g.drawImage(igluImage, (int)(buildingArea.x * getWidth()), (int)(buildingArea.y * getHeight()),
+					(int)(buildingArea.w * getWidth()), (int)(buildingArea.h * getHeight()),
+					0, 0, igluImage.getWidth(), igluImage.getHeight(), null);
+		else if(field.HasTent())
+			g.drawImage(tentImage, (int)(buildingArea.x * getWidth()), (int)(buildingArea.y * getHeight()),
+					(int)(buildingArea.w * getWidth()), (int)(buildingArea.h * getHeight()),
+					0, 0, tentImage.getWidth(), tentImage.getHeight(), null);
 	}
 
+	// törlendõ
 	public void draw() {
+		this.repaint();
+	}
+
+	@Override
+	public void update() {
 		this.repaint();
 	}
 }

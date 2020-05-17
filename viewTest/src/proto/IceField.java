@@ -217,8 +217,12 @@ public class IceField{
 		this.tent = null;
 	}
 	
-	public boolean HasStormProtection() {
-		return (hasIgloo || tent != null);
+	public boolean HasIgloo() {
+		return hasIgloo;
+	}
+	
+	public boolean HasTent() {
+		return tent != null;
 	}
 	
 
