@@ -95,7 +95,7 @@ public class FieldView extends JPanel implements Updatable {
 
 
 	@Override
-	public void update() {
+	public void Update() {
 		this.repaint();
 	}
 }

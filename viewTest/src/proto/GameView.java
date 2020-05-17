@@ -70,7 +70,7 @@ public class GameView extends JPanel implements Updatable{
 	}
 
 	@Override
-	public void update() {
+	public void Update() {
 		// TODO Auto-generated method stub
 		
 	}

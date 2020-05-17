@@ -1,5 +1,5 @@
 package proto;
 
 public interface Updatable {
-	public void update();
+	public void Update();
 }

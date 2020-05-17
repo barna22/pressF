@@ -6,6 +6,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -104,7 +105,7 @@ public class FieldPanel extends JPanel implements Updatable {
 	 * Frissíti az eltárolt IceField atadait megjelenító mezõket.
 	 */
 	@Override
-	public void update() {
+	public void Update() {
 		if(field == null)
 			return;
 		
@@ -116,7 +117,8 @@ public class FieldPanel extends JPanel implements Updatable {
 		//a hószint
 		snowLevelValueLabel.setText(Integer.toString(field.getSnowLevel()));
 		
-		//TODO a befagyott tárgy képe az itemImageLabel-be ikonként (vagy máshogy)
+		//a befagyott tárgy képe
+		itemImageLabel.setIcon(new ImageIcon(field.GetItem().GetView().GetImage()));
 	}
 	
 }

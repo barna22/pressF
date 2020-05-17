@@ -26,7 +26,7 @@ public abstract class Player extends Entity {
 	}
 	
 	public void CaughtByStorm() {
-		if(!field.HasStormProtection()) {
+		if( !(field.HasIgloo() || field.HasTent()) ) {
 			temperature -= 1;
 		}
 		if(temperature <= 0) {
@@ -205,5 +205,8 @@ public abstract class Player extends Entity {
 	}
 	public int GetMaxTemperature() {
 		return maxTemperature;
+	}
+	public ArrayList<Item> GetItems(){
+		return items;
 	}
 }

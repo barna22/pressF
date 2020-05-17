@@ -8,6 +8,7 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -147,19 +148,29 @@ public class PlayerPanel extends JPanel implements Updatable {
 	}
 	
 	/**
-	 * Beállítja a kapott játékost megjelenítendõként
+	 * Létrehozza a kapcsolatot a megadott játékossal
+	 * Ha be volt állítva eddig egy elõzõ, azzal bontja a kapcsolatot
 	 * @param p Az új játékos
 	 */
 	public void setPlayer(Player p) {
+		if(player != null) 
+			player.RemovePlayerPanel();
+			
+		p.SetPlayerPanel(this);
 		player = p;
+		Update();
 	}
 	
 	/**
 	 * Frissíti az eltárolt játékos atadait megjelenító mezõket.
 	 */
 	@Override
-	public void update() {//playerNameLabel, actionsValueLabel, healthValueLabel
+	public void Update() {
 
+		//inventory kiürítése
+		for(JLabel label : itemLabels) 
+			label.setIcon(null);
+		
 		if(player == null)
 			return;
 		
@@ -172,7 +183,13 @@ public class PlayerPanel extends JPanel implements Updatable {
 		//a játékos testhõje
 		healthValueLabel.setText(Integer.toString(player.GetTemp()).concat("/").concat(Integer.toString(player.GetMaxTemperature())));
 		
-		//TODO megjeleníteni a játékos tárgyait az inventoryban.
+		//a játékos tárgyai az inventoryba
+		ArrayList<Item> items = player.GetItems();
+		int idx = 0;
+		for( Item i : items) {
+			itemLabels.get(idx).setIcon(new ImageIcon(i.GetView().GetImage()));
+			idx++;
+		}
 	}
 
 }
