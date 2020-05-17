@@ -7,6 +7,7 @@ public class Researcher extends Player {
 	 * A kutató használja a képességét, mellyel felderít egy szomszédos mezőt.
 	 */
 	public Researcher() {
+		maxTemperature = 4;
 		temperature = 4;
 		remainingActions = 0;
 		isInWater = false;

@@ -22,10 +22,6 @@ public class MainWindow extends JFrame
 	{
 		instance = new MainWindow();
 		
-		/*Game game = new Game();
-		game.init(5, 5, 2, 2, 1);
-		JPanel gameView = new GameView(5, 5, game);*/
-		
 		MainMenu.init();
 		NewGameMenu.init();
 		instance.setContentPane(MainMenu.instance);
