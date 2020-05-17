@@ -225,6 +225,14 @@ public class IceField{
 		return tent != null;
 	}
 	
+	public List<Entity> GetEntities(){
+		return entities;
+	}
+	
+	public List<Player> GetPlayersInWater(){
+		return playersInWater;
+	}
+	
 
 	public ArrayList<IceField> getNeighbours(){
 		ArrayList<IceField> fields = new ArrayList<IceField>();

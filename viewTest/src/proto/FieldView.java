@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 public class FieldView extends JPanel implements Updatable {
 	
 	private IceField field;
-	private static BufferedImage fieldImage, igluImage, tentImage, itemImage;
+	private static BufferedImage fieldImage, snowyFieldImage, igluImage, tentImage, itemImage, holeImage;
 	private static boolean imagesLoaded = false;
 	private static Area buildingArea = new Area(0.19, 0.12, 0.32, 0.32);
 	private static Area entityArea = new Area(0.1, 0.45, 0.32, 0.32);
@@ -31,10 +31,12 @@ public class FieldView extends JPanel implements Updatable {
 	private void readImages() {
 		try {
 			if (!imagesLoaded) {
-				fieldImage = ImageIO.read(new File("images" + File.separator + "icefield.png"));
+				fieldImage = ImageIO.read(new File("images" + File.separator + "icefield.png")); // ha lenne külön hó nélküli kép ide kéne
+				snowyFieldImage = ImageIO.read(new File("images" + File.separator + "icefield.png"));
 				igluImage = ImageIO.read(new File("images" + File.separator + "iglu.png"));
 				tentImage = ImageIO.read(new File("images" + File.separator + "tent.png"));
 				itemImage = ImageIO.read(new File("images" + File.separator + "item.png"));
+				holeImage = ImageIO.read(new File("images" + File.separator + "icefieldlyuk.png"));
 				imagesLoaded = true;
 			}
 		} catch (IOException e) {
@@ -50,24 +52,47 @@ public class FieldView extends JPanel implements Updatable {
 
 		
 		//jégtábla kirajzolása
-		g.drawImage(fieldImage, 0, 0, getWidth(), getHeight(),
-				0, 0, fieldImage.getWidth(), fieldImage.getHeight(), null);
+		if (field.GetCapacity() == 0)
+			Draw(holeImage, new Area(0, 0, 1, 1), g);
+		else if(field.getSnowLevel() > 0)
+			Draw(snowyFieldImage, new Area(0, 0, 1, 1), g);
+		else
+			Draw(fieldImage, new Area(0, 0, 1, 1), g);
 		
 		//iglu vagy sátor megjelenítése
 		if (field.HasIgloo())
-			g.drawImage(igluImage, (int)(buildingArea.x * getWidth()), (int)(buildingArea.y * getHeight()),
-					(int)(buildingArea.w * getWidth()), (int)(buildingArea.h * getHeight()),
-					0, 0, igluImage.getWidth(), igluImage.getHeight(), null);
+			Draw(igluImage, buildingArea, g);
 		else if(field.HasTent())
-			g.drawImage(tentImage, (int)(buildingArea.x * getWidth()), (int)(buildingArea.y * getHeight()),
-					(int)(buildingArea.w * getWidth()), (int)(buildingArea.h * getHeight()),
-					0, 0, tentImage.getWidth(), tentImage.getHeight(), null);
+			Draw(tentImage, buildingArea, g);
+		
+		//entitások megjelenítése
+		List<Entity> entities = field.GetEntities();
+		for(Entity entity : entities) {
+			BufferedImage entityImage = entity.GetView().GetImage();
+			Draw(entityImage, entityArea, g);
+		}
+		
+		//vízbe esett játékos megjelenítése
+		List<Player> playersInWater = field.GetPlayersInWater();
+		if(playersInWater.size() > 0) {
+			BufferedImage playerImage = playersInWater.get(0).GetView.GetImage();
+			Draw(playerImage, waterArea, g);
+		}
+		
+		//Kiásható tárgy megjelenítése
+		if(field.getSnowLevel() == 0 && field.GetItem() != null)
+			Draw(itemImage, itemArea, g);
+	}
+	
+	/**
+	 * Kirajzolja a megadott képet a megadott területre
+	 */
+	private void Draw(BufferedImage image, Area area, Graphics g) {
+		g.drawImage(image, (int)(area.x * getWidth()), (int)(area.y * getHeight()),
+				(int)(area.w * getWidth()), (int)(area.h * getHeight()),
+				0, 0, image.getWidth(), image.getHeight(), null);
 	}
 
-	// törlendõ
-	public void draw() {
-		this.repaint();
-	}
 
 	@Override
 	public void update() {
