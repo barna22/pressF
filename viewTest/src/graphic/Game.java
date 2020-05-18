@@ -162,7 +162,12 @@ public class Game {
 			do {
 				selectedField = fields.get(random.nextInt(row*col));
 			}while(selectedField.GetCapacity() == 0 || selectedField.GetItem() != null);//nem lehet lyuk
-			selectedField.SetItem(new FlareGunPart());
+			FlareGunPart fgp = new FlareGunPart();
+			ItemView itemview = new ItemView("flare gun.png");
+			fgp.SetGame(this);
+			fgp.SetView(itemview);
+			itemview.SetItem(fgp);
+			selectedField.SetItem(fgp);
 		}
 		
 		//minden más mezõre egy random tárgy
