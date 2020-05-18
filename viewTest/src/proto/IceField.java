@@ -49,7 +49,7 @@ public class IceField{
 			snowLevel = 0;
 		else
 			snowLevel -= a;
-		fieldView.draw();
+		fieldView.Update();
 		return true;
 	}
 	
@@ -61,6 +61,7 @@ public class IceField{
 		snowLevel++;
 		for(Entity entity : entities)
 			entity.CaughtByStorm();
+		fieldView.Update();
 		//Animáció
 		
 	}
@@ -72,7 +73,7 @@ public class IceField{
 		if (hasIgloo == true)
 			return false;
 		hasIgloo = true;
-		fieldView.draw();
+		fieldView.Update();
 		return true;
 	}
 	
@@ -95,7 +96,7 @@ public class IceField{
 				entity.Meet(incomingPlayer);
 		
 		entities.add(incomingPlayer);
-		//fieldView.draw();
+		fieldView.Update();
 	}
 	/**
 	 * Felveszi a játékost a rajta álló entitások közé.
@@ -103,7 +104,6 @@ public class IceField{
 	 */
 	public void Accept(IceBear incomingIceBear) {
 		if (entities.size() >= capacity){
-			//Capsize();
 			hasIgloo = false;
 			tent = null;
 			for (Entity entity : entities)
@@ -115,7 +115,7 @@ public class IceField{
 				entity.Meet(incomingIceBear);
 		
 		entities.add(incomingIceBear);
-		//fieldView.draw();
+		fieldView.Update();
 	}
 	
 	/**
@@ -131,7 +131,7 @@ public class IceField{
 			}
 		}
 		if (success)
-			fieldView.draw();
+			fieldView.Update();
 		return success;
 	}
 	
@@ -149,10 +149,11 @@ public class IceField{
 	 */
 	public void Remove(Entity entity) {
 		entities.remove(entity);
+		fieldView.Update();
 	}
 	
 	/**
-	 * A kapott játékosnak kiássa a befagyott tárgyat.
+	 * A kapott játékosnak odaadja a befagyott tárgyat.
 	 * True-val tér vissza, ha sikerült.
 	 */
 	public boolean TakeItem(Player p) {
@@ -160,8 +161,10 @@ public class IceField{
 			return false;
 		
 		boolean success = item.Equip(p);
-		if(success)
+		if(success) {
 			item = null;
+			fieldView.Update();
+		}
 		
 		return success;
 	}
@@ -210,7 +213,7 @@ public class IceField{
 	
 	public void SetTent(Tent tent) {
 		this.tent = tent;
-		fieldView.draw();
+		fieldView.Update();
 	}
 	
 	public void RemoveTent() {
