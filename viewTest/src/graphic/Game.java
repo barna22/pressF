@@ -249,6 +249,7 @@ public class Game {
 		activePlayer = null;
 		GameView.instance.gameOver(victory);
 		GameView.instance = null;
+		NewGameMenu.instance = null;
 		MainWindow.main(null);
 	}
 
