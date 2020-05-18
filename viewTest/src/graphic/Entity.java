@@ -44,4 +44,7 @@ public abstract class Entity{
 	public EntityView GetView() {
 		return view;
 	}
+	public void SetView(EntityView ev) {
+		view = ev;
+	}
 }

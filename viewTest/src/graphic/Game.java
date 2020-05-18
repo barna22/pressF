@@ -44,10 +44,22 @@ public class Game {
 	 */
 	public void init(int row, int col, int e, int r, int ib) {
 		CreateFields(row, col, e+r);
-		for(int i = 0; i < e; i++) 
-			InitPlayer(new Eskimo());
-		for(int i = 0; i < r; i++) 
-			InitPlayer(new Researcher());
+		for(int i = 0; i < e; i++) {
+			Eskimo eskimo = new Eskimo();
+			EskimoView ev = new EskimoView();
+			ev.SetPlayer(eskimo);
+			eskimo.SetView(ev);
+			InitPlayer(eskimo);
+		}
+
+		for(int i = 0; i < r; i++) {
+			Researcher researcher = new Researcher();
+			ResearcherView rv = new ResearcherView();
+			rv.SetPlayer(researcher);
+			researcher.SetView(rv);
+			InitPlayer(researcher);
+		}
+			
 		PutBearsOnFields(ib);
 		Collections.shuffle(players);
 	}
@@ -89,7 +101,9 @@ public class Game {
 		//A kisorsolt mezõkre tesz egy-egy medvét.
 		for(IceField field : chosenFields) {
 			IceBear newIceBear = new IceBear();
+			IceBearView ibv = new IceBearView();
 			newIceBear.SetField(field);
+			newIceBear.SetView(ibv);
 			field.AddEntityForInit(newIceBear);//lehet, hogy gondot okoz, hogy az Accept-el adja hozá, de elvileg nem kéne
 			steppables.add(newIceBear);
 		}
