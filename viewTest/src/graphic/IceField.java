@@ -155,6 +155,7 @@ public class IceField{
 		if (playersInWater.contains(player))
 			playersInWater.remove(player);
 		entities.remove(player);
+		UpdateViews();
 	}
 	
 	/**
