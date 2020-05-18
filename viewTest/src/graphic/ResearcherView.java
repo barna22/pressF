@@ -13,14 +13,14 @@ public class ResearcherView extends PlayerView{
 	public ResearcherView() {
 		try {
 			if (researcher == null)
-				researcher = ImageIO.read(new File("images" + File.separator + "diver.png"));
+				researcher = ImageIO.read(new File("images" + File.separator + "researcher scarf.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 		try {
 			if (researcherinwater == null)
-				researcherinwater = ImageIO.read(new File("images" + File.separator + "diver.png"));
+				researcherinwater = ImageIO.read(new File("images" + File.separator + "researcher in water.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

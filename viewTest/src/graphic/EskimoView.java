@@ -13,14 +13,14 @@ public class EskimoView extends PlayerView{
 	public EskimoView() {
 		try {
 			if (eskimo == null)
-				eskimo = ImageIO.read(new File("images" + File.separator + "diver.png"));
+				eskimo = ImageIO.read(new File("images" + File.separator + "eskimo.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 		try {
 			if (eskimoinwater == null)
-				eskimoinwater = ImageIO.read(new File("images" + File.separator + "diver.png"));
+				eskimoinwater = ImageIO.read(new File("images" + File.separator + "eskimo in water.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

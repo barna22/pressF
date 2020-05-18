@@ -35,4 +35,8 @@ public class Item {
 	public ItemView GetView() {
 		return view;
 	}
+	
+	public void SetView(ItemView iv) {
+		view = iv;
+	}
 }

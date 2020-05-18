@@ -169,6 +169,7 @@ public class Game {
 		for(IceField field : fields) 
 			if(field.GetItem() == null) {
 				Item item;
+				ItemView iv;
 				int tmp = random.nextInt(6);
 				switch(tmp) {
 				default://ha 0-át sorsol (ha nincs default nem hiszi el, hogy inicializálva lesz)
@@ -176,18 +177,33 @@ public class Game {
 					break;
 				case 1:
 					item = new Food();
+					iv = new ItemView("food.png");
+					item.SetView(iv);
+					iv.SetItem(item);
 					break;
 				case 2:
 					item = new Rope();
+					iv = new ItemView("rope.png");
+					item.SetView(iv);
+					iv.SetItem(item);
 					break;
 				case 3:
 					item = new Shovel();
+					iv = new ItemView("shovel.png");
+					item.SetView(iv);
+					iv.SetItem(item);
 					break;
 				case 4:
 					item = new BreakableShovel();
+					iv = new ItemView("breakable shovel.png");
+					item.SetView(iv);
+					iv.SetItem(item);
 					break;
 				case 5:
 					item = new Tent();
+					iv = new ItemView("tent.png");
+					item.SetView(iv);
+					iv.SetItem(item);
 					steppables.add((Tent) item);
 					break;
 				}
