@@ -73,6 +73,10 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 			game.getField(i).addFieldView(fieldView);
 		}
 	}
+	
+	public void AnimateStorm() {
+		
+	}
 
 	public FieldPanel getFieldPanel() {
 		return fieldPanel;
