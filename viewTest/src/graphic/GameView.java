@@ -21,6 +21,7 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 	
 	public static void init(int rows, int columns, Game game) {
 		instance = new GameView(rows, columns, game);
+		instance.playerPanel.setPlayer(game.GetActivePlayer());
 	}
 	
 	

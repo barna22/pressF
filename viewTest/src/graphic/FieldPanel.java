@@ -125,8 +125,8 @@ public class FieldPanel extends JPanel implements Updatable {
 		//a h�szint
 		snowLevelValueLabel.setText(Integer.toString(field.getSnowLevel()));
 
-		//a befagyott targy kepe, ha nincs ho a mezon
-		if(field.getSnowLevel() == 0)
+		//a befagyott targy kepe, ha nincs ho a mezon es van ott targy
+		if(field.getSnowLevel() == 0 && field.GetItem() != null)
 			itemImageLabel.setIcon(new ImageIcon(field.GetItem().GetView().GetImage()));
 
 		revalidate();
