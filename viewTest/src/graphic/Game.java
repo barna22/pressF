@@ -49,6 +49,7 @@ public class Game {
 			EskimoView ev = new EskimoView();
 			ev.SetPlayer(eskimo);
 			eskimo.SetView(ev);
+			eskimo.SetName("Player" + (i+1));
 			InitPlayer(eskimo);
 		}
 
@@ -57,6 +58,7 @@ public class Game {
 			ResearcherView rv = new ResearcherView();
 			rv.SetPlayer(researcher);
 			researcher.SetView(rv);
+			researcher.SetName("Player" + (e + i + 1));
 			InitPlayer(researcher);
 		}
 

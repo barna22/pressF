@@ -204,6 +204,9 @@ public abstract class Player extends Entity {
 	public String GetName() {
 		return name;
 	}
+	public void SetName(String n) {
+		name = n;
+	}
 	public int GetMaxTemperature() {
 		return maxTemperature;
 	}
