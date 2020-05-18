@@ -18,7 +18,8 @@ public class FieldPanel extends JPanel implements Updatable {
 	IceField field;//a field, aminek az adatait kiírja
 	JLabel capacityValueLabel, snowLevelValueLabel, itemImageLabel; //labelek a kapacitás, hószint kiírásához és a befagyott tárgy képének megjelenítéséhez
 	
-	public FieldPanel() {
+	public FieldPanel(IceField startingField) {
+		this.field = startingField;
 		
 		//a layout beállítása és GridBagConstraints az elemek felpakolásához
 		setBorder(BorderFactory.createLineBorder(Color.black));
@@ -98,7 +99,10 @@ public class FieldPanel extends JPanel implements Updatable {
 	 * @param field A beállítandó IceField
 	 */
 	public void setField(IceField field) {
+		this.field.removeFieldView(this);
 		this.field = field;
+		this.field.addFieldView(this);
+		Update();
 	}
 	
 	/**
