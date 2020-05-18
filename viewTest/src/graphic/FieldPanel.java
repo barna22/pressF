@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.image.BufferedImage;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -81,7 +82,7 @@ public class FieldPanel extends JPanel implements Updatable {
 	    
 	    //A panel, amiben megjelenik a nefagyott tárgy
 	    itemImageLabel = new JLabel();
-	    itemImageLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+	    //itemImageLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 	    c.weightx = 0.7;
 		c.weighty = 1.0f/3.0f;
 		c.gridx = 1;
@@ -99,6 +100,7 @@ public class FieldPanel extends JPanel implements Updatable {
 	 */
 	public void setField(IceField field) {
 		this.field = field;
+		Update();
 	}
 	
 	/**
@@ -109,16 +111,30 @@ public class FieldPanel extends JPanel implements Updatable {
 		if(field == null)
 			return;
 		
+		itemImageLabel.setIcon(null);
+		
 		//a mezõn álló entitások száma/kapacitás (? ha még nem ismert a kapacitás)
 		String capacityText = Integer.toString(field.GetNumberOfEntities()).concat("/");
-		capacityText.concat(field.isCapacityRevealed() ? Integer.toString(field.GetCapacity()) : "?");
+		int cap = field.GetCapacity();
+		if(cap == 0 || field.isCapacityRevealed())
+			capacityText = capacityText.concat(Integer.toString(cap));
+		else
+			capacityText = capacityText.concat("?");
 		capacityValueLabel.setText(capacityText);
 		
 		//a hószint
 		snowLevelValueLabel.setText(Integer.toString(field.getSnowLevel()));
 		
-		//a befagyott tárgy képe
-		itemImageLabel.setIcon(new ImageIcon(field.GetItem().GetView().GetImage()));
+		//a befagyott tárgy képe, ha nincs hó a mezõn
+		/*if(field.getSnowLevel() == 0) {
+			ItemView itemView = field.GetItem().GetView();
+			if(itemView != null)
+				itemImageLabel.setIcon(new ImageIcon(itemView.GetImage()));
+		}*/
+		if(field.getSnowLevel() == 0)
+			itemImageLabel.setIcon(new ImageIcon(field.GetItem().GetView().GetImage()));
+		
+		revalidate();
 	}
 	
 }
