@@ -282,6 +282,7 @@ public class Game {
 			idx++;
 		activePlayer = players.get(idx);
 		activePlayer.SetRemainingActions(4);
+		GameView.instance.getPlayerPanel().setPlayer(activePlayer);
 	}
 
 	/**

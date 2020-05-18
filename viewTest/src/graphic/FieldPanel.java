@@ -82,6 +82,7 @@ public class FieldPanel extends JPanel implements Updatable {
 
 	    //A panel, amiben megjelenik a befagyott targy
 	    itemImageLabel = new JLabel();
+	    itemImageLabel.setHorizontalAlignment(JLabel.CENTER);
 	    //itemImageLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 	    c.weightx = 0.7;
 		c.weighty = 1.0f/3.0f;

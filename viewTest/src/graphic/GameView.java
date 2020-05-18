@@ -77,6 +77,9 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 	public FieldPanel getFieldPanel() {
 		return fieldPanel;
 	}
+	public PlayerPanel getPlayerPanel() {
+		return playerPanel;
+	}
 	
 	@Override
 	public void Update() {
@@ -126,6 +129,8 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 			game.GetActivePlayer().UseAbility(Direction.RIGHT);
 			break;
 		}
+		
+		playerPanel.Update();
 	}
 
 
