@@ -117,6 +117,8 @@ public class FieldView extends JPanel implements Updatable, MouseListener {
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		//itt kéne akkor frissíteni a field panelt valahogy
+		//System.out.print("asd\n");
+		GameView.instance.getFieldPanel().setField(field);
 	}
 
 	@Override

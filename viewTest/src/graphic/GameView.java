@@ -69,6 +69,10 @@ public class GameView extends JPanel implements Updatable{
 		}
 	}
 
+	public FieldPanel getFieldPanel() {
+		return fieldPanel;
+	}
+	
 	@Override
 	public void Update() {
 		// TODO Auto-generated method stub
