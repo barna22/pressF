@@ -114,8 +114,8 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 		}
 		System.out.println("key: " + e.getKeyCode());
 		
-		//Képességhasználat
 		switch(e.getKeyChar()) {
+		//Képességhasználat
 		case 'w':
 			game.GetActivePlayer().UseAbility(Direction.UP);
 			break;
@@ -127,6 +127,14 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 			break;
 		case 'd':
 			game.GetActivePlayer().UseAbility(Direction.RIGHT);
+			break;
+		//Ásás
+		case 'k':
+			game.GetActivePlayer().Dig();
+			break;
+		//Eszköz felszedése
+		case 'l':
+			game.GetActivePlayer().PickUpItem();
 			break;
 		}
 		
