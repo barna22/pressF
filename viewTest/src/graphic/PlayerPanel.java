@@ -5,8 +5,6 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -131,19 +129,9 @@ public class PlayerPanel extends JPanel implements Updatable {
 	    
 	    //A táskában levõ Labelek, amik megjelenítik a tárgyakat
 	    for(int i = 0; i < 10; i++) {
-	    	JLabel itemLabel = new JLabel();
-	    	itemLabel.setBorder(BorderFactory.createLineBorder(Color.black));
-		    inventoryPanel.add(itemLabel);
-		    itemLabel.addMouseListener(new MouseAdapter() {
-
-		        public void mouseClicked(MouseEvent e) {
-		        	JLabel label = (JLabel) e.getSource();
-		        	if(label.getIcon() != null)
-		        		player.UseItem(player.GetItems().get(itemLabels.indexOf(label)));
-		        }
-
-		    });
-		    itemLabels.add(itemLabel);
+	    	JLabel itemPanel = new JLabel();
+		    itemPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+		    inventoryPanel.add(itemPanel);
 	    }
 		
 		//helykitöltõ panelek a 2 sarokba a többi elem helyének igazításához

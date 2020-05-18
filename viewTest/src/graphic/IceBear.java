@@ -34,9 +34,9 @@ public class IceBear extends Entity implements Steppable {
 	@Override
 	public void Step() {
 			Random random = new Random();
-			int dir = random.nextInt(field.GetNumberOfNeighbours());
+			int dir = random.nextInt(4);
 			while(field.GetNeighbour(Direction.values()[dir]) == null) {
-				dir = random.nextInt(field.GetNumberOfNeighbours());
+				dir = random.nextInt(4);
 			Move(Direction.values()[dir]);
 		}
 	}
