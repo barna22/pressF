@@ -262,6 +262,10 @@ public class IceField{
 		updatables.add(fieldView);
 	}
 	
+	public void removeFieldView(Updatable fieldView) {
+		updatables.remove(fieldView);
+	}
+	
 	public boolean isCapacityRevealed() {
 		return capacityRevealed;
 	}

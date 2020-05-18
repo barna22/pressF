@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class FieldView extends JPanel implements Updatable, MouseListener {
-	
+
 	private IceField field;
 	private static BufferedImage fieldImage, snowyFieldImage, igluImage, tentImage, itemImage, holeImage;
 	private static boolean imagesLoaded = false;
@@ -29,12 +29,12 @@ public class FieldView extends JPanel implements Updatable, MouseListener {
 	}
 
 	/**
-	 * Beolvassa a megjelenítéshez használt képeket
+	 * Beolvassa a megjelenï¿½tï¿½shez hasznï¿½lt kï¿½peket
 	 */
 	private void readImages() {
 		try {
 			if (!imagesLoaded) {
-				fieldImage = ImageIO.read(new File("images" + File.separator + "icefield.png")); // ha lenne külön hó nélküli kép ide kéne
+				fieldImage = ImageIO.read(new File("images" + File.separator + "icefield.png")); // ha lenne kï¿½lï¿½n hï¿½ nï¿½lkï¿½li kï¿½p ide kï¿½ne
 				snowyFieldImage = ImageIO.read(new File("images" + File.separator + "icefield.png"));
 				igluImage = ImageIO.read(new File("images" + File.separator + "iglu.png"));
 				tentImage = ImageIO.read(new File("images" + File.separator + "tent.png"));
@@ -48,47 +48,47 @@ public class FieldView extends JPanel implements Updatable, MouseListener {
 	}
 
 	/**
-	 * Kirajzolja a jégtáblát, az állapotának megfelelõen
+	 * Kirajzolja a jï¿½gtï¿½blï¿½t, az ï¿½llapotï¿½nak megfelelï¿½en
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
-		
-		//jégtábla kirajzolása
+
+		//jï¿½gtï¿½bla kirajzolï¿½sa
 		if (field.GetCapacity() == 0)
 			Draw(holeImage, new Area(0, 0, 1, 1), g);
 		else if(field.getSnowLevel() > 0)
 			Draw(snowyFieldImage, new Area(0, 0, 1, 1), g);
 		else
 			Draw(fieldImage, new Area(0, 0, 1, 1), g);
-		
-		//iglu vagy sátor megjelenítése
+
+		//iglu vagy sï¿½tor megjelenï¿½tï¿½se
 		if (field.HasIgloo())
 			Draw(igluImage, buildingArea, g);
 		else if(field.HasTent())
 			Draw(tentImage, buildingArea, g);
-		
-		//entitások megjelenítése
+
+		//entitï¿½sok megjelenï¿½tï¿½se
 		List<Entity> entities = field.GetEntities();
 		for(Entity entity : entities) {
 			BufferedImage entityImage = entity.GetView().GetImage();
 			Draw(entityImage, entityArea, g);
 		}
-		
-		//vízbe esett játékos megjelenítése
+
+		//vï¿½zbe esett jï¿½tï¿½kos megjelenï¿½tï¿½se
 		List<Player> playersInWater = field.GetPlayersInWater();
 		if(playersInWater.size() > 0) {
 			BufferedImage playerImage = playersInWater.get(0).GetView().GetImage();
 			Draw(playerImage, waterArea, g);
 		}
-		
-		//Kiásható tárgy megjelenítése
+
+		//Kiï¿½shatï¿½ tï¿½rgy megjelenï¿½tï¿½se
 		if(field.getSnowLevel() == 0 && field.GetItem() != null)
 			Draw(itemImage, itemArea, g);
 	}
-	
+
 	/**
-	 * Kirajzolja a megadott képet a megadott területre
+	 * Kirajzolja a megadott kï¿½pet a megadott terï¿½letre
 	 */
 	private void Draw(BufferedImage image, Area area, Graphics g) {
 		g.drawImage(image, (int)(area.x * getWidth()), (int)(area.y * getHeight()),
@@ -121,5 +121,6 @@ public class FieldView extends JPanel implements Updatable, MouseListener {
 
 	@Override
 	public void mouseExited(MouseEvent e) {
+
 	}
 }

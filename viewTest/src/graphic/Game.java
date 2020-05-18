@@ -174,6 +174,9 @@ public class Game {
 				switch(tmp) {
 				default://ha 0-át sorsol (ha nincs default nem hiszi el, hogy inicializálva lesz)
 					item = new DivingGear();
+					iv = new ItemView("diving gear.png");
+					item.SetView(iv);
+					iv.SetItem(item);
 					break;
 				case 1:
 					item = new Food();

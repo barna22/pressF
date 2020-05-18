@@ -41,7 +41,7 @@ public class GameView extends JPanel implements Updatable{
 	    c.gridy = 0;
 		add(tablePanel, c);
 		
-		fieldPanel = new FieldPanel();
+		fieldPanel = new FieldPanel(game.getField(0));
 		c.weightx = 0.3;
 		c.weighty = 0.3;
 	    c.gridheight = 1;
