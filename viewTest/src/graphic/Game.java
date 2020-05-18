@@ -65,7 +65,7 @@ public class Game {
 		}while(startingField.GetNumberOfEntities() >= startingField.GetCapacity());//már nem fér a mezõre
 
 		player.SetField(startingField);
-		startingField.Accept(player);//lehet, hogy gondot okoz, hogy az Accept-el adja hozá, de elvileg nem kéne
+		startingField.AddEntityForInit(player);//lehet, hogy gondot okoz, hogy az Accept-el adja hozá, de elvileg nem kéne
 		players.add(player);
 	}
 	/**
@@ -90,7 +90,7 @@ public class Game {
 		for(IceField field : chosenFields) {
 			IceBear newIceBear = new IceBear();
 			newIceBear.SetField(field);
-			field.Accept(newIceBear);//lehet, hogy gondot okoz, hogy az Accept-el adja hozá, de elvileg nem kéne
+			field.AddEntityForInit(newIceBear);//lehet, hogy gondot okoz, hogy az Accept-el adja hozá, de elvileg nem kéne
 			steppables.add(newIceBear);
 		}
 	}

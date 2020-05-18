@@ -119,6 +119,14 @@ public class IceField{
 	}
 	
 	/**
+	 * Felveszi az entitást a rajta álló entitások közé.
+	 * Inicializáláshoz kell.
+	 */
+	public void AddEntityForInit(Entity entity) {
+		entities.add(entity);
+	}
+	
+	/**
 	 * Végighívja a GetSaved(Icefield f)-et a vízben lévõ játékosokon.
 	 * True-val tér vissza, ha legalább 1 játékos ki lett mentve.
 	 */
