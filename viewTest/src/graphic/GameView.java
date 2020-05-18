@@ -27,7 +27,8 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 	
 	private GameView(int rows, int columns, Game game) {
 		super();
-		this.addKeyListener(this);
+		MainWindow.instance.setFocusable(true);
+		MainWindow.instance.addKeyListener(this);
 		this.game = game;
 		this.rows = rows;
 		this.columns = columns;
@@ -107,6 +108,7 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 			game.GetActivePlayer().Move(Direction.RIGHT);
 			break;
 		}
+		System.out.println("key: " + e.getKeyCode());
 		
 		//Képességhasználat
 		switch(e.getKeyChar()) {
