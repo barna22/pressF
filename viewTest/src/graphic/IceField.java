@@ -23,9 +23,14 @@ public class IceField{
 	private List<Entity> entities = new ArrayList<Entity>();
 	private List<Player> playersInWater = new ArrayList<Player>();
 	
-	private FieldView fieldView;
+	private List<Updatable> updatables = new ArrayList<Updatable>();
 	
 	private Map<Integer, IceField> neighbours = new HashMap<Integer, IceField>();
+	
+	private void UpdateViews() {
+		for(Updatable updatable : updatables)
+			updatable.Update();
+	}
 	
 	public IceField(int capacity, int snowLevel) {
 		this.capacity = capacity;
@@ -49,7 +54,7 @@ public class IceField{
 			snowLevel = 0;
 		else
 			snowLevel -= a;
-		fieldView.Update();
+		UpdateViews();
 		return true;
 	}
 	
@@ -61,7 +66,7 @@ public class IceField{
 		snowLevel++;
 		for(Entity entity : entities)
 			entity.CaughtByStorm();
-		fieldView.Update();
+		UpdateViews();
 		//Animáció
 		
 	}
@@ -73,7 +78,7 @@ public class IceField{
 		if (hasIgloo == true)
 			return false;
 		hasIgloo = true;
-		fieldView.Update();
+		UpdateViews();
 		return true;
 	}
 	
@@ -96,7 +101,7 @@ public class IceField{
 				entity.Meet(incomingPlayer);
 		
 		entities.add(incomingPlayer);
-		fieldView.Update();
+		UpdateViews();
 	}
 	/**
 	 * Felveszi a játékost a rajta álló entitások közé.
@@ -115,7 +120,7 @@ public class IceField{
 				entity.Meet(incomingIceBear);
 		
 		entities.add(incomingIceBear);
-		fieldView.Update();
+		UpdateViews();
 	}
 	
 	/**
@@ -139,7 +144,7 @@ public class IceField{
 			}
 		}
 		if (success)
-			fieldView.Update();
+			UpdateViews();
 		return success;
 	}
 	
@@ -157,7 +162,7 @@ public class IceField{
 	 */
 	public void Remove(Entity entity) {
 		entities.remove(entity);
-		fieldView.Update();
+		UpdateViews();
 	}
 	
 	/**
@@ -171,7 +176,7 @@ public class IceField{
 		boolean success = item.Equip(p);
 		if(success) {
 			item = null;
-			fieldView.Update();
+			UpdateViews();
 		}
 		
 		return success;
@@ -221,7 +226,7 @@ public class IceField{
 	
 	public void SetTent(Tent tent) {
 		this.tent = tent;
-		fieldView.Update();
+		UpdateViews();
 	}
 	
 	public void RemoveTent() {
@@ -253,8 +258,8 @@ public class IceField{
 		return fields;
 	}
 
-	public void addFieldView(FieldView fieldView) {
-		this.fieldView = fieldView;
+	public void addFieldView(Updatable fieldView) {
+		updatables.add(fieldView);
 	}
 	
 	public boolean isCapacityRevealed() {
