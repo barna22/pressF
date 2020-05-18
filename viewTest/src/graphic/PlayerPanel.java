@@ -188,6 +188,7 @@ public class PlayerPanel extends JPanel implements Updatable {
 		ArrayList<Item> items = player.GetItems();
 		int idx = 0;
 		for( Item i : items) {
+			itemLabels.add(new JLabel());
 			itemLabels.get(idx).setIcon(new ImageIcon(i.GetView().GetImage()));
 			idx++;
 		}
