@@ -213,7 +213,6 @@ public class Game {
 					iv = new ItemView("tent.png");
 					item.SetView(iv);
 					iv.SetItem(item);
-					steppables.add((Tent) item);
 					break;
 				}
 				field.SetItem(item);
@@ -326,4 +325,11 @@ public class Game {
 		return fields.get(i);
 	}
 
+	public void AddSteppable(Steppable s) {
+		steppables.add(s);
+	}
+	
+	public void RemoveSteppable(Steppable s) {
+		steppables.remove(s);
+	}
 }

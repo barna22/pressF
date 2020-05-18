@@ -189,6 +189,9 @@ public abstract class Player extends Entity {
 	public void SetGame(Game g) {
 		game = g;
 	}
+	public Game GetGame() {
+		return game;
+	}
 	
 	public void SetTemperature(int value) {
 		temperature = value;

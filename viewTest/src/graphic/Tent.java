@@ -2,6 +2,7 @@ package graphic;
 
 public class Tent extends Item implements Steppable {
 	private IceField field;
+	private Game game;
 	
 	/*
 	 * Felépíti a sátrat azon a jégtáblán, ahol a játékos áll.
@@ -9,7 +10,9 @@ public class Tent extends Item implements Steppable {
 	public boolean Use(Player p) {
 		field = p.GetField();
 		field.SetTent(this);
+		p.GetGame().AddSteppable(this);
 		p.RemoveItem(this);
+		game = p.GetGame();
 		return true;
 	}
 	
@@ -26,6 +29,8 @@ public class Tent extends Item implements Steppable {
 	@Override
 	public void Step() {
 		field.RemoveTent();
+		game.RemoveSteppable(this);
+		game = null;
 		field = null;
 	}
 
