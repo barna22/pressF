@@ -57,8 +57,6 @@ public class FieldView extends JPanel implements Updatable, MouseListener {
 		//j�gt�bla kirajzol�sa
 		if (field.GetCapacity() == 0)
 			Draw(holeImage, new Area(0, 0, 1, 1), g);
-		else if(field.getSnowLevel() > 0)
-			Draw(snowyFieldImage, new Area(0, 0, 1, 1), g);
 		else
 			Draw(fieldImage, new Area(0, 0, 1, 1), g);
 
