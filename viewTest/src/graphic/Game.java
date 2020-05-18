@@ -50,6 +50,7 @@ public class Game {
 			ev.SetPlayer(eskimo);
 			eskimo.SetView(ev);
 			eskimo.SetName("Player" + (i+1));
+			eskimo.SetGame(this);
 			InitPlayer(eskimo);
 		}
 
@@ -59,6 +60,7 @@ public class Game {
 			rv.SetPlayer(researcher);
 			researcher.SetView(rv);
 			researcher.SetName("Player" + (e + i + 1));
+			researcher.SetGame(this);
 			InitPlayer(researcher);
 		}
 
