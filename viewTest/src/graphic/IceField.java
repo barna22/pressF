@@ -171,7 +171,7 @@ public class IceField{
 	 * True-val tér vissza, ha sikerült.
 	 */
 	public boolean TakeItem(Player p) {
-		if(snowLevel > 0)
+		if(snowLevel > 0 || item == null)
 			return false;
 		
 		boolean success = item.Equip(p);
