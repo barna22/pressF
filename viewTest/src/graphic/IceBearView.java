@@ -13,7 +13,7 @@ public class IceBearView implements EntityView{
 	public IceBearView () {
 		try {
 			if (bear == null)
-				bear = ImageIO.read(new File("images" + File.separator + "diver.png"));
+				bear = ImageIO.read(new File("images" + File.separator + "polar bear.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
