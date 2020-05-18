@@ -3,12 +3,14 @@ package graphic;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JPanel;
 
-public class GameView extends JPanel implements Updatable{
+public class GameView extends JPanel implements Updatable, KeyListener{
 	private Game game;
 	private List<FieldView> fieldViews = new ArrayList<FieldView>();
 	private int rows, columns;
@@ -25,6 +27,7 @@ public class GameView extends JPanel implements Updatable{
 	
 	private GameView(int rows, int columns, Game game) {
 		super();
+		this.addKeyListener(this);
 		this.game = game;
 		this.rows = rows;
 		this.columns = columns;
@@ -77,5 +80,54 @@ public class GameView extends JPanel implements Updatable{
 	public void Update() {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+	}
+
+
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		//Aktív játékos mozgatása
+		switch(e.getKeyCode()) {
+		case KeyEvent.VK_UP:
+			game.GetActivePlayer().Move(Direction.UP);
+			break;
+		case KeyEvent.VK_DOWN:
+			game.GetActivePlayer().Move(Direction.DOWN);
+			break;
+		case KeyEvent.VK_LEFT:
+			game.GetActivePlayer().Move(Direction.LEFT);
+			break;
+		case KeyEvent.VK_RIGHT:
+			game.GetActivePlayer().Move(Direction.RIGHT);
+			break;
+		}
+		
+		//Képességhasználat
+		switch(e.getKeyChar()) {
+		case 'w':
+			game.GetActivePlayer().UseAbility(Direction.UP);
+			break;
+		case 'a':
+			game.GetActivePlayer().UseAbility(Direction.LEFT);
+			break;
+		case 's':
+			game.GetActivePlayer().UseAbility(Direction.DOWN);
+			break;
+		case 'd':
+			game.GetActivePlayer().UseAbility(Direction.RIGHT);
+			break;
+		}
+	}
+
+
+
+	@Override
+	public void keyReleased(KeyEvent e) {
 	}
 }
