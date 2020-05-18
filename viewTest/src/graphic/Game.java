@@ -67,6 +67,7 @@ public class Game {
 		PutBearsOnFields(ib);
 		Collections.shuffle(players);
 		activePlayer = players.get(0);
+		activePlayer.SetRemainingActions(4);
 	}
 
 	/**

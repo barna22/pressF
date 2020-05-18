@@ -8,7 +8,7 @@ public class Eskimo extends Player {
 	public Eskimo() {
 		maxTemperature = 5;
 		temperature = 5;
-		remainingActions = 4;
+		remainingActions = 0;
 		isInWater = false;
 		hasDivingGear = false;
 	}
