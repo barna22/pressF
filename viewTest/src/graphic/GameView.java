@@ -142,6 +142,9 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 		case 'l':
 			game.GetActivePlayer().PickUpItem();
 			break;
+		case 'm':
+			game.GetActivePlayer().skipTurn();
+			break;
 		}
 		
 		playerPanel.Update();
@@ -153,6 +156,7 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 	public void keyReleased(KeyEvent e) {
 	}
 	
+	// Játék vége üzenet, vissza a fõmenübe.
 	public void gameOver(boolean victory) {
 		if(victory)
 			JOptionPane.showMessageDialog(MainWindow.instance, "Victory!\n" + "The game will return to the main menu!");

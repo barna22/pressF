@@ -223,4 +223,9 @@ public abstract class Player extends Entity {
 	public void RemovePlayerPanel() {
 		panel = null;
 	}
+	
+	public void skipTurn() {
+		remainingActions = 0;
+		game.NextPlayer();
+	}
 }

@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -147,17 +149,27 @@ public class PlayerPanel extends JPanel implements Updatable {
 		    itemLabels.add(itemLabel);
 	    }
 		
-		//helykitöltõ panelek a 2 sarokba a többi elem helyének igazításához
+	    JButton skip = new JButton("Skip");
+	    skip.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				player.skipTurn();
+				MainWindow.instance.SetWindowPanel(GameView.instance);
+			}
+	    });
+	    
+		// Gomb a bal felsõ sarokba a kör skippeléséhez
 		c.weightx = 1;
 		c.weighty = 2.2;
 		c.gridwidth = 1;
 		c.gridheight = 1;
-		c.gridx = 0;
-	    c.gridy = 0;
-	    add(new JPanel(),c);
 	    c.gridx = 3;
 	    c.gridy = 7;
 	    add(new JPanel(),c);
+	    //helykitöltõ panel az egyik sarokba a többi elem helyének igazításához
+	    c.gridx = 0;
+	    c.gridy = 0;
+	    add(skip,c);
 	    
 	}
 	
