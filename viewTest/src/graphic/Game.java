@@ -125,17 +125,13 @@ public class Game {
 				IceField neighbour, newField = new IceField(-1, random.nextInt(4));
 				if(i>0) {//felsõ szomszéd
 					neighbour = fields.get((i-1)*col + j);
-					//newField.AddNeighbour(Direction.UP, neighbour);
-					//neighbour.AddNeighbour(Direction.DOWN, newField);
-					newField.AddNeighbour(1, neighbour);
-					neighbour.AddNeighbour(3, newField);
+					newField.AddNeighbour(Direction.UP, neighbour);
+					neighbour.AddNeighbour(Direction.DOWN, newField);
 				}
 				if(j>0) {//bal oldali szomszéd
 					neighbour = fields.get(i*col + j-1);
-					//newField.AddNeighbour(Direction.LEFT, neighbour);
-					//neighbour.AddNeighbour(Direction.RIGHT, newField);
-					newField.AddNeighbour(0, neighbour);
-					neighbour.AddNeighbour(2, newField);
+					newField.AddNeighbour(Direction.LEFT, neighbour);
+					neighbour.AddNeighbour(Direction.RIGHT, newField);
 				}
 				fields.add(newField);
 			}
