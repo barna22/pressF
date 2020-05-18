@@ -17,7 +17,7 @@ public class FieldView extends JPanel implements Updatable {
 	private static boolean imagesLoaded = false;
 	private static Area buildingArea = new Area(0.19, 0.12, 0.32, 0.32);
 	private static Area entityArea = new Area(0.1, 0.45, 0.32, 0.32);
-	private static Area itemArea = new Area(0.52, 0.18, 0.32, 0.16);
+	private static Area itemArea = new Area(0.52, 0.02, 0.32, 0.32);
 	private static Area waterArea = new Area(0.58, 0.67, 0.32, 0.16);
 
 	public FieldView(IceField field) {
