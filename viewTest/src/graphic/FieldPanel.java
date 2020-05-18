@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.image.BufferedImage;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -12,23 +11,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * Megjelenï¿½ti a kijelï¿½lt IceField adatait.
+ * Megjeleniti a kijelolt IceField adatait.
  */
 public class FieldPanel extends JPanel implements Updatable {
 
-	IceField field;//a field, aminek az adatait kiï¿½rja
-	JLabel capacityValueLabel, snowLevelValueLabel, itemImageLabel; //labelek a kapacitï¿½s, hï¿½szint kiï¿½rï¿½sï¿½hoz ï¿½s a befagyott tï¿½rgy kï¿½pï¿½nek megjelenï¿½tï¿½sï¿½hez
+	IceField field;//a field, aminek az adatait kiirja
+	JLabel capacityValueLabel, snowLevelValueLabel, itemImageLabel; //labelek a kapacitas, hoszint kirirasahoz es a befagyott targy kepenek megjelenitesehez
 
 	public FieldPanel(IceField startingField) {
 		this.field = startingField;
 
-		//a layout beï¿½llï¿½tï¿½sa ï¿½s GridBagConstraints az elemek felpakolï¿½sï¿½hoz
+		//a layout beallitasa es GridBagConstraints az elemek felpakolasahoz
 		setBorder(BorderFactory.createLineBorder(Color.black));
 		setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.BOTH;
 
-		//alap betï¿½tï¿½pus a feliratoknak
+		//alap betutipus a feliratoknak
 		Font defaultFont = new Font("Arial", Font.PLAIN, 25);
 
 		//a Capacity felirat label-je
@@ -41,7 +40,7 @@ public class FieldPanel extends JPanel implements Updatable {
 	    c.gridy = 0;
 	    add(capacityLabel, c);
 
-	    //a kapacitï¿½st kiï¿½rï¿½ label (pl.: 3/4 2/?)
+	    //a kapacitast kiiro label (pl.: 3/4 2/?)
 	    capacityValueLabel = new JLabel("-");
 	    capacityValueLabel.setHorizontalAlignment(JLabel.CENTER);
 	    capacityValueLabel.setFont(defaultFont);
@@ -61,7 +60,7 @@ public class FieldPanel extends JPanel implements Updatable {
 	    c.gridy = 1;
 	    add(snowLevelLabel, c);
 
-	    //a hï¿½szintet kiï¿½rï¿½ label (pl.: 3)
+	    //a hó szintet kiiro label (pl.: 3)
 	    snowLevelValueLabel = new JLabel("-");
 	    snowLevelValueLabel.setHorizontalAlignment(JLabel.CENTER);
 	    snowLevelValueLabel.setFont(defaultFont);
@@ -81,22 +80,20 @@ public class FieldPanel extends JPanel implements Updatable {
 	    c.gridy = 2;
 	    add(itemLabel, c);
 
-	    //A panel, amiben megjelenik a nefagyott tï¿½rgy
+	    //A panel, amiben megjelenik a befagyott targy
 	    itemImageLabel = new JLabel();
 	    //itemImageLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 	    c.weightx = 0.7;
 		c.weighty = 1.0f/3.0f;
 		c.gridx = 1;
 	    c.gridy = 2;
-	    //c.fill = GridBagConstraints.VERTICAL;
-	    //c.insets = new Insets(30,80,30,80);
 	    add(itemImageLabel, c);
 
 
 	}
 
 	/**
-	 * Beï¿½llï¿½tja az IceField-et, aminek az adatait meg kell jelenï¿½teni
+	 * Beallitja az IceField-et, aminek az adatait meg kell jeleniteni
 	 * @param field A beï¿½llï¿½tandï¿½ IceField
 	 */
 	public void setField(IceField field) {
@@ -107,7 +104,7 @@ public class FieldPanel extends JPanel implements Updatable {
 	}
 
 	/**
-	 * Frissï¿½ti az eltï¿½rolt IceField atadait megjelenï¿½tï¿½ mezï¿½ket.
+	 * Frissiti az eltorolt IceField atadait megjelenito mezoket.
 	 */
 	@Override
 	public void Update() {
@@ -116,7 +113,7 @@ public class FieldPanel extends JPanel implements Updatable {
 
 		itemImageLabel.setIcon(null);
 
-		//a mezï¿½n ï¿½llï¿½ entitï¿½sok szï¿½ma/kapacitï¿½s (? ha mï¿½g nem ismert a kapacitï¿½s)
+		//a mezon allo entitasok szama/kapacitas (? ha meg nem ismert a kapacitas)
 		String capacityText = Integer.toString(field.GetNumberOfEntities()).concat("/");
 		int cap = field.GetCapacity();
 		if(cap == 0 || field.isCapacityRevealed())
@@ -128,13 +125,8 @@ public class FieldPanel extends JPanel implements Updatable {
 		//a hï¿½szint
 		snowLevelValueLabel.setText(Integer.toString(field.getSnowLevel()));
 
-		//a befagyott tï¿½rgy kï¿½pe, ha nincs hï¿½ a mezï¿½n
-		/*if(field.getSnowLevel() == 0) {
-			ItemView itemView = field.GetItem().GetView();
-			if(itemView != null)
-				itemImageLabel.setIcon(new ImageIcon(itemView.GetImage()));
-		}*/
-		if(field.getSnowLevel() == 0)
+		//a befagyott targy kepe, ha nincs ho a mezon es van ott targy
+		if(field.getSnowLevel() == 0 && field.GetItem() != null)
 			itemImageLabel.setIcon(new ImageIcon(field.GetItem().GetView().GetImage()));
 
 		revalidate();

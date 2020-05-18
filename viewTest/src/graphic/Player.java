@@ -12,7 +12,7 @@ public abstract class Player extends Entity {
 	protected boolean hasDivingGear;
 	protected ArrayList<Item> items = new ArrayList<Item>();
 	protected Game game;
-	protected String name = "nincs";
+	protected String name = "nincs neve";
 	protected PlayerPanel panel;
 	
 	
@@ -203,6 +203,9 @@ public abstract class Player extends Entity {
 
 	public String GetName() {
 		return name;
+	}
+	public void SetName(String n) {
+		name = n;
 	}
 	public int GetMaxTemperature() {
 		return maxTemperature;
