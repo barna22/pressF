@@ -60,7 +60,7 @@ public abstract class Player extends Entity {
 	/**
 	 * Absztrakt metódus a képesség használatára.
 	 */
-	public abstract void UseAbility(int d);
+	public abstract void UseAbility(Direction d);
 	
 	/**
 	 * A játékos átlép egy másik mezőre.
@@ -71,7 +71,7 @@ public abstract class Player extends Entity {
 		Die();
 	}
 	
-	public void Move(int d) {
+	public void Move(Direction d) {
 		IceField newfield = field.GetNeighbour(d);
 		if(newfield == null) {
 			System.out.println("Can't go outside the map!");

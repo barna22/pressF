@@ -35,14 +35,14 @@ public class IceBear extends Entity implements Steppable {
 	public void Step() {
 			Random random = new Random();
 			int dir = random.nextInt(field.GetNumberOfNeighbours());
-			while(field.GetNeighbour(dir) == null) {
+			while(field.GetNeighbour(Direction.values()[dir]) == null) {
 				dir = random.nextInt(field.GetNumberOfNeighbours());
-			Move(dir);
+			Move(Direction.values()[dir]);
 		}
 	}
 
 	@Override
-	public void Move(int d) {
+	public void Move(Direction d) {
 		IceField newfield = field.GetNeighbour(d);
 		if(newfield == null) {
 			System.out.println("Can't go outside the map");

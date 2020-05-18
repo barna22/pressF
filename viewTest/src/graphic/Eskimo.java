@@ -13,7 +13,7 @@ public class Eskimo extends Player {
 		hasDivingGear = false;
 	}
 	
-	public void UseAbility(int d) {
+	public void UseAbility(Direction d) {
 		if(field.BuildIgloo())
 			remainingActions -= 1;
 		if(remainingActions <=0) {

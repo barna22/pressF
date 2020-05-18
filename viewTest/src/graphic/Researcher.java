@@ -14,7 +14,7 @@ public class Researcher extends Player {
 		hasDivingGear = false;
 	}
 	
-	public void UseAbility(int d) {
+	public void UseAbility(Direction d) {
 		IceField neighbour = field.GetNeighbour(d);
 		if (neighbour == null)
 			return;

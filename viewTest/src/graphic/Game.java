@@ -1,23 +1,23 @@
 package graphic;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Collections; 
+import java.util.Collections;
 
 /**
- * Inicializálja a játékot. Nyilvántartja a játék állapotát. 
- * Számon tartja, hogy hányan vannak vízbe esve és hány alkatrésze van kiásva a jelzõpisztolynak. 
- * A játék véget ér, ha a kör végén valaki vízbe van esve. Minden kör végén lépteti a Steppable
- * interfészt megvalósító objektumokat és vihart indít a jégtáblákon.
- * 
+ * Inicializï¿½lja a jï¿½tï¿½kot. Nyilvï¿½ntartja a jï¿½tï¿½k ï¿½llapotï¿½t.
+ * Szï¿½mon tartja, hogy hï¿½nyan vannak vï¿½zbe esve ï¿½s hï¿½ny alkatrï¿½sze van kiï¿½sva a jelzï¿½pisztolynak.
+ * A jï¿½tï¿½k vï¿½get ï¿½r, ha a kï¿½r vï¿½gï¿½n valaki vï¿½zbe van esve. Minden kï¿½r vï¿½gï¿½n lï¿½pteti a Steppable
+ * interfï¿½szt megvalï¿½sï¿½tï¿½ objektumokat ï¿½s vihart indï¿½t a jï¿½gtï¿½blï¿½kon.
+ *
  */
 public class Game {
 
-	private ArrayList<IceField> fields;// az összes jégtábla
-	private ArrayList<Steppable> steppables;// a sátrak és medvék
-	private ArrayList<Player> players;// a játékosok
-	private Player activePlayer;// a soron levõ játékos
+	private ArrayList<IceField> fields;// az ï¿½sszes jï¿½gtï¿½bla
+	private ArrayList<Steppable> steppables;// a sï¿½trak ï¿½s medvï¿½k
+	private ArrayList<Player> players;// a jï¿½tï¿½kosok
+	private Player activePlayer;// a soron levï¿½ jï¿½tï¿½kos
 	private String state = "running";//running, ended
-	private int playersInWater = 0, gunPartsFound = 0;// a vízben levõ játékosok és megtalált jelzõpisztoly alkatrészek száma
+	private int playersInWater = 0, gunPartsFound = 0;// a vï¿½zben levï¿½ jï¿½tï¿½kosok ï¿½s megtalï¿½lt jelzï¿½pisztoly alkatrï¿½szek szï¿½ma
 
 	Game(){
 		fields = new ArrayList<IceField>();
@@ -26,7 +26,7 @@ public class Game {
 		state = "running";
 	}
 	/**
-	 * Vihart indít minden jégtáblán
+	 * Vihart indï¿½t minden jï¿½gtï¿½blï¿½n
 	 */
 	public void Storm() {
 		for(IceField f : fields){
@@ -34,13 +34,13 @@ public class Game {
 		}
 	}
 	 /**
-	  * Inicializálja a játékot. A pálya elrendezése majdnem teljesen véletlenszerû.
-	  * Minden entitás külön mezõn kezd
-	 * @param row sorok száma
-	 * @param col oszlopok száma
-	 * @param e eszkimók száma
-	 * @param r kutatók száma
-	 * @param ib jegesmedvék száma
+	  * Inicializï¿½lja a jï¿½tï¿½kot. A pï¿½lya elrendezï¿½se majdnem teljesen vï¿½letlenszerï¿½.
+	  * Minden entitï¿½s kï¿½lï¿½n mezï¿½n kezd
+	 * @param row sorok szï¿½ma
+	 * @param col oszlopok szï¿½ma
+	 * @param e eszkimï¿½k szï¿½ma
+	 * @param r kutatï¿½k szï¿½ma
+	 * @param ib jegesmedvï¿½k szï¿½ma
 	 */
 	public void init(int row, int col, int e, int r, int ib) {
 		CreateFields(row, col, e+r);
@@ -59,85 +59,85 @@ public class Game {
 			researcher.SetView(rv);
 			InitPlayer(researcher);
 		}
-			
+
 		PutBearsOnFields(ib);
 		Collections.shuffle(players);
 	}
-	
+
 	/**
-	 * Felteszi a játékost egy véletlenszerû mezõre, ami még így nem borul fel tõle és
-	 * hozzáadja a játékost a játékosok listájához
-	 * @param newPlayer Az elhelyezendõ játékos
+	 * Felteszi a jï¿½tï¿½kost egy vï¿½letlenszerï¿½ mezï¿½re, ami mï¿½g ï¿½gy nem borul fel tï¿½le ï¿½s
+	 * hozzï¿½adja a jï¿½tï¿½kost a jï¿½tï¿½kosok listï¿½jï¿½hoz
+	 * @param newPlayer Az elhelyezendï¿½ jï¿½tï¿½kos
 	 */
 	private void InitPlayer(Player player) {
 		Random random = new Random();
 		IceField startingField;
-		do {//megfelelõ kezdõ mezõ sorsolás
+		do {//megfelelï¿½ kezdï¿½ mezï¿½ sorsolï¿½s
 			startingField = fields.get(random.nextInt(fields.size()));
-		}while(startingField.GetNumberOfEntities() >= startingField.GetCapacity());//már nem fér a mezõre
+		}while(startingField.GetNumberOfEntities() >= startingField.GetCapacity());//mï¿½r nem fï¿½r a mezï¿½re
 
 		player.SetField(startingField);
-		startingField.AddEntityForInit(player);//lehet, hogy gondot okoz, hogy az Accept-el adja hozá, de elvileg nem kéne
+		startingField.AddEntityForInit(player);//lehet, hogy gondot okoz, hogy az Accept-el adja hozï¿½, de elvileg nem kï¿½ne
 		players.add(player);
 	}
 	/**
-	 * Elhelyez a mezõkön ib darab jegesmedvét úgy, hogy ott még ne álljon olyan entitás, amit nem
-	 * ez a függvény tesz föl.
-	 * @param ib Az elhelyezendõ medvék száma
+	 * Elhelyez a mezï¿½kï¿½n ib darab jegesmedvï¿½t ï¿½gy, hogy ott mï¿½g ne ï¿½lljon olyan entitï¿½s, amit nem
+	 * ez a fï¿½ggvï¿½ny tesz fï¿½l.
+	 * @param ib Az elhelyezendï¿½ medvï¿½k szï¿½ma
 	 */
 	private void PutBearsOnFields(int ib) {
 		Random random = new Random();
 		ArrayList<IceField> chosenFields = new ArrayList<IceField>();
-		//kisorsol ib db IceField-et, ahova majd rak 1-1 medvét. Egy IceField szerepelhet többször is.
+		//kisorsol ib db IceField-et, ahova majd rak 1-1 medvï¿½t. Egy IceField szerepelhet tï¿½bbszï¿½r is.
 		for(int i = 0; i < ib; i++) {
 			IceField newField;
 			do {
 				newField = fields.get(random.nextInt(fields.size()));
-			}while(newField.GetNumberOfEntities() != 0);//van már valaki itt
+			}while(newField.GetNumberOfEntities() != 0);//van mï¿½r valaki itt
 			chosenFields.add(newField);
 
-			
+
 		}
-		//A kisorsolt mezõkre tesz egy-egy medvét.
+		//A kisorsolt mezï¿½kre tesz egy-egy medvï¿½t.
 		for(IceField field : chosenFields) {
 			IceBear newIceBear = new IceBear();
 			IceBearView ibv = new IceBearView();
 			newIceBear.SetField(field);
 			newIceBear.SetView(ibv);
-			field.AddEntityForInit(newIceBear);//lehet, hogy gondot okoz, hogy az Accept-el adja hozá, de elvileg nem kéne
+			field.AddEntityForInit(newIceBear);//lehet, hogy gondot okoz, hogy az Accept-el adja hozï¿½, de elvileg nem kï¿½ne
 			steppables.add(newIceBear);
 		}
 	}
 	/**
-	 * row*col méretû négyzetrácsnak megfelelõen készít jégtáblákat
-	 * kisorsolja a kapacitást, hóréteget és a befagyott tárgyakat az alábbiakat garantálva:
-	 * -min 3 jégtábla van, amire rá tudnak állni egyszerre a játékosok anélkül, hogy felborulna
-	 * -3db nem 0 kapacitásó jégtáblába lesznek fagyva a jelzõpisztoly alkatrészei
-	 * @param row sorok száma
-	 * @param col oszlopok száma
-	 * @param numberOfPlayers játékosok száma
+	 * row*col mï¿½retï¿½ nï¿½gyzetrï¿½csnak megfelelï¿½en kï¿½szï¿½t jï¿½gtï¿½blï¿½kat
+	 * kisorsolja a kapacitï¿½st, hï¿½rï¿½teget ï¿½s a befagyott tï¿½rgyakat az alï¿½bbiakat garantï¿½lva:
+	 * -min 3 jï¿½gtï¿½bla van, amire rï¿½ tudnak ï¿½llni egyszerre a jï¿½tï¿½kosok anï¿½lkï¿½l, hogy felborulna
+	 * -3db nem 0 kapacitï¿½sï¿½ jï¿½gtï¿½blï¿½ba lesznek fagyva a jelzï¿½pisztoly alkatrï¿½szei
+	 * @param row sorok szï¿½ma
+	 * @param col oszlopok szï¿½ma
+	 * @param numberOfPlayers jï¿½tï¿½kosok szï¿½ma
 	 */
 	private void CreateFields(int row, int col, int numberOfPlayers) {
 		Random random = new Random();
-		//jégmezõk elkészítése(+hószint sorsolás) és szomszédok beállítása
+		//jï¿½gmezï¿½k elkï¿½szï¿½tï¿½se(+hï¿½szint sorsolï¿½s) ï¿½s szomszï¿½dok beï¿½llï¿½tï¿½sa
 		for(int i = 0; i < row; i ++)
 			for(int j = 0; j < col; j ++) {
 				IceField neighbour, newField = new IceField(-1, random.nextInt(4));
-				if(i>0) {//felsõ szomszéd
+				if(i>0) {//felsï¿½ szomszï¿½d
 					neighbour = fields.get((i-1)*col + j);
 					newField.AddNeighbour(Direction.UP, neighbour);
 					neighbour.AddNeighbour(Direction.DOWN, newField);
 				}
-				if(j>0) {//bal oldali szomszéd
+				if(j>0) {//bal oldali szomszï¿½d
 					neighbour = fields.get(i*col + j-1);
 					newField.AddNeighbour(Direction.LEFT, neighbour);
 					neighbour.AddNeighbour(Direction.RIGHT, newField);
 				}
 				fields.add(newField);
 			}
-		
-		//kapacitások sorsolása
-		//3 mezõ, ahol garantáltan elfér mindenki
+
+		//kapacitï¿½sok sorsolï¿½sa
+		//3 mezï¿½, ahol garantï¿½ltan elfï¿½r mindenki
 		for(int i = 0; i < 3; i ++) {
 			IceField selectedField;
 			do {
@@ -145,14 +145,14 @@ public class Game {
 			}while(selectedField.GetCapacity() != -1);
 			selectedField.SetCapacity(numberOfPlayers);
 		}
-		
-		//minden mezõnek kapacitás, ha nincs az elõzõleg kisorsolt 3 között
-		for(IceField field : fields) 
+
+		//minden mezï¿½nek kapacitï¿½s, ha nincs az elï¿½zï¿½leg kisorsolt 3 kï¿½zï¿½tt
+		for(IceField field : fields)
 			if(field.GetCapacity() == -1)
 				field.SetCapacity(random.nextInt(numberOfPlayers+1));
-		
-		//tárgyak kisorsolása a jégtáblákra
-		//3 helyre jelzõpisztoly
+
+		//tï¿½rgyak kisorsolï¿½sa a jï¿½gtï¿½blï¿½kra
+		//3 helyre jelzï¿½pisztoly
 		for(int i = 0; i < 3; i ++) {
 			IceField selectedField;
 			do {
@@ -165,15 +165,15 @@ public class Game {
 			itemview.SetItem(fgp);
 			selectedField.SetItem(fgp);
 		}
-		
-		//minden más mezõre egy random tárgy
-		for(IceField field : fields) 
+
+		//minden mï¿½s mezï¿½re egy random tï¿½rgy
+		for(IceField field : fields)
 			if(field.GetItem() == null) {
 				Item item;
 				ItemView iv;
 				int tmp = random.nextInt(6);
 				switch(tmp) {
-				default://ha 0-át sorsol (ha nincs default nem hiszi el, hogy inicializálva lesz)
+				default://ha 0-ï¿½t sorsol (ha nincs default nem hiszi el, hogy inicializï¿½lva lesz)
 					item = new DivingGear();
 					iv = new ItemView("diving gear.png");
 					item.SetView(iv);
@@ -213,44 +213,44 @@ public class Game {
 				}
 				field.SetItem(item);
 			}
-				
+
 	}
-	
+
 	/**
-	 * Megnézi, hogy teljesülnek-e a gyõzelem feltételei és ha igen, akkor a játékosok nyertek.
-	 * @param f: a vizsgált IceField
-	 * @return	 True, ha a játékosok nyertek.
+	 * Megnï¿½zi, hogy teljesï¿½lnek-e a gyï¿½zelem feltï¿½telei ï¿½s ha igen, akkor a jï¿½tï¿½kosok nyertek.
+	 * @param f: a vizsgï¿½lt IceField
+	 * @return	 True, ha a jï¿½tï¿½kosok nyertek.
 	 */
 	public boolean TryToWin() {
 		IceField f = players.get(0).GetField();
-		for(Player player : players)//mindenki ugyan azon a mezõn áll
+		for(Player player : players)//mindenki ugyan azon a mezï¿½n ï¿½ll
 			if(player.GetField() != f)
 				return false;
 
-		if(gunPartsFound == 3) {//megvan minden alkatrész
+		if(gunPartsFound == 3) {//megvan minden alkatrï¿½sz
 			Over(true);
 			return true;
 		}
 		return false;
 	}
-	
+
 	/**
-	 * Befejezi a játékot. Ha a paraméter true, akkor a játékosok nyertek.
-	 * @param victory True/false: a játékosok nyertek/vesztettek.
+	 * Befejezi a jï¿½tï¿½kot. Ha a paramï¿½ter true, akkor a jï¿½tï¿½kosok nyertek.
+	 * @param victory True/false: a jï¿½tï¿½kosok nyertek/vesztettek.
 	 */
 	public void Over(boolean victory) {
 		state = "ended";
 		activePlayer = null;
 	}
-	
+
 	/**
-	 * A kör végén megnézi, hogy vízbe van-e esve valaki.
-	 * Ha igen, akkor a játéknak vége.
-	 * Vihart indít az IceFieldeken.
-	 * Lépteti a Steppable-ket
+	 * A kï¿½r vï¿½gï¿½n megnï¿½zi, hogy vï¿½zbe van-e esve valaki.
+	 * Ha igen, akkor a jï¿½tï¿½knak vï¿½ge.
+	 * Vihart indï¿½t az IceFieldeken.
+	 * Lï¿½pteti a Steppable-ket
 	 */
 	private void RoundOver() {
-		
+
 		if(playersInWater > 0)
 			Over(false);
 		if(state.equals("ended"))
@@ -259,16 +259,16 @@ public class Game {
 		for(Steppable s : steppables)
 			s.Step();
 	}
-	
+
 	/**
-	 * Átállítja, hogy ki az aktuális játékos és átállítja a hátralevõ akcióit 4-re.
-	 * Ha vége egy körnek, akkor meghívja a RoundOver()-t.
+	 * ï¿½tï¿½llï¿½tja, hogy ki az aktuï¿½lis jï¿½tï¿½kos ï¿½s ï¿½tï¿½llï¿½tja a hï¿½tralevï¿½ akciï¿½it 4-re.
+	 * Ha vï¿½ge egy kï¿½rnek, akkor meghï¿½vja a RoundOver()-t.
 	 */
 	public void NextPlayer() {
 		if(state.contentEquals("ended"))
 			return;
 		int idx = players.indexOf(activePlayer);
-		if( idx == players.size()-1 ) {//utolsó játékos van soron
+		if( idx == players.size()-1 ) {//utolsï¿½ jï¿½tï¿½kos van soron
 			RoundOver();
 			if(state.contentEquals("ended"))
 				return;
@@ -279,39 +279,39 @@ public class Game {
 		activePlayer = players.get(idx);
 		activePlayer.SetRemainingActions(4);
 	}
-	
+
 	/**
-	 * Ezzel lehet jelezni, hogy egy játékost kimentettek a vízbõl.
+	 * Ezzel lehet jelezni, hogy egy jï¿½tï¿½kost kimentettek a vï¿½zbï¿½l.
 	 */
 	public void PlayerSaved() {
 		playersInWater--;
-		
+
 	}
-	
+
 	/**
-	 * Ezzel lehet jelezni, hogy egy játékost beleesett a vízbe.
+	 * Ezzel lehet jelezni, hogy egy jï¿½tï¿½kost beleesett a vï¿½zbe.
 	 */
 	public void PlayerFellInWater() {
 		playersInWater++;
 	}
-	
+
 	/**
-	 * Ezzel lehet jelezni, hogy megtalálták a jelzõpisztoly egyik alkatrészét.
+	 * Ezzel lehet jelezni, hogy megtalï¿½ltï¿½k a jelzï¿½pisztoly egyik alkatrï¿½szï¿½t.
 	 */
 	public void GunPartFound() {
 		gunPartsFound++;
 	}
-	
+
 	/**
-	 * Az IceField-ek listáját beállítja.
-	 * @param f: Az új lista.
+	 * Az IceField-ek listï¿½jï¿½t beï¿½llï¿½tja.
+	 * @param f: Az ï¿½j lista.
 	 */
 	public void SetFields(ArrayList<IceField> f) {
 		fields = f;
 	}
 	/**
-	 * A Player-ek listáját beállítja.
-	 * @param p: Az új lista.
+	 * A Player-ek listï¿½jï¿½t beï¿½llï¿½tja.
+	 * @param p: Az ï¿½j lista.
 	 */
 	public void SetPlayers(ArrayList<Player> p) {
 		players = p;
@@ -319,42 +319,42 @@ public class Game {
 			player.SetGame(this);
 	}
 	/**
-	 * Hozzáad egy játékost a játkosok listájához.
-	 * @param p: A hozzáadandó játékos.
+	 * Hozzï¿½ad egy jï¿½tï¿½kost a jï¿½tkosok listï¿½jï¿½hoz.
+	 * @param p: A hozzï¿½adandï¿½ jï¿½tï¿½kos.
 	 */
 	public void AddPlayer(Player p) {
 		players.add(p);
 		p.SetGame(this);
 	}
 	/**
-	 * Hozzáad egy jégtáblát a jégtáblák listájához.
-	 * @param field A hozzáadandó jégtábla.
+	 * Hozzï¿½ad egy jï¿½gtï¿½blï¿½t a jï¿½gtï¿½blï¿½k listï¿½jï¿½hoz.
+	 * @param field A hozzï¿½adandï¿½ jï¿½gtï¿½bla.
 	 */
 	public void AddField(IceField field) {
 		fields.add(field);
 	}
 	/**
-	 * Beállítja az aktív játékost.
-	 * @param p: A játékos, akit beállít.
+	 * Beï¿½llï¿½tja az aktï¿½v jï¿½tï¿½kost.
+	 * @param p: A jï¿½tï¿½kos, akit beï¿½llï¿½t.
 	 */
 	public void SetActivePlayer(Player p) {
 		activePlayer = p;
 	}
 	/**
-	 * Ha nincs beállítva aktív játékos, akkor beállítja az elsõt annak.
-	 * @return Az aktív játékost adja vissza.
+	 * Ha nincs beï¿½llï¿½tva aktï¿½v jï¿½tï¿½kos, akkor beï¿½llï¿½tja az elsï¿½t annak.
+	 * @return Az aktï¿½v jï¿½tï¿½kost adja vissza.
 	 */
 	public Player GetActivePlayer() {
 		return activePlayer;
 	}
 	/**
-	 * Hozzáad egy jegesmedvét a steppable listához.
-	 * @param ib A hozzáadandó jegesmedve.
+	 * Hozzï¿½ad egy jegesmedvï¿½t a steppable listï¿½hoz.
+	 * @param ib A hozzï¿½adandï¿½ jegesmedve.
 	 */
 	public void AddBear(IceBear ib) {
 		steppables.add(ib);
 	}
-	
+
 	public IceField getField(int i) {
 		return fields.get(i);
 	}
