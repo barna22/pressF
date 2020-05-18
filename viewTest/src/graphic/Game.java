@@ -32,6 +32,7 @@ public class Game {
 		for(IceField f : fields){
 			f.Storm();
 		}
+		GameView.instance.AnimateStorm();
 	}
 	/**
 	  * Inicializálja a játékot. A pálya elrendezése majdnem teljesen véletlenszerû.
