@@ -2,6 +2,8 @@ package graphic;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +12,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class FieldView extends JPanel implements Updatable {
+public class FieldView extends JPanel implements Updatable, MouseListener {
 	
 	private IceField field;
 	private static BufferedImage fieldImage, snowyFieldImage, igluImage, tentImage, itemImage, holeImage;
@@ -21,6 +23,7 @@ public class FieldView extends JPanel implements Updatable {
 	private static Area waterArea = new Area(0.58, 0.67, 0.32, 0.16);
 
 	public FieldView(IceField field) {
+		addMouseListener(this);
 		this.field = field;
 		readImages();
 	}
@@ -97,5 +100,26 @@ public class FieldView extends JPanel implements Updatable {
 	@Override
 	public void Update() {
 		this.repaint();
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		//itt kéne akkor frissíteni a field panelt valahogy
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
 	}
 }
