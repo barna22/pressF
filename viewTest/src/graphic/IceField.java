@@ -25,7 +25,7 @@ public class IceField{
 	
 	private List<Updatable> updatables = new ArrayList<Updatable>();
 	
-	private Map<Integer, IceField> neighbours = new HashMap<Integer, IceField>();
+	private Map<Direction, IceField> neighbours = new HashMap<Direction, IceField>();
 	
 	private void UpdateViews() {
 		for(Updatable updatable : updatables)
@@ -40,8 +40,8 @@ public class IceField{
 	/**
 	 * Visszaadja a szomszédos jégtáblát a megadott irányba.
 	 */
-	public IceField GetNeighbour(int d) {
-		return neighbours.get(d - 1);
+	public IceField GetNeighbour(Direction d) {
+		return neighbours.get(d);
 	}
 	
 	/**
@@ -185,8 +185,8 @@ public class IceField{
 	/**
 	 * Beállítja kapott irányba levõ szomszédnak a kapott IceFieldet.
 	 */
-	public void AddNeighbour(int d, IceField f) {
-		neighbours.put(d - 1, f);
+	public void AddNeighbour(Direction d, IceField f) {
+		neighbours.put(d, f);
 	}
 	
 	/**
@@ -252,7 +252,7 @@ public class IceField{
 
 	public ArrayList<IceField> getNeighbours(){
 		ArrayList<IceField> fields = new ArrayList<IceField>();
-		for (int key: neighbours.keySet()) {
+		for (Direction key: neighbours.keySet()) {
 		    fields.add(neighbours.get(key));
 		}
 		return fields;

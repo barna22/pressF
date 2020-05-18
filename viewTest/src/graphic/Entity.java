@@ -36,7 +36,7 @@ public abstract class Entity{
 	 * Az entit�s �tl�p egy m�sik mez�re.
 	 * Ha kimenne a p�ly�r�l, a program jelzi, hogy ezt nem teheti.
 	 */
-	public abstract void Move(int d);
+	public abstract void Move(Direction d);
 	public void SetField(IceField f) {
 		field = f;
 	}
