@@ -102,6 +102,7 @@ public class FieldPanel extends JPanel implements Updatable {
 		this.field.removeFieldView(this);
 		this.field = field;
 		this.field.addFieldView(this);
+		Update();
 	}
 	
 	/**
