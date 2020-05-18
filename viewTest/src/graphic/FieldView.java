@@ -35,7 +35,7 @@ public class FieldView extends JPanel implements Updatable {
 				snowyFieldImage = ImageIO.read(new File("images" + File.separator + "icefield.png"));
 				igluImage = ImageIO.read(new File("images" + File.separator + "iglu.png"));
 				tentImage = ImageIO.read(new File("images" + File.separator + "tent.png"));
-				itemImage = ImageIO.read(new File("images" + File.separator + "item.png"));
+				itemImage = ImageIO.read(new File("images" + File.separator + "bag.png"));
 				holeImage = ImageIO.read(new File("images" + File.separator + "icefieldlyuk.png"));
 				imagesLoaded = true;
 			}
