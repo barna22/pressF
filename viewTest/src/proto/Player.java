@@ -13,6 +13,7 @@ public abstract class Player extends Entity {
 	protected ArrayList<Item> items = new ArrayList<Item>();
 	protected Game game;
 	protected String name = "nincs";
+	protected PlayerPanel panel;
 	
 	
 	/**
@@ -208,5 +209,12 @@ public abstract class Player extends Entity {
 	}
 	public ArrayList<Item> GetItems(){
 		return items;
+	}
+	
+	public void SetPlayerPanel(PlayerPanel p) {
+		panel = p;
+	}
+	public void RemovePlayerPanel() {
+		panel = null;
 	}
 }

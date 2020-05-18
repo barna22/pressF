@@ -6,6 +6,7 @@ package proto;
 public abstract class Entity{
 
 	protected IceField field;
+	protected EntityView view;
 
 	/**
 	 * Az entit�st vihar �ri.
@@ -38,5 +39,9 @@ public abstract class Entity{
 	public abstract void Move(int d);
 	public void SetField(IceField f) {
 		field = f;
+	}
+	
+	public EntityView GetView() {
+		return view;
 	}
 }

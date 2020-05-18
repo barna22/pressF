@@ -9,5 +9,4 @@ public class ItemView{
 	public BufferedImage GetImage() {
 		return itemimage;
 	}
-
 }

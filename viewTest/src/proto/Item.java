@@ -9,6 +9,8 @@ public class Item {
 	 * A kapott játékos használja a tárgyat. True-val tér vissza, ha
 	 * sikerült.
 	 */
+	protected ItemView view;
+	
 	public boolean Use(Player p) {
 		return false;
 	}
@@ -28,5 +30,9 @@ public class Item {
 	 */
 	public boolean IsTheSame(Item i) {
 		return false;
+	}
+	
+	public ItemView GetView() {
+		return view;
 	}
 }

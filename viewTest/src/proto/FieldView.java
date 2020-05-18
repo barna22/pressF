@@ -75,7 +75,7 @@ public class FieldView extends JPanel implements Updatable {
 		//vízbe esett játékos megjelenítése
 		List<Player> playersInWater = field.GetPlayersInWater();
 		if(playersInWater.size() > 0) {
-			BufferedImage playerImage = playersInWater.get(0).GetView.GetImage();
+			BufferedImage playerImage = playersInWater.get(0).GetView().GetImage();
 			Draw(playerImage, waterArea, g);
 		}
 		
