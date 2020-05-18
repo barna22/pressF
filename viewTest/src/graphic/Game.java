@@ -247,6 +247,7 @@ public class Game {
 	public void Over(boolean victory) {
 		state = "ended";
 		activePlayer = null;
+		GameView.instance.gameOver(victory);
 	}
 
 	/**

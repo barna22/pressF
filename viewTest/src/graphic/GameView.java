@@ -8,6 +8,7 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class GameView extends JPanel implements Updatable, KeyListener{
@@ -18,6 +19,7 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 	private JPanel tablePanel;
 	private FieldPanel fieldPanel;
 	private PlayerPanel playerPanel;
+	private Object String;
 	
 	public static void init(int rows, int columns, Game game) {
 		instance = new GameView(rows, columns, game);
@@ -149,5 +151,13 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+	}
+	
+	public void gameOver(boolean victory) {
+		if(victory)
+			JOptionPane.showMessageDialog(MainWindow.instance, "Victory!\n" + "The game will return to the main menu!");
+		else
+			JOptionPane.showMessageDialog(MainWindow.instance, "Defeat!\n" + "The game will return to the main menu!");
+		MainWindow.main(null);
 	}
 }
