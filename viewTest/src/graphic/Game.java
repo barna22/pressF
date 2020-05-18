@@ -174,7 +174,7 @@ public class Game {
 
 		//minden más mezõre egy random tárgy
 		for(IceField field : fields)
-			if(field.GetItem() == null) {
+			if(field.GetItem() == null && field.GetCapacity() > 0) {
 				Item item;
 				ItemView iv;
 				int tmp = random.nextInt(6);

@@ -129,9 +129,10 @@ public class PlayerPanel extends JPanel implements Updatable {
 	    
 	    //A táskában levõ Labelek, amik megjelenítik a tárgyakat
 	    for(int i = 0; i < 10; i++) {
-	    	JLabel itemPanel = new JLabel();
-		    itemPanel.setBorder(BorderFactory.createLineBorder(Color.black));
-		    inventoryPanel.add(itemPanel);
+	    	JLabel itemLabel = new JLabel();
+	    	itemLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+		    inventoryPanel.add(itemLabel);
+		    itemLabels.add(itemLabel);
 	    }
 		
 		//helykitöltõ panelek a 2 sarokba a többi elem helyének igazításához
