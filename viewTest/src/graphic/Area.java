@@ -1,5 +1,8 @@
 package graphic;
 
+/**
+ * Egy területet reprezentál a mezõ nézetén.
+ */
 public  class Area{
 	public double x, y, w, h;
 	public Area(double x, double y, double w, double h) {

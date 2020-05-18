@@ -90,7 +90,7 @@ public class FieldView extends JPanel implements Updatable {
 	private void Draw(BufferedImage image, Area area, Graphics g) {
 		g.drawImage(image, (int)(area.x * getWidth()), (int)(area.y * getHeight()),
 				(int)(area.w * getWidth()), (int)(area.h * getHeight()),
-				0, 0, image.getWidth(), image.getHeight(), null);
+				null);
 	}
 
 
