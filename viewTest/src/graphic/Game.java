@@ -248,9 +248,6 @@ public class Game {
 		state = "ended";
 		activePlayer = null;
 		GameView.instance.gameOver(victory);
-		GameView.instance = null;
-		NewGameMenu.instance = null;
-		MainWindow.main(null);
 	}
 
 	/**

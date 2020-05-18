@@ -20,8 +20,11 @@ public class MainWindow extends JFrame
 	@SuppressWarnings("unused")
 	public static void main(String[] args)
 	{
-		if(instance == null)
-			instance = new MainWindow();
+		if(instance != null) {
+			instance.setVisible(false);
+			instance.dispose();
+		}
+		instance = new MainWindow();
 		
 		MainMenu.init();
 		NewGameMenu.init();

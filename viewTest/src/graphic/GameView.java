@@ -158,5 +158,6 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 			JOptionPane.showMessageDialog(MainWindow.instance, "Victory!\n" + "The game will return to the main menu!");
 		else
 			JOptionPane.showMessageDialog(MainWindow.instance, "Defeat!\n" + "The game will return to the main menu!");
+		MainWindow.main(null);
 	}
 }
