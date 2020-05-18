@@ -115,12 +115,13 @@ public class IceField{
 				entity.FallInWater(this);
 			incomingIceBear.FallInWater(this);
 		}
-		if (!hasIgloo)
-			for (Entity entity : entities)
-				entity.Meet(incomingIceBear);
 		
 		entities.add(incomingIceBear);
 		UpdateViews();
+		
+		if (!hasIgloo)
+			for (Entity entity : entities)
+				entity.Meet(incomingIceBear);
 	}
 	
 	/**

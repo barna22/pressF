@@ -155,7 +155,8 @@ public class PlayerPanel extends JPanel implements Updatable {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				player.skipTurn();
-				MainWindow.instance.SetWindowPanel(GameView.instance);
+				if(player.GetGame().getState() != "ended")
+					MainWindow.instance.SetWindowPanel(GameView.instance);
 			}
 	    });
 	    

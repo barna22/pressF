@@ -336,4 +336,8 @@ public class Game {
 	public void RemoveSteppable(Steppable s) {
 		steppables.remove(s);
 	}
+	
+	public String getState() {
+		return state;
+	}
 }
