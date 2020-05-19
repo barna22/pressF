@@ -263,7 +263,7 @@ public class Game {
 		if(state.equals("ended"))
 			return;
 		Storm();
-		for(Steppable s : steppables)
+		for(Steppable s : steppables)//concurrent modification exceptiont dob
 			s.Step();
 	}
 
