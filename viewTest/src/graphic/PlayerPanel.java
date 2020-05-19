@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -147,17 +149,39 @@ public class PlayerPanel extends JPanel implements Updatable {
 		    itemLabels.add(itemLabel);
 	    }
 		
-		//helykitöltõ panelek a 2 sarokba a többi elem helyének igazításához
+	    //Skip gomb
+	    JButton skip = new JButton("Skip");
+	    skip.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				player.skipTurn();
+				if(player.GetGame().getState() != "ended")
+					MainWindow.instance.SetWindowPanel(GameView.instance);
+			}
+	    });
+	    
+	    //Suicide gomb
+	    JButton suicide = new JButton("Suicide");
+	    suicide.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				player.Die();
+			}
+	    });
+	    
+	    
+	    //Gomb jobb alulra a játék feladásához
 		c.weightx = 1;
 		c.weighty = 2.2;
 		c.gridwidth = 1;
 		c.gridheight = 1;
-		c.gridx = 0;
-	    c.gridy = 0;
-	    add(new JPanel(),c);
 	    c.gridx = 3;
 	    c.gridy = 7;
-	    add(new JPanel(),c);
+	    add(suicide,c);
+	    // Gomb a bal felsõ sarokba a kör skippeléséhez
+	    c.gridx = 0;
+	    c.gridy = 0;
+	    add(skip,c);
 	    
 	}
 	
