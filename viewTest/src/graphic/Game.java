@@ -245,6 +245,8 @@ public class Game {
 	 * @param victory True/false: a játékosok nyertek/vesztettek.
 	 */
 	public void Over(boolean victory) {
+		if(state == "ended")
+			return;
 		state = "ended";
 		activePlayer = null;
 		GameView.instance.gameOver(victory);
