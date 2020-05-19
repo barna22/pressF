@@ -25,6 +25,7 @@ public class Researcher extends Player {
 		if(remainingActions <= 0) {
 			game.NextPlayer();
 		}
+		field.UpdateViews();
 	}
 	
 }
