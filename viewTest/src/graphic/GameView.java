@@ -14,22 +14,34 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+/**
+ * A jégtáblákat és a játékos, illetve jégtábla panel
+ */
 public class GameView extends JPanel implements Updatable, KeyListener {
-	private Game game;
-	private List<FieldView> fieldViews = new ArrayList<FieldView>();
-	private int rows, columns;
-	public static GameView instance;
-	private JPanel tablePanel;
-	private FieldPanel fieldPanel;
-	private PlayerPanel playerPanel;
-	private Object String;
-	public boolean stormHappening = false;
+	private Game game;//a game, amit megjelenít
+	private List<FieldView> fieldViews = new ArrayList<FieldView>();//a jégtáblák nézetei
+	private int rows, columns;//sorok, oszlopok
+	public static GameView instance;//a példány
+	private JPanel tablePanel;//a táblázat, amiben a jégtáblák vannak
+	private FieldPanel fieldPanel;//a jégtábla panel
+	private PlayerPanel playerPanel;//a játékos panel
 
+	/**
+	 * elkészíti a példányt és beállítja a játékos panelt
+	 * @param rows sorok
+	 * @param columns oszlopok
+	 * @param game a játék
+	 */
 	public static void init(int rows, int columns, Game game) {
 		instance = new GameView(rows, columns, game);
 		instance.playerPanel.setPlayer(game.GetActivePlayer());
 	}
 
+	/**
+	 * @param rows sorok
+	 * @param columns oszlopok
+	 * @param game a játék
+	 */
 	private GameView(int rows, int columns, Game game) {
 		super();
 		MainWindow.instance.setFocusable(true);
@@ -38,10 +50,12 @@ public class GameView extends JPanel implements Updatable, KeyListener {
 		this.rows = rows;
 		this.columns = columns;
 
+		//layout és gridbagconstraints az elemek felpakolásához
 		setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.BOTH;
 
+		//a jégtáblák tárolója
 		tablePanel = new JPanel();
 		tablePanel.setLayout(new GridLayout(rows, columns));
 		c.weightx = 1.7;
@@ -50,6 +64,7 @@ public class GameView extends JPanel implements Updatable, KeyListener {
 		c.gridy = 0;
 		add(tablePanel, c);
 
+		//a jégtábla panel
 		fieldPanel = new FieldPanel(game.getField(0));
 		c.weightx = 0.3;
 		c.weighty = 0.3;
@@ -58,6 +73,7 @@ public class GameView extends JPanel implements Updatable, KeyListener {
 		c.gridy = 1;
 		add(fieldPanel, c);
 
+		//a játékos panel
 		playerPanel = new PlayerPanel();
 		c.weightx = 0.3;
 		c.weighty = 0.7;
@@ -69,6 +85,9 @@ public class GameView extends JPanel implements Updatable, KeyListener {
 		this.initialize();
 	}
 
+	/**
+	 * feltölti a jégtáblák tárolóját
+	 */
 	private void initialize() {
 		for (int i = 0; i < rows * columns; i++) {
 			FieldView fieldView = new FieldView(game.getField(i));
@@ -90,8 +109,8 @@ public class GameView extends JPanel implements Updatable, KeyListener {
 		timer.start();
 
 	}
-	
-	
+
+
 	final class TimerActionListener implements ActionListener {
 
 		@Override
@@ -104,10 +123,16 @@ public class GameView extends JPanel implements Updatable, KeyListener {
 	}
 
 
+	/**
+	 * @return a jégtábla panel
+	 */
 	public FieldPanel getFieldPanel() {
 		return fieldPanel;
 	}
 
+	/**
+	 * @return a játkos panel
+	 */
 	public PlayerPanel getPlayerPanel() {
 		return playerPanel;
 	}
@@ -115,13 +140,15 @@ public class GameView extends JPanel implements Updatable, KeyListener {
 	@Override
 	public void Update() {
 		gameOver();
-
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
 	}
 
+	/**
+	 *A billentyûlenyomások eseménykezelõje
+	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// Aktív játékos mozgatása

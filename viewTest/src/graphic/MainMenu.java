@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+/**
+ * A fõmenü
+ */
 public class MainMenu extends JPanel{
 	
 	public static MainMenu instance;
@@ -14,13 +17,13 @@ public class MainMenu extends JPanel{
 		
 		setLayout(null);
 		
+		//az új játék gomb
 		JButton newGameButton = new JButton("Új játék");
 		newGameButton.setBounds(400, 200, 200, 50);
 		add(newGameButton);
 		
-		/**
-		 * Megnyitja az új játék menüjét
-		 */
+		
+		//Megnyitja az új játék menüjét
 		newGameButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -28,10 +31,12 @@ public class MainMenu extends JPanel{
 			}
 	    });
 		
+		//kilépés gomb
 		JButton exitButton = new JButton("Kilépés");
 		exitButton.setBounds(400, 300, 200, 50);
 		add(exitButton);
 		
+		//leállítja a programot
 		exitButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -40,6 +45,9 @@ public class MainMenu extends JPanel{
 	    });
 	}
 	
+	/**
+	 * Elkészíti a példányt.
+	 */
 	public static void init() {
 		instance = new MainMenu();
 	}
