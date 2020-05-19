@@ -25,6 +25,7 @@ public class GameView extends JPanel implements Updatable, KeyListener {
 	private JPanel tablePanel;//a táblázat, amiben a jégtáblák vannak
 	private FieldPanel fieldPanel;//a jégtábla panel
 	private PlayerPanel playerPanel;//a játékos panel
+	public boolean stormHappening = false;
 
 	/**
 	 * elkészíti a példányt és beállítja a játékos panelt
