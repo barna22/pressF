@@ -45,7 +45,6 @@ public class IceBear extends Entity implements Steppable {
 	public void Move(Direction d) {
 		IceField newfield = field.GetNeighbour(d);
 		if(newfield == null) {
-			System.out.println("Can't go outside the map");
 			return;
 		}
 		field.Remove(this);
