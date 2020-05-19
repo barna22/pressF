@@ -19,5 +19,6 @@ public class Eskimo extends Player {
 		if(remainingActions <=0) {
 			game.NextPlayer();
 		}
+		field.UpdateViews();
 	}
 }
