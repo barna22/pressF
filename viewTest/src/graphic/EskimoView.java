@@ -77,7 +77,11 @@ public class EskimoView extends PlayerView{
 				return activeEskimo;
 			}
 		}else {
-			return eskimo;
+			if(player.hasDivingGear) {
+				return diver;
+			}else {
+				return eskimo;
+			}
 		}
 	}
 }
