@@ -89,7 +89,7 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 	
 	@Override
 	public void Update() {
-		// TODO Auto-generated method stub
+		gameOver();
 		
 	}
 
@@ -156,8 +156,8 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 	}
 	
 	// Játék vége üzenet, vissza a fõmenübe.
-	public void gameOver(boolean victory) {
-		if(victory)
+	public void gameOver() {
+		if(game.getState().equalsIgnoreCase("win"))
 			JOptionPane.showMessageDialog(MainWindow.instance, "Victory!\n" + "The game will return to the main menu!");
 		else
 			JOptionPane.showMessageDialog(MainWindow.instance, "Defeat!\n" + "The game will return to the main menu!");

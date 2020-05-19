@@ -16,7 +16,7 @@ public class Game {
 	private ArrayList<Steppable> steppables;// a sï¿½trak ï¿½s medvï¿½k
 	private ArrayList<Player> players;// a jï¿½tï¿½kosok
 	private Player activePlayer;// a soron levï¿½ jï¿½tï¿½kos
-	private String state = "running";//running, ended
+	private String state = "running";//running, won, lost;
 	private int playersInWater = 0, gunPartsFound = 0;// a vï¿½zben levï¿½ jï¿½tï¿½kosok ï¿½s megtalï¿½lt jelzï¿½pisztoly alkatrï¿½szek szï¿½ma
 
 	Game(){
@@ -245,11 +245,14 @@ public class Game {
 	 * @param victory True/false: a játékosok nyertek/vesztettek.
 	 */
 	public void Over(boolean victory) {
-		if(state == "ended")
+		if(state.equals("win") || state.equals("lost"))
 			return;
-		state = "ended";
+		if(victory)
+			state = "win";
+		else
+			state = "lost";
 		activePlayer = null;
-		GameView.instance.gameOver(victory);
+		GameView.instance.Update();
 	}
 
 	/**
@@ -262,7 +265,7 @@ public class Game {
 
 		if(playersInWater > 0)
 			Over(false);
-		if(state.equals("ended"))
+		if(state.equals("win") || state.equals("lost"))
 			return;
 		Storm();
 		for(int i = 0; i < steppables.size(); i++)
@@ -279,7 +282,7 @@ public class Game {
 		int idx = players.indexOf(activePlayer);
 		if( idx == players.size()-1 ) {//utolsï¿½ jï¿½tï¿½kos van soron
 			RoundOver();
-			if(state.contentEquals("ended"))
+			if(state.contentEquals("win") || state.contentEquals("lost"))
 				return;
 			idx = 0;
 		}
