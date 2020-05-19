@@ -35,18 +35,49 @@ public class EskimoView extends PlayerView{
 			e.printStackTrace();
 		}
 		
-		Graphics g = activeEskimo.getGraphics();
-		g.setColor(Color.RED);
-		g.drawRect(0, 0, 31, 31);
-		g.dispose();
+		try {
+			if (diver == null)
+				diver = ImageIO.read(new File("images" + File.separator + "diver.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			if (diverinwater == null)
+				diverinwater = ImageIO.read(new File("images" + File.separator + "diver in water.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			if (activediver == null)
+				activediver = ImageIO.read(new File("images" + File.separator + "diver.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		Graphics ge = activeEskimo.getGraphics();
+		ge.setColor(Color.RED);
+		ge.drawRect(0, 0, 31, 31);
+		ge.dispose();
+		
+		Graphics gd = activediver.getGraphics();
+		gd.setColor(Color.RED);
+		gd.drawRect(0, 0, 31, 31);
+		gd.dispose();
 	}
 	
 	public BufferedImage GetImage() {
-		if(player.isInWater) 
+		if(player.isInWater) {
 			return eskimoinwater;
-		else if (player.GetRemaningActions() > 0)
-			return activeEskimo;
-		else
+		}else if (player.GetRemaningActions() > 0) {
+			if(player.hasDivingGear) {
+				return activediver;
+			}else {
+				return activeEskimo;
+			}
+		}else {
 			return eskimo;
+		}
 	}
 }

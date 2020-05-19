@@ -4,8 +4,9 @@ import java.awt.image.BufferedImage;
 
 public class PlayerView implements EntityView{
 	
-	private static BufferedImage diverinwater;
-	private static BufferedImage diver;
+	protected static BufferedImage diverinwater;
+	protected static BufferedImage diver;
+	protected static BufferedImage activediver;
 	protected Player player;
 	
 	@Override
