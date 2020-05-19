@@ -18,8 +18,10 @@ public class Researcher extends Player {
 		IceField neighbour = field.GetNeighbour(d);
 		if (neighbour == null)
 			return;
-		neighbour.RevealCapacity();
-		remainingActions -= 1;
+		if(!neighbour.isCapacityRevealed()) {
+			neighbour.RevealCapacity();
+			remainingActions -= 1;
+		}
 		if(remainingActions <= 0) {
 			game.NextPlayer();
 		}
