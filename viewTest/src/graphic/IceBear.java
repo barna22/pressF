@@ -1,20 +1,19 @@
 package graphic;
 
-import java.io.PrintWriter;
 import java.util.Random;
 
 public class IceBear extends Entity implements Steppable {
 
 	/**
-	 *Vihar esetÃ©n a medvÃ©vel nem tÃ¶rtÃ©nik semmi.
+	 *Vihar esetén a medvével nem történik semmi.
 	 */
 	@Override
 	public void CaughtByStorm() {
 	}
 
 	/**
-	 * A medve vÃ­zbe esik, ez azonban nem akadÃ¡lyozza a mozgÃ¡sban,
-	 * Ã­gy nem tÃ¶rtÃ©nik semmi.
+	 * A medve vízbe esik, ez azonban nem akadályozza a mozgásban,
+	 * így nem történik semmi.
 	 */
 	@Override
 	public void FallInWater(IceField field) {
@@ -22,14 +21,14 @@ public class IceBear extends Entity implements Steppable {
 	}
 	
 	/**
-	 * A medve megÃ¶li a jÃ¡tÃ©kost akivel talÃ¡lkozik.
+	 * A medve megöli a játékost akivel találkozik.
 	 */
 	public void Meet(Player player) {
 		player.Die();
 	}
 
 	/**
-	 * A medve vÃ©letlenszerÃ» irÃ¡nyba lÃ©p egyet.
+	 * A medve véletlenszerű irányba lép egyet.
 	 */
 	@Override
 	public void Step() {
