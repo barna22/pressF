@@ -20,7 +20,7 @@ public class FieldView extends JPanel implements Updatable, MouseListener {
 	private static Area buildingArea = new Area(0.19, 0.12, 0.32, 0.32);
 	private static Area entityArea = new Area(0.1, 0.45, 0.32, 0.32);
 	private static Area itemArea = new Area(0.52, 0.02, 0.32, 0.32);
-	private static Area waterArea = new Area(0.58, 0.67, 0.32, 0.16);
+	private static Area waterArea = new Area(0.58, 0.67, 0.32, 0.32);
 
 	public FieldView(IceField field) {
 		addMouseListener(this);
@@ -69,8 +69,10 @@ public class FieldView extends JPanel implements Updatable, MouseListener {
 		//entit�sok megjelen�t�se
 		List<Entity> entities = field.GetEntities();
 		for(Entity entity : entities) {
-			BufferedImage entityImage = entity.GetView().GetImage();
-			Draw(entityImage, entityArea, g);
+			if(!field.GetPlayersInWater().contains(entity)) {
+				BufferedImage entityImage = entity.GetView().GetImage();
+				Draw(entityImage, entityArea, g);
+			}
 		}
 
 		//v�zbe esett j�t�kos megjelen�t�se

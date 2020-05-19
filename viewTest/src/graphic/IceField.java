@@ -88,13 +88,11 @@ public class IceField{
 	 */
 	public void Accept(Player incomingPlayer) {
 		if (entities.size() >= capacity){
-			//Capsize();
 			hasIgloo = false;
 			tent = null;
 			for (Entity entity : entities)
 				entity.FallInWater(this);
 			incomingPlayer.FallInWater(this);
-			playersInWater.add(incomingPlayer);
 		}
 		if (!hasIgloo)
 			for (Entity entity : entities)
@@ -103,6 +101,14 @@ public class IceField{
 		entities.add(incomingPlayer);
 		UpdateViews();
 	}
+	
+	/**
+	 * Hozzáadja a játékost a vízben lévõk listájához.
+	 */
+	public void FellInWater(Player p) {
+		playersInWater.add(p);
+	}
+	
 	/**
 	 * Felveszi a játékost a rajta álló entitások közé.
 	 * Felborul ha, túl sokan állnak így már rajta.
@@ -123,6 +129,7 @@ public class IceField{
 			for (Entity entity : entities)
 				entity.Meet(incomingIceBear);
 	}
+	
 	
 	/**
 	 * Felveszi az entitást a rajta álló entitások közé.

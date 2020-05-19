@@ -152,6 +152,7 @@ public abstract class Player extends Entity {
 		if (!hasDivingGear) {
 			isInWater = true;
 			game.PlayerFellInWater();
+			field.FellInWater(this);
 		}
 
 	}
