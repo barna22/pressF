@@ -2,9 +2,7 @@ package graphic;
 
 public class Eskimo extends Player {
 	
-	/**
-	 * Az eszkimó használja a képességét, mellyel épít egy iglut.
-	 */
+	
 	public Eskimo() {
 		maxTemperature = 5;
 		temperature = 5;
@@ -12,7 +10,9 @@ public class Eskimo extends Player {
 		isInWater = false;
 		hasDivingGear = false;
 	}
-	
+	/**
+	 * Az eszkimó használja a képességét, mellyel épít egy iglut.
+	 */
 	public void UseAbility(Direction d) {
 		if(field.BuildIgloo())
 			remainingActions -= 1;

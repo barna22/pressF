@@ -1,5 +1,6 @@
 package graphic;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
@@ -53,7 +54,12 @@ public class FieldView extends JPanel implements Updatable, MouseListener {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
-
+		if (GameView.instance.stormHappening) {
+			g.setColor(Color.WHITE);
+			g.drawRect(0, 0, getWidth(), getHeight());
+			return;
+		}
+		
 		//j�gt�bla kirajzol�sa
 		if (field.GetCapacity() == 0 && field.getSnowLevel() == 0)
 			Draw(holeImage, new Area(0, 0, 1, 1), g);

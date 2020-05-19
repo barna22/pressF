@@ -3,6 +3,8 @@ package graphic;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 /**
  * A jégtáblákat és a játékos, illetve jégtábla panel
@@ -95,11 +98,30 @@ public class GameView extends JPanel implements Updatable, KeyListener {
 	}
 
 	/**
-	 * A vihar animációja
+	 * Vihar animációja, minden field elfehéredik egy idõre
 	 */
 	public void AnimateStorm() {
+		stormHappening = true;
+		for (FieldView fieldView: fieldViews)
+			fieldView.Update();
+		Timer timer = new Timer(1000, new TimerActionListener());
+		timer.setRepeats(false);
+		timer.start();
 
 	}
+
+
+	final class TimerActionListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			stormHappening = false;
+			for (FieldView fieldView: fieldViews)
+				fieldView.Update();
+		}
+
+	}
+
 
 	/**
 	 * @return a jégtábla panel

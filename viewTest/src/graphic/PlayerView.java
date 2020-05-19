@@ -2,6 +2,9 @@ package graphic;
 
 import java.awt.image.BufferedImage;
 
+/**
+ * A játékosokat megvalósító osztály
+ */
 public class PlayerView implements EntityView{
 	
 	protected static BufferedImage diverinwater;
