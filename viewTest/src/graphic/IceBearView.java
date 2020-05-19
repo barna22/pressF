@@ -6,10 +6,16 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * A jegesmedvéket megvalósító osztály
+ */
 public class IceBearView implements EntityView{
 	
 	private static BufferedImage bear;
 	
+	/**
+	 * Beolvassuk a medve képét.
+	 */
 	public IceBearView () {
 		try {
 			if (bear == null)

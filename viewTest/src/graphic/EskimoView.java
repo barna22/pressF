@@ -13,6 +13,10 @@ public class EskimoView extends PlayerView{
 	private static BufferedImage eskimoinwater;
 	private static BufferedImage activeEskimo;
 
+	/**
+	 * Beolvassa a képeket, amik kelleni fognak az eszkimónak.
+	 * Külön képeket csinál az aktív játékos jelzésére.
+	 */
 	public EskimoView() {
 		try {
 			if (eskimo == null)
@@ -67,6 +71,9 @@ public class EskimoView extends PlayerView{
 		gd.dispose();
 	}
 	
+	/**
+	 * A játékos állapotától függően visszaadja a megfelelő képet.
+	 */
 	public BufferedImage GetImage() {
 		if(player.isInWater) {
 			return eskimoinwater;

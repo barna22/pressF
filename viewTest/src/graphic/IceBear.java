@@ -6,15 +6,15 @@ import java.util.Random;
 public class IceBear extends Entity implements Steppable {
 
 	/**
-	 *Vihar esetén a medvével nem történik semmi.
+	 *Vihar esetÃ©n a medvÃ©vel nem tÃ¶rtÃ©nik semmi.
 	 */
 	@Override
 	public void CaughtByStorm() {
 	}
 
 	/**
-	 * A medve vízbe esik, ez azonban nem akadályozza a mozgásban,
-	 * így nem történik semmi.
+	 * A medve vÃ­zbe esik, ez azonban nem akadÃ¡lyozza a mozgÃ¡sban,
+	 * Ã­gy nem tÃ¶rtÃ©nik semmi.
 	 */
 	@Override
 	public void FallInWater(IceField field) {
@@ -22,14 +22,14 @@ public class IceBear extends Entity implements Steppable {
 	}
 	
 	/**
-	 * A medve megöli a játékost akivel találkozik.
+	 * A medve megÃ¶li a jÃ¡tÃ©kost akivel talÃ¡lkozik.
 	 */
 	public void Meet(Player player) {
 		player.Die();
 	}
 
 	/**
-	 * A medve véletlenszerû irányba lép egyet.
+	 * A medve vÃ©letlenszerÃ» irÃ¡nyba lÃ©p egyet.
 	 */
 	@Override
 	public void Step() {
@@ -41,6 +41,9 @@ public class IceBear extends Entity implements Steppable {
 		Move(Direction.values()[dir]);
 	}
 
+	/**
+	 * A medve a kapott irányba lép, és az előző mezőről leveszi magát.
+	 */
 	@Override
 	public void Move(Direction d) {
 		IceField newfield = field.GetNeighbour(d);

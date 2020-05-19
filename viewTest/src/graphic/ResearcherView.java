@@ -13,6 +13,10 @@ public class ResearcherView extends PlayerView{
 	private static BufferedImage researcherinwater;
 	private static BufferedImage activeResearcher;
 	
+	/**
+	 * Beolvassa a képeket, amikre szüksége lesz a researchernek.
+	 * Külön képeket csinál az aktív játékos jelzésére.
+	 */
 	public ResearcherView() {
 		try {
 			if (researcher == null)
@@ -56,6 +60,14 @@ public class ResearcherView extends PlayerView{
 			e.printStackTrace();
 		}
 		
+		try {
+			if (activediver == null)
+				activediver = ImageIO.read(new File("images" + File.separator + "diver.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		//Az aktív játékosnak legyen egy piros négyzet a képén
 		Graphics gr = activeResearcher.getGraphics();
 		gr.setColor(Color.RED);
 		gr.drawRect(0, 0, 31, 31);
@@ -67,6 +79,9 @@ public class ResearcherView extends PlayerView{
 		gd.dispose();
 	}
 	
+	/**
+	 * Visszatér az állapotnak megfelelő képpel.
+	 */
 	public BufferedImage GetImage() {
 		if(player.isInWater)
 			return researcherinwater;

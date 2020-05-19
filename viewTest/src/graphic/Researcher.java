@@ -3,9 +3,7 @@ package graphic;
 
 public class Researcher extends Player {
 	
-	/**
-	 * A kutató használja a képességét, mellyel felderít egy szomszédos mezőt.
-	 */
+	
 	public Researcher() {
 		maxTemperature = 4;
 		temperature = 4;
@@ -13,7 +11,9 @@ public class Researcher extends Player {
 		isInWater = false;
 		hasDivingGear = false;
 	}
-	
+	/**
+	 * A kutató használja a képességét, mellyel felderít egy szomszédos mezőt.
+	 */
 	public void UseAbility(Direction d) {
 		IceField neighbour = field.GetNeighbour(d);
 		if (neighbour == null)
