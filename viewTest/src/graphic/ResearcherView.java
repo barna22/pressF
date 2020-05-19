@@ -35,18 +35,50 @@ public class ResearcherView extends PlayerView{
 			e.printStackTrace();
 		}
 		
-		Graphics g = activeResearcher.getGraphics();
-		g.setColor(Color.RED);
-		g.drawRect(0, 0, 31, 31);
-		g.dispose();
+		try {
+			if (diver == null)
+				diver = ImageIO.read(new File("images" + File.separator + "diver.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			if (diverinwater == null)
+				diverinwater = ImageIO.read(new File("images" + File.separator + "diver in water.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			if (activeResearcher == null)
+				activeResearcher = ImageIO.read(new File("images" + File.separator + "diver.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		Graphics gr = activeResearcher.getGraphics();
+		gr.setColor(Color.RED);
+		gr.drawRect(0, 0, 31, 31);
+		gr.dispose();
+		
+		Graphics gd = activediver.getGraphics();
+		gd.setColor(Color.RED);
+		gd.drawRect(0, 0, 31, 31);
+		gd.dispose();
 	}
 	
 	public BufferedImage GetImage() {
 		if(player.isInWater)
 			return researcherinwater;
-		else if (player.GetRemaningActions() > 0)
-			return activeResearcher;
-		else 
+		else if (player.GetRemaningActions() > 0) {
+			if (player.hasDivingGear) {
+				return activediver;
+			}else {
+				return activeResearcher;
+			}
+		}else {
 			return researcher;
+		}
+			
 	}
 }
