@@ -277,7 +277,7 @@ public class Game {
 	 * Ha vége egy körnek, akkor meghívja a RoundOver()-t.
 	 */
 	public void NextPlayer() {
-		if(state.contentEquals("ended"))
+		if(state.contentEquals("win") || state.contentEquals("lost"))
 			return;
 		int idx = players.indexOf(activePlayer);
 		if( idx == players.size()-1 ) {//utolsï¿½ jï¿½tï¿½kos van soron
