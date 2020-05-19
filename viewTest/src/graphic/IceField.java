@@ -90,6 +90,7 @@ public class IceField{
 		if (entities.size() >= capacity){
 			hasIgloo = false;
 			tent = null;
+			snowLevel = 0;
 			for (Entity entity : entities)
 				entity.FallInWater(this);
 			incomingPlayer.FallInWater(this);
