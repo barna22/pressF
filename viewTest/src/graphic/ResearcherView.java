@@ -77,8 +77,11 @@ public class ResearcherView extends PlayerView{
 				return activeResearcher;
 			}
 		}else {
-			return researcher;
-		}
-			
+			if(player.hasDivingGear) {
+				return diver;
+			}else {
+				return researcher;
+			}
+		}	
 	}
 }
