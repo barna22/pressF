@@ -72,7 +72,6 @@ public abstract class Player extends Entity {
 	public void Move(Direction d) {
 		IceField newfield = field.GetNeighbour(d);
 		if (newfield == null) {
-			System.out.println("Can't go outside the map!");
 			return;
 		}
 		field.Remove(this);

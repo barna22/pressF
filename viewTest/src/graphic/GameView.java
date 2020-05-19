@@ -118,7 +118,6 @@ public class GameView extends JPanel implements Updatable, KeyListener{
 			game.GetActivePlayer().Move(Direction.RIGHT);
 			break;
 		}
-		System.out.println("key: " + e.getKeyCode());
 		
 		switch(e.getKeyChar()) {
 		//Képességhasználat
