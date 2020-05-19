@@ -143,6 +143,7 @@ public abstract class Player extends Entity {
 	 */
 	public void SetRemainingActions(int a) {
 		remainingActions = a;
+		field.UpdateViews();
 	}
 
 	/**

@@ -27,7 +27,7 @@ public class IceField{
 	
 	private Map<Direction, IceField> neighbours = new HashMap<Direction, IceField>();
 	
-	private void UpdateViews() {
+	public void UpdateViews() {
 		for(Updatable updatable : updatables)
 			updatable.Update();
 	}
